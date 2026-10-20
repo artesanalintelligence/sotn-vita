@@ -1,0 +1,176 @@
+@@PCDATA-SOURCE 0 disks/us/BIN/WEAPON0.BIN b8dcd64f95d197d3f59ab3e46f67897ecdc477cb
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only data for weapon overlay w_024, generated from the US raw
+// data segment. Pointers are kept as real pointers so the layout
+// matches the weapon code on both 32-bit and 64-bit hosts.
+#include <common.h>
+
+#if defined(WEAPON1)
+#define HAND_ID 1
+#else
+#define HAND_ID 0
+#endif
+
+typedef u8 T_D_AC000_8017A804[544];
+typedef u8 T_D_AC000_8017AA24[8];
+typedef u8 T_D_AC000_8017AA2C[8];
+typedef u8 T_D_AC000_8017AA34[44];
+typedef u8 T_D_AC000_8017AA60[68];
+typedef u8 T_D_AC000_8017AAA4[56];
+typedef u8 T_D_AC000_8017AADC[32];
+typedef u8 T_D_AC000_8017AAFC[68];
+typedef u8 T_D_AC000_8017AB40[16];
+typedef u8 T_D_AC000_8017AB50[16];
+typedef u8 T_D_AC000_8017AB60[16];
+typedef u8 T_D_AC000_8017AB70[16];
+typedef u8 T_D_AC000_8017AB80[12];
+typedef u8 T_D_AC000_8017AB8C[12];
+typedef u8 T_D_AC000_8017AB98[64];
+typedef u8 T_D_AC000_8017ABD8[72];
+typedef struct {
+    void* p0;
+    void* p1;
+    void* p2;
+    void* p3;
+    void* p4;
+    void* p5;
+    void* p6;
+    void* p7;
+    void* p8;
+    void* p9;
+    void* p10;
+    void* p11;
+    void* p12;
+    void* p13;
+} T_D_AC000_8017AC20;
+typedef u8 T_D_AC000_8017AC58[32];
+typedef u8 T_D_AC000_8017AC78[60];
+typedef u8 T_D_AC000_8017ACB4[60];
+typedef u8 T_D_AC000_8017ACF0[8];
+typedef struct {
+    void* p0;
+    void* p1;
+    void* p2;
+    void* p3;
+} T_D_AC000_8017ACF8;
+typedef u8 T_D_AC000_8017AD08[64];
+typedef struct {
+    void* p0;
+    void* p1;
+} T_g_WeaponCluts;
+
+extern T_D_AC000_8017A804 D_AC000_8017A804;
+extern T_D_AC000_8017AA24 D_AC000_8017AA24;
+extern T_D_AC000_8017AA2C D_AC000_8017AA2C;
+extern T_D_AC000_8017AA34 D_AC000_8017AA34;
+extern T_D_AC000_8017AA60 D_AC000_8017AA60;
+extern T_D_AC000_8017AAA4 D_AC000_8017AAA4;
+extern T_D_AC000_8017AADC D_AC000_8017AADC;
+extern T_D_AC000_8017AAFC D_AC000_8017AAFC;
+extern T_D_AC000_8017AB40 D_AC000_8017AB40;
+extern T_D_AC000_8017AB50 D_AC000_8017AB50;
+extern T_D_AC000_8017AB60 D_AC000_8017AB60;
+extern T_D_AC000_8017AB70 D_AC000_8017AB70;
+extern T_D_AC000_8017AB80 D_AC000_8017AB80;
+extern T_D_AC000_8017AB8C D_AC000_8017AB8C;
+extern T_D_AC000_8017AB98 D_AC000_8017AB98;
+extern T_D_AC000_8017ABD8 D_AC000_8017ABD8;
+extern T_D_AC000_8017AC20 D_AC000_8017AC20;
+extern T_D_AC000_8017AC58 D_AC000_8017AC58;
+extern T_D_AC000_8017AC78 D_AC000_8017AC78;
+extern T_D_AC000_8017ACB4 D_AC000_8017ACB4;
+extern T_D_AC000_8017ACF0 D_AC000_8017ACF0;
+extern T_D_AC000_8017ACF8 D_AC000_8017ACF8;
+extern T_D_AC000_8017AD08 D_AC000_8017AD08;
+extern T_g_WeaponCluts g_WeaponCluts;
+
+T_D_AC000_8017A804 D_AC000_8017A804 __attribute__((aligned(8))) = {
+@@PCDATA 0 AC804 x2 4 12x45,4 0
+};
+T_D_AC000_8017AA24 D_AC000_8017AA24 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACA24 x2 4 8 0
+};
+T_D_AC000_8017AA2C D_AC000_8017AA2C __attribute__((aligned(8))) = {
+@@PCDATA 0 ACA2C x2 4 8 0
+};
+T_D_AC000_8017AA34 D_AC000_8017AA34 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACA34 x2 4 12x3,8 0
+};
+T_D_AC000_8017AA60 D_AC000_8017AA60 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACA60 x2 4 12x5,8 0
+};
+T_D_AC000_8017AAA4 D_AC000_8017AAA4 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACAA4 x2 4 12x4,8 0
+};
+T_D_AC000_8017AADC D_AC000_8017AADC __attribute__((aligned(8))) = {
+@@PCDATA 0 ACADC x2 4 12x2,8 0
+};
+T_D_AC000_8017AAFC D_AC000_8017AAFC __attribute__((aligned(8))) = {
+@@PCDATA 0 ACAFC x2 4 12x5,8 0
+};
+T_D_AC000_8017AB40 D_AC000_8017AB40 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB40 x2 4 12,4 0
+};
+T_D_AC000_8017AB50 D_AC000_8017AB50 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB50 x2 4 12,4 0
+};
+T_D_AC000_8017AB60 D_AC000_8017AB60 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB60 x2 4 12,4 0
+};
+T_D_AC000_8017AB70 D_AC000_8017AB70 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB70 x2 4 12,4 0
+};
+T_D_AC000_8017AB80 D_AC000_8017AB80 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB80 x2 4 12 0
+};
+T_D_AC000_8017AB8C D_AC000_8017AB8C __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB8C x2 4 12 0
+};
+T_D_AC000_8017AB98 D_AC000_8017AB98 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACB98 x2 4 12x5,4 0
+};
+T_D_AC000_8017ABD8 D_AC000_8017ABD8 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACBD8 x2 4 12x6 0
+};
+T_D_AC000_8017AC20 D_AC000_8017AC20 = {
+    &D_AC000_8017AA24,
+    &D_AC000_8017AA2C,
+    &D_AC000_8017AB8C,
+    &D_AC000_8017AB98,
+    &D_AC000_8017AB80,
+    &D_AC000_8017AAFC,
+    &D_AC000_8017AADC,
+    &D_AC000_8017AAA4,
+    &D_AC000_8017AA60,
+    &D_AC000_8017AA34,
+    &D_AC000_8017AB40,
+    &D_AC000_8017AB50,
+    &D_AC000_8017AB60,
+    &D_AC000_8017AB70,
+};
+T_D_AC000_8017AC58 D_AC000_8017AC58 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACC58 x2 4 12x2,8 0
+};
+T_D_AC000_8017AC78 D_AC000_8017AC78 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACC78 x2 4 12x5 0
+};
+T_D_AC000_8017ACB4 D_AC000_8017ACB4 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACCB4 x2 4 12x5 0
+};
+T_D_AC000_8017ACF0 D_AC000_8017ACF0 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACCF0 x2 4 8 0
+};
+T_D_AC000_8017ACF8 D_AC000_8017ACF8 = {
+    &D_AC000_8017AC58,
+    &D_AC000_8017AC78,
+    &D_AC000_8017ACB4,
+    &D_AC000_8017ACF0,
+};
+T_D_AC000_8017AD08 D_AC000_8017AD08 __attribute__((aligned(8))) = {
+@@PCDATA 0 ACD08 x2 4 12x5,4 0
+};
+T_g_WeaponCluts g_WeaponCluts = {
+    &D_AC000_8017A804,
+    &D_AC000_8017A804,
+};
+s32 g_HandId = HAND_ID;

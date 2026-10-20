@@ -1418,7 +1418,11 @@ void UpdateServantAdditionalInit(Entity* self) {
 }
 
 // This data needs to come after the string in FntPrint
-#include "faerie_data.h"
+// TT_005 (Sprite) reuses this file with its own data tables
+#ifndef FAERIE_DATA_H
+#define FAERIE_DATA_H "faerie_data.h"
+#endif
+#include FAERIE_DATA_H
 
 void UpdateSubEntityWings(Entity* self) {
     s32 animIndex;
@@ -1451,8 +1455,12 @@ void UpdateSubEntityWings(Entity* self) {
 
 void UpdateServantSitOnShoulder(Entity* self) {
     static u32 s_AnimationStatus;
-    static s16 g_FaerieFrameCount1 = 5400;
-    static s16 g_FaerieFrameCount2 = 2400;
+#ifndef FAERIE_FRAME_COUNT1
+#define FAERIE_FRAME_COUNT1 5400
+#define FAERIE_FRAME_COUNT2 2400
+#endif
+    static s16 g_FaerieFrameCount1 = FAERIE_FRAME_COUNT1;
+    static s16 g_FaerieFrameCount2 = FAERIE_FRAME_COUNT2;
 
     s32 rnd;
     s32 i;

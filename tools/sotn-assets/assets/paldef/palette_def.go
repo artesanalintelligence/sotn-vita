@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/xeeynamo/sotn-decomp/tools/sotn-assets/assets"
@@ -31,17 +32,28 @@ func (h *handler) Name() string { return "paldef" }
 func (h *handler) Extract(e assets.ExtractArgs) error {
 	r := bytes.NewReader(e.Data)
 	defs, clutsOff, err := readPaletteDefs(r, e.RamBase, e.Start, e.End)
-	if err != nil {
-		return err
+	var cluts []int
+	if err == nil {
+		cluts, err = readClutsArray(r, e.RamBase, clutsOff, e.End, defs)
 	}
-	cluts, err := readClutsArray(r, e.RamBase, clutsOff, e.End, defs)
 	if err != nil {
-		return err
+		// some stages interleave raw palettes between the defs, which the
+		// sequential parser mistakes for the cluts array; retry by locating
+		// the cluts array first and only parsing the defs it points to
+		var fallbackErr error
+		defs, clutsOff, fallbackErr = readPaletteDefsFromCluts(r, e.Data, e.RamBase, e.Start, e.End)
+		if fallbackErr != nil {
+			return err
+		}
+		if cluts, err = readClutsArray(r, e.RamBase, clutsOff, e.End, defs); err != nil {
+			return err
+		}
 	}
+	embedded := extractEmbeddedPalettes(e.Data, e.RamBase, e.Start, clutsOff, defs)
 	for i := range defs {
 		resolveSymbols(&defs[i], e.Symbol, e.RamBase)
 	}
-	doc := paletteDefs{Cluts: cluts, Defs: defs}
+	doc := paletteDefs{Cluts: cluts, Defs: defs, Embedded: embedded}
 	return util.WriteJsonFile(assetPath(e.AssetDir, e.Name), doc)
 }
 
@@ -60,6 +72,18 @@ func (h *handler) Build(e assets.BuildArgs) error {
 	// keep the sized declaration so PAL_BULK's LEN() works, while palettes
 	// referenced mid-array can only be declared as incomplete arrays
 	declared := map[string]bool{}
+	// palettes embedded in the palette definition blob are private to it
+	for _, pal := range doc.Embedded {
+		declared[pal.Name] = true
+		content.WriteString(fmt.Sprintf("static u16 %s[] = {", pal.Name))
+		for i, c := range pal.Data {
+			if i%8 == 0 {
+				content.WriteString("\n   ")
+			}
+			content.WriteString(fmt.Sprintf(" 0x%04X,", c))
+		}
+		content.WriteString("\n};\n")
+	}
 	for _, def := range doc.Defs {
 		for _, ref := range append(append([]paletteEntry{}, def.Data...), def.Entries...) {
 			sym := util.RemoveFileNameExt(filepath.Base(ref.Name))
@@ -209,12 +233,20 @@ type paletteDef struct {
 	Entries     []paletteEntry `json:"entries,omitempty"`
 	Data        []paletteEntry `json:"data,omitempty"`
 	addr        psx.Addr
+	end         int // offset right after the terminator
+}
+
+// raw colours stored between the palette defs and referenced by them
+type embeddedPalette struct {
+	Name string   `json:"name"`
+	Data []uint16 `json:"data"`
 }
 
 type paletteDefs struct {
 	// cluts[] content as indices into Defs, preserving the original order
-	Cluts []int        `json:"cluts"`
-	Defs  []paletteDef `json:"defs"`
+	Cluts    []int             `json:"cluts"`
+	Defs     []paletteDef      `json:"defs"`
+	Embedded []embeddedPalette `json:"embedded,omitempty"`
 }
 
 // readPaletteDefs parses consecutive pal_def blobs starting at 'start' until
@@ -252,12 +284,129 @@ func readPaletteDefs(r io.ReadSeeker, baseAddr psx.Addr, start, end int) ([]pale
 		}
 		cur, _ := r.Seek(0, io.SeekCurrent)
 		off = int(cur)
+		def.end = off
 		defs = append(defs, def)
 	}
 	if len(defs) == 0 {
 		return nil, 0, fmt.Errorf("no palette defs found at %s", baseAddr.Sum(start))
 	}
 	return defs, off, nil
+}
+
+// findClutsArray scans backwards from 'end' for the trailing cluts[] array,
+// made of pointers to palette defs that precede it. It returns the offset of
+// the first element, or -1 if no array was found.
+func findClutsArray(data []byte, baseAddr psx.Addr, start, end int) (int, []psx.Addr) {
+	pos := end - 4
+	for pos >= start && binary.LittleEndian.Uint32(data[pos:]) == 0 {
+		pos -= 4 // trailing alignment padding
+	}
+	clutsOff := -1
+	var ptrs []psx.Addr
+	for ; pos >= start; pos -= 4 {
+		addr := psx.Addr(binary.LittleEndian.Uint32(data[pos:]))
+		if !addr.InRange(baseAddr.Sum(start), baseAddr.Sum(pos)) {
+			break
+		}
+		ptrs = append(ptrs, addr)
+		clutsOff = pos
+	}
+	return clutsOff, ptrs
+}
+
+// readPaletteDefsFromCluts parses only the palette defs referenced by the
+// cluts[] array, allowing arbitrary data to be stored between them
+func readPaletteDefsFromCluts(r io.ReadSeeker, data []byte, baseAddr psx.Addr, start, end int) ([]paletteDef, int, error) {
+	if end > len(data) {
+		return nil, 0, fmt.Errorf("palette def range exceeds the data")
+	}
+	clutsOff, ptrs := findClutsArray(data, baseAddr, start, end)
+	if clutsOff < 0 {
+		return nil, 0, fmt.Errorf("no cluts array found at %s", baseAddr.Sum(start))
+	}
+	sort.Slice(ptrs, func(i, j int) bool { return ptrs[i] < ptrs[j] })
+	var defs []paletteDef
+	for i, addr := range ptrs {
+		if i > 0 && ptrs[i-1] == addr {
+			continue
+		}
+		if err := addr.MoveFile(r, baseAddr); err != nil {
+			return nil, 0, fmt.Errorf("invalid offset: %w", err)
+		}
+		var op uint32
+		if err := binary.Read(r, binary.LittleEndian, &op); err != nil {
+			return nil, 0, fmt.Errorf("error reading palette op: %w", err)
+		}
+		flags := int(op & palFlagsMask)
+		kind := int(op & 0xFFFF &^ palFlagsMask)
+		freq := int(op >> 16)
+		if kind < palCopy || kind > palBulkCopy || freq > 0xFF {
+			return nil, 0, fmt.Errorf("invalid palette op 0x%08X at %s", op, addr)
+		}
+		def := paletteDef{Kind: kind, Flags: flags, Freq: freq, addr: addr}
+		if err := readPaletteEntries(r, baseAddr, addr, &def); err != nil {
+			return nil, 0, err
+		}
+		cur, _ := r.Seek(0, io.SeekCurrent)
+		def.end = int(cur)
+		defs = append(defs, def)
+	}
+	return defs, clutsOff, nil
+}
+
+// extractEmbeddedPalettes collects the colours stored in the gaps between the
+// palette defs that are referenced by any def, and names the references
+// pointing to them so they do not resolve to unrelated symbols
+func extractEmbeddedPalettes(data []byte, baseAddr psx.Addr, start, clutsOff int, defs []paletteDef) []embeddedPalette {
+	type gap struct{ begin, end int }
+	var gaps []gap
+	cur := start
+	sorted := append([]paletteDef{}, defs...)
+	sort.Slice(sorted, func(i, j int) bool { return sorted[i].addr < sorted[j].addr })
+	for _, def := range sorted {
+		defOff := def.addr.Real(baseAddr)
+		if defOff > cur {
+			gaps = append(gaps, gap{cur, defOff})
+		}
+		if def.end > cur {
+			cur = def.end
+		}
+	}
+	if clutsOff > cur {
+		gaps = append(gaps, gap{cur, clutsOff})
+	}
+	var embedded []embeddedPalette
+	for _, g := range gaps {
+		gapAddr := baseAddr.Sum(g.begin)
+		name := fmt.Sprintf("D_%08X", uint32(gapAddr))
+		used := false
+		claim := func(entry *paletteEntry) {
+			off := entry.addr.Real(baseAddr)
+			if off < g.begin || off >= g.end {
+				return
+			}
+			entry.Name = name + ".palbin"
+			entry.Offset = (off - g.begin) / 2
+			used = true
+		}
+		for i := range defs {
+			for j := range defs[i].Entries {
+				claim(&defs[i].Entries[j])
+			}
+			for j := range defs[i].Data {
+				claim(&defs[i].Data[j])
+			}
+		}
+		if !used {
+			continue
+		}
+		pal := embeddedPalette{Name: name}
+		for off := g.begin; off+2 <= g.end; off += 2 {
+			pal.Data = append(pal.Data, binary.LittleEndian.Uint16(data[off:]))
+		}
+		embedded = append(embedded, pal)
+	}
+	return embedded
 }
 
 func readPaletteEntries(r io.ReadSeeker, baseAddr, defAddr psx.Addr, def *paletteDef) error {
@@ -368,6 +517,9 @@ func readClutsPointers(r io.ReadSeeker, baseAddr psx.Addr, off, dataLen int) ([]
 // closest symbol below plus an offset in u16 units
 func resolveSymbols(def *paletteDef, symbol func(psx.Addr) string, baseAddr psx.Addr) {
 	resolve := func(entry *paletteEntry) {
+		if entry.Name != "" {
+			return // already claimed by an embedded palette
+		}
 		// scan back one color (2 bytes) at a time; palettes are small so
 		// bound the search to 0x2000 bytes
 		for off := 0; off <= 0x2000; off += 2 {

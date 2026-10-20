@@ -1,0 +1,103 @@
+@@PCDATA-SOURCE 0 disks/us/BOSS/BO6/BO6.BIN fe067af9b7adca08dc99b108129a0f45a7ad45cd
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only copy of the Richter boss BSS (zero initialized, contiguous as on PSX)
+// still kept as raw assembly on PSX. Generated from the splat output.
+// clang-format off
+#include "common.h"
+
+u8 bo6_pc_bss_blob[] __attribute__((aligned(8))) = {
+@@PCDATA 0 4E754 x2 4 12x1009,4 1
+};
+
+__asm__(".globl D_us_801CE758\n.set D_us_801CE758, bo6_pc_bss_blob + 0x0\n");
+__asm__(".globl D_us_801CE7C8\n.set D_us_801CE7C8, bo6_pc_bss_blob + 0x70\n");
+__asm__(".globl D_us_801CF3C8\n.set D_us_801CF3C8, bo6_pc_bss_blob + 0xC70\n");
+__asm__(".globl D_us_801CF3CC\n.set D_us_801CF3CC, bo6_pc_bss_blob + 0xC74\n");
+__asm__(".globl D_us_801CF3D0\n.set D_us_801CF3D0, bo6_pc_bss_blob + 0xC78\n");
+__asm__(".globl D_us_801CF3D8\n.set D_us_801CF3D8, bo6_pc_bss_blob + 0xC80\n");
+__asm__(".globl D_us_801CF3E0\n.set D_us_801CF3E0, bo6_pc_bss_blob + 0xC88\n");
+__asm__(".globl D_us_801CF3E4\n.set D_us_801CF3E4, bo6_pc_bss_blob + 0xC8C\n");
+__asm__(".globl D_us_801CF3E8\n.set D_us_801CF3E8, bo6_pc_bss_blob + 0xC90\n");
+__asm__(".globl D_us_801CFCC8\n.set D_us_801CFCC8, bo6_pc_bss_blob + 0x1570\n");
+__asm__(".globl D_us_801D07E8\n.set D_us_801D07E8, bo6_pc_bss_blob + 0x2090\n");
+__asm__(".globl D_us_801D07EC\n.set D_us_801D07EC, bo6_pc_bss_blob + 0x2094\n");
+__asm__(".globl D_us_801D07F0\n.set D_us_801D07F0, bo6_pc_bss_blob + 0x2098\n");
+__asm__(".globl D_us_801D07F4\n.set D_us_801D07F4, bo6_pc_bss_blob + 0x209C\n");
+__asm__(".globl D_us_801D07F8\n.set D_us_801D07F8, bo6_pc_bss_blob + 0x20A0\n");
+__asm__(".globl D_us_801D07FC\n.set D_us_801D07FC, bo6_pc_bss_blob + 0x20A4\n");
+__asm__(".globl D_us_801D0800\n.set D_us_801D0800, bo6_pc_bss_blob + 0x20A8\n");
+__asm__(".globl D_us_801D0804\n.set D_us_801D0804, bo6_pc_bss_blob + 0x20AC\n");
+__asm__(".globl D_us_801D0808\n.set D_us_801D0808, bo6_pc_bss_blob + 0x20B0\n");
+__asm__(".globl D_us_801D080C\n.set D_us_801D080C, bo6_pc_bss_blob + 0x20B4\n");
+__asm__(".globl D_us_801D080E\n.set D_us_801D080E, bo6_pc_bss_blob + 0x20B6\n");
+__asm__(".globl D_us_801D084C\n.set D_us_801D084C, bo6_pc_bss_blob + 0x20F4\n");
+__asm__(".globl D_us_801D084E\n.set D_us_801D084E, bo6_pc_bss_blob + 0x20F6\n");
+__asm__(".globl D_us_801D0850\n.set D_us_801D0850, bo6_pc_bss_blob + 0x20F8\n");
+__asm__(".globl D_us_801D0854\n.set D_us_801D0854, bo6_pc_bss_blob + 0x20FC\n");
+__asm__(".globl D_us_801D0874\n.set D_us_801D0874, bo6_pc_bss_blob + 0x211C\n");
+__asm__(".globl D_us_801D0878\n.set D_us_801D0878, bo6_pc_bss_blob + 0x2120\n");
+__asm__(".globl D_us_801D087C\n.set D_us_801D087C, bo6_pc_bss_blob + 0x2124\n");
+__asm__(".globl D_us_801D08C4\n.set D_us_801D08C4, bo6_pc_bss_blob + 0x216C\n");
+__asm__(".globl D_us_801D10C4\n.set D_us_801D10C4, bo6_pc_bss_blob + 0x296C\n");
+__asm__(".globl D_us_801D10C8\n.set D_us_801D10C8, bo6_pc_bss_blob + 0x2970\n");
+__asm__(".globl D_us_801D10CC\n.set D_us_801D10CC, bo6_pc_bss_blob + 0x2974\n");
+__asm__(".globl D_us_801D10D0\n.set D_us_801D10D0, bo6_pc_bss_blob + 0x2978\n");
+__asm__(".globl D_us_801D10D2\n.set D_us_801D10D2, bo6_pc_bss_blob + 0x297A\n");
+__asm__(".globl D_us_801D10D4\n.set D_us_801D10D4, bo6_pc_bss_blob + 0x297C\n");
+__asm__(".globl D_us_801D10E8\n.set D_us_801D10E8, bo6_pc_bss_blob + 0x2990\n");
+__asm__(".globl D_us_801D10EC\n.set D_us_801D10EC, bo6_pc_bss_blob + 0x2994\n");
+__asm__(".globl D_us_801D10F0\n.set D_us_801D10F0, bo6_pc_bss_blob + 0x2998\n");
+__asm__(".globl D_us_801D110C\n.set D_us_801D110C, bo6_pc_bss_blob + 0x29B4\n");
+__asm__(".globl D_us_801D1158\n.set D_us_801D1158, bo6_pc_bss_blob + 0x2A00\n");
+__asm__(".globl D_us_801D11C0\n.set D_us_801D11C0, bo6_pc_bss_blob + 0x2A68\n");
+__asm__(".globl D_us_801D11C8\n.set D_us_801D11C8, bo6_pc_bss_blob + 0x2A70\n");
+__asm__(".globl D_us_801D1248\n.set D_us_801D1248, bo6_pc_bss_blob + 0x2AF0\n");
+__asm__(".globl D_us_801D169C\n.set D_us_801D169C, bo6_pc_bss_blob + 0x2F44\n");
+__asm__(".globl D_us_801D16A4\n.set D_us_801D16A4, bo6_pc_bss_blob + 0x2F4C\n");
+
+extern u8 D_us_801CE758[];
+extern u8 D_us_801CE7C8[];
+extern u8 D_us_801CF3C8[];
+extern u8 D_us_801CF3CC[];
+extern u8 D_us_801CF3D0[];
+extern u8 D_us_801CF3D8[];
+extern u8 D_us_801CF3E0[];
+extern u8 D_us_801CF3E4[];
+extern u8 D_us_801CF3E8[];
+extern u8 D_us_801CFCC8[];
+extern u8 D_us_801D07E8[];
+extern u8 D_us_801D07EC[];
+extern u8 D_us_801D07F0[];
+extern u8 D_us_801D07F4[];
+extern u8 D_us_801D07F8[];
+extern u8 D_us_801D07FC[];
+extern u8 D_us_801D0800[];
+extern u8 D_us_801D0804[];
+extern u8 D_us_801D0808[];
+extern u8 D_us_801D080C[];
+extern u8 D_us_801D080E[];
+extern u8 D_us_801D084C[];
+extern u8 D_us_801D084E[];
+extern u8 D_us_801D0850[];
+extern u8 D_us_801D0854[];
+extern u8 D_us_801D0874[];
+extern u8 D_us_801D0878[];
+extern u8 D_us_801D087C[];
+extern u8 D_us_801D08C4[];
+extern u8 D_us_801D10C4[];
+extern u8 D_us_801D10C8[];
+extern u8 D_us_801D10CC[];
+extern u8 D_us_801D10D0[];
+extern u8 D_us_801D10D2[];
+extern u8 D_us_801D10D4[];
+extern u8 D_us_801D10E8[];
+extern u8 D_us_801D10EC[];
+extern u8 D_us_801D10F0[];
+extern u8 D_us_801D110C[];
+extern u8 D_us_801D1158[];
+extern u8 D_us_801D11C0[];
+extern u8 D_us_801D11C8[];
+extern u8 D_us_801D1248[];
+extern u8 D_us_801D169C[];
+extern u8 D_us_801D16A4[];
+

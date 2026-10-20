@@ -8,6 +8,7 @@
 
 enum Palettes {
     PAL_NONE,
+    PAL_BREAKABLE_DEBRIS = 0x159,
     PAL_CERBEROS = 0x200,
     PAL_UNK_2E0 = 0x2E0,
 };
@@ -48,6 +49,20 @@ typedef enum EntityID {
     E_UNK_20,                // func_us_801963D8
     E_LIFE_UP_SPAWN,         // EntityLifeUpSpawn
     NUM_ENTITIES,
+};
+
+Primitive* FindFirstUnkPrim(Primitive* prim);
+
+#define g_EInitSecret D_us_80180454
+
+// D_us_80180848: progress of the Cerberus fight, shared by its entities
+extern s32 g_CerberusMgrState;
+enum CerberusMgrState {
+    CERBERUS_MGR_PLAYER_IN = 1,   // player entered the arena, gates drop
+    CERBERUS_MGR_FIGHT_ON = 2,    // boss music started, Cerberus is active
+    CERBERUS_MGR_DEAD = 4,        // Cerberus was defeated
+    CERBERUS_MGR_DEATH_DONE = 8,  // death animation finished
+    CERBERUS_MGR_REWARD = 0x10,   // life up spawned, gates rise
 };
 
 #endif // BO7_H

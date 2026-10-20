@@ -287,7 +287,7 @@ void func_us_801B0930(Entity* self) {
 #else
         drawEnv.ofs[1] = 0;
 #endif
-        drEnv = (DR_ENV*)LOW(prim->r1);
+        drEnv = *(DR_ENV**)&prim->r1;
         SetDrawEnv(drEnv, &drawEnv);
 
         prim->priority = 0xCB;
@@ -313,7 +313,7 @@ void func_us_801B0930(Entity* self) {
     case 2:
         func_us_801B053C();
         prim = (Primitive*)self->ext.et_801B0930.prim2;
-        drEnv = (DR_ENV*)LOW(prim->r1);
+        drEnv = *(DR_ENV**)&prim->r1;
         drawEnv = g_CurrentBuffer->draw;
         drawEnv.isbg = 1;
         drawEnv.dtd = 0;

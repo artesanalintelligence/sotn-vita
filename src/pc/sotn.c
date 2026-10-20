@@ -115,9 +115,16 @@ bool InitDraData(void);
 
 s32 func_800EDB58(u8 primType, s32 count);
 
+#ifdef PC_EQUIP_TEST
+void EquipTest_OnFrame(void);
+#endif
+
 static void GameLoopCallback(void) {
     Replay_OnFrame();
     SpawnPoint_OnFrame();
+#ifdef PC_EQUIP_TEST
+    EquipTest_OnFrame();
+#endif
 }
 
 struct InitGameParams g_GameParams;

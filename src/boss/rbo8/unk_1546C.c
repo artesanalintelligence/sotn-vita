@@ -35,7 +35,27 @@ void EntityBreakable(Entity* self) {
 
 #include "func_us_801955a0.h"
 
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/rbo8/nonmatchings/unk_1546C", func_us_801955F8);
+#else
+// Returns non-zero when the next step would take the entity out of the room
+s32 func_us_801955F8(Entity* self, s32 facingLeft) {
+    s32 posX;
+    s32 ret;
+
+    posX = g_Tilemap.scrollX.i.hi + self->posX.i.hi;
+    if (facingLeft) {
+        posX += 0x50;
+    } else {
+        posX -= 0x50;
+    }
+    ret = 0;
+    if ((u32)(posX - 0x30) > 0x1C0) {
+        ret |= 2;
+    }
+    return ret;
+}
+#endif
 
 void func_801CE1E8(s32 step) {
     s32 i;

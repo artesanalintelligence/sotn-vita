@@ -114,4 +114,59 @@ void EntityBossFightManager(Entity* self) {
     }
 }
 
+#ifdef VERSION_PC
+extern EInit D_us_801804DC;
+
+// blocks that move to close the boss room
+void EntityBossRoomBlock(Entity* self) {
+    switch (self->step) {
+    case 0:
+        InitializeEntity(D_us_801804DC);
+        self->animCurFrame = 8;
+        // fallthrough
+
+    case 1:
+        if (g_BossMgrState & BOSS_MGR_DOORS_CLOSE) {
+            self->ext.GS_Props.timer = 16;
+            self->step++;
+        }
+        break;
+
+    case 2:
+        if (self->params) {
+            self->velocityX = FIX(-1);
+        } else {
+            self->velocityX = FIX(1);
+        }
+        MoveEntity();
+        GetPlayerCollisionWith(self, 8, 8, 5);
+        if (!(g_Timer & 3)) {
+            g_api.PlaySfx(SFX_STONE_MOVE_B);
+        }
+        if (--self->ext.GS_Props.timer) {
+            break;
+        }
+        self->step++;
+        break;
+
+    case 3:
+        GetPlayerCollisionWith(self, 8, 8, 5);
+        if (g_BossMgrState & BOSS_MGR_DOORS_OPEN) {
+            self->step++;
+        }
+        break;
+
+    case 4:
+        self->flags |= FLAG_DESTROY_IF_OUT_OF_CAMERA;
+        if (self->params) {
+            self->velocityX = FIX(1);
+        } else {
+            self->velocityX = FIX(-1);
+        }
+        MoveEntity();
+        break;
+    }
+}
+#else
 INCLUDE_ASM("boss/rbo1/nonmatchings/e_boss_room", EntityBossRoomBlock);
+#endif

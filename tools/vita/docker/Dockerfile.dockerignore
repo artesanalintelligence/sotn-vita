@@ -1,0 +1,28 @@
+# Build context for tools/vita/docker/Dockerfile (the context is the repo root).
+# Keeps build outputs, caches and anything extracted from the disc out of the
+# image. The disc image itself must never be sent.
+**/.git
+**/__pycache__
+**/target
+.venv/
+.idea/
+.vscode/
+asm/
+assets/
+build/
+build_*/
+bin/sotn-disk
+bin/sotn-assets
+disks/
+expected/
+nonmatchings/
+recordings/
+bu00/
+bu10/
+src/**/gen/
+**/*.bin
+**/*.BIN
+**/*.cue
+**/*.iso
+**/*.img
+**/*.vpk

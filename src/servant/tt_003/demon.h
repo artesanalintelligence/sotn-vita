@@ -35,7 +35,13 @@ typedef struct {
     s32 abilityId;
 } DemonAttackInfo;
 
+#ifdef VERSION_PC
+// shared_globals.h defines it as static: modern compilers reject a static
+// definition that follows an extern declaration
+static s32 g_PlaySfxStep;
+#else
 extern s32 g_PlaySfxStep;
+#endif
 extern SpriteParts* g_DemonSpriteParts[];
 
 #endif

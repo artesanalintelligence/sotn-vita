@@ -1,0 +1,87 @@
+@@PCDATA-SOURCE 0 disks/us/BIN/WEAPON0.BIN b8dcd64f95d197d3f59ab3e46f67897ecdc477cb
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only data for weapon overlay w_036, generated from the US raw
+// data segment. Pointers are kept as real pointers so the layout
+// matches the weapon code on both 32-bit and 64-bit hosts.
+#include <common.h>
+
+#if defined(WEAPON1)
+#define HAND_ID 1
+#else
+#define HAND_ID 0
+#endif
+
+typedef u8 T_D_100000_8017A404[160];
+typedef u8 T_D_100000_8017A4A4[20];
+typedef u8 T_D_100000_8017A4B8[20];
+typedef u8 T_D_100000_8017A4CC[16];
+typedef u8 T_D_100000_8017A4DC[16];
+typedef u8 T_D_100000_8017A4EC[56];
+typedef struct {
+    void* p0;
+    void* p1;
+    void* p2;
+    void* p3;
+    void* p4;
+    void* p5;
+    void* p6;
+} T_D_100000_8017A524;
+typedef struct {
+    void* p0;
+    void* p1;
+    u8 d2[8];
+} T_D_100000_8017A540;
+typedef struct {
+    void* p0;
+    void* p1;
+} T_g_WeaponCluts;
+
+extern T_D_100000_8017A404 D_100000_8017A404;
+extern T_D_100000_8017A4A4 D_100000_8017A4A4;
+extern T_D_100000_8017A4B8 D_100000_8017A4B8;
+extern T_D_100000_8017A4CC D_100000_8017A4CC;
+extern T_D_100000_8017A4DC D_100000_8017A4DC;
+extern T_D_100000_8017A4EC D_100000_8017A4EC;
+extern T_D_100000_8017A524 D_100000_8017A524;
+extern T_D_100000_8017A540 D_100000_8017A540;
+extern T_g_WeaponCluts g_WeaponCluts;
+
+T_D_100000_8017A404 D_100000_8017A404 __attribute__((aligned(8))) = {
+@@PCDATA 0 100404 x2 4 12x13,4 0
+};
+T_D_100000_8017A4A4 D_100000_8017A4A4 __attribute__((aligned(8))) = {
+@@PCDATA 0 1004A4 x2 4 12,8 0
+};
+T_D_100000_8017A4B8 D_100000_8017A4B8 __attribute__((aligned(8))) = {
+@@PCDATA 0 1004B8 x2 4 12,8 0
+};
+T_D_100000_8017A4CC D_100000_8017A4CC __attribute__((aligned(8))) = {
+@@PCDATA 0 1004CC x2 4 12,4 0
+};
+T_D_100000_8017A4DC D_100000_8017A4DC __attribute__((aligned(8))) = {
+@@PCDATA 0 1004DC x2 4 12,4 0
+};
+T_D_100000_8017A4EC D_100000_8017A4EC __attribute__((aligned(8))) = {
+@@PCDATA 0 1004EC x2 4 12x4,8 0
+};
+T_D_100000_8017A524 D_100000_8017A524 = {
+    &D_100000_8017A4A4,
+    &D_100000_8017A4A4,
+    &D_100000_8017A4B8,
+    &D_100000_8017A4B8,
+    &D_100000_8017A4CC,
+    &D_100000_8017A4DC,
+    &D_100000_8017A4DC,
+};
+T_D_100000_8017A540 D_100000_8017A540 = {
+    &D_100000_8017A524,
+    &D_100000_8017A4EC,
+    {
+@@PCDATA 0 100548 x2 8 8 0
+    },
+};
+T_g_WeaponCluts g_WeaponCluts = {
+    &D_100000_8017A404,
+    &D_100000_8017A404,
+};
+s32 g_HandId = HAND_ID;

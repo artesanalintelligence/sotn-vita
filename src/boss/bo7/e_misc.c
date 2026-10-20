@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 #include "bo7.h"
 
+#ifndef NON_MATCHING
+
 #include "../../st/pfn_entity_update.h"
 
 extern EInit g_EInitUnkId13;
@@ -449,3 +451,6 @@ void PlaySfxPositional(s16 sfxId) {
         g_api.PlaySfxVolPan(sfxId, sfxVol, sfxPan);
     }
 }
+#else
+#include "../../st/e_misc.h"
+#endif

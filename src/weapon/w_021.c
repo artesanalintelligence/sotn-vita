@@ -464,7 +464,7 @@ s32 func_ptr_80170004(Entity* self) {
             g_api.PlaySfx(SFX_ITEM_PICKUP);
             temp_s1 = g_api.equipDefs[upperParams].name;
             g_api.AddToInventory(upperParams, EQUIP_HAND);
-            func_97000_8017AB54(temp_s1, 1);
+            func_97000_8017AB54((u8*)temp_s1, 1);
             DestroyEntity(self);
             return;
         }
@@ -523,7 +523,7 @@ s32 func_ptr_80170004(Entity* self) {
             g_api.PlaySfx(SFX_ITEM_PICKUP);
             temp_s1 = g_api.equipDefs[upperParams].name;
             g_api.AddToInventory(upperParams, EQUIP_HAND);
-            func_97000_8017AB54(temp_s1, 1);
+            func_97000_8017AB54((u8*)temp_s1, 1);
             DestroyEntity(self);
         }
         break;

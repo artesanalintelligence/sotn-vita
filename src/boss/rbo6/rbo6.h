@@ -66,4 +66,72 @@ typedef enum EntityID {
     NUM_ENTITIES,
 };
 
+// Entity extension layouts used by the PC versions of the functions still
+// kept as assembly on PSX. Pointers are typed so the layout also works where
+// pointers are wider than 32 bits. Access them through RBO6_EXT.
+typedef struct {
+    /* 0x7C */ s32 unk7C;
+    /* 0x80 */ u16 timer;
+    /* 0x82 */ s16 angle;
+    /* 0x84 */ u8 attackIndex;
+    /* 0x85 */ u8 count;
+} ET_Rbo6Dracula;
+
+typedef struct {
+    /* 0x7C */ Primitive* prim;
+    /* 0x80 */ s16 unk80;
+    /* 0x82 */ s16 angle;
+} ET_Rbo6Wings;
+
+typedef struct {
+    /* 0x7C */ Primitive* prim;
+    /* 0x80 */ Primitive* curPrim;
+    /* 0x84 */ u16 angle;
+    /* 0x86 */ s16 angleStep;
+    /* 0x8C */ s16 segments;
+    /* 0x9C */ struct Entity* from;
+    /* 0xA0 */ struct Entity* to;
+} ET_Rbo6Lightning;
+
+typedef struct {
+    /* 0x7C */ s32 unk7C;
+    /* 0x80 */ s16 timer;
+    /* 0x8C */ s32 speed;
+} ET_Rbo6Spark;
+
+typedef struct {
+    /* 0x7C */ Primitive* prim;
+    /* 0x90 */ s16 offsets[3][2];
+    /* 0xAC */ u16 phaseR;
+    /* 0xAE */ u16 phaseG;
+    /* 0xB0 */ u16 phaseB;
+} ET_Rbo6Triangle;
+
+typedef struct {
+    /* 0x7C */ Primitive* prim;
+    /* 0x80 */ s16 timer;
+    /* 0x84 */ Primitive* fadePrim;
+    /* 0x88 */ Primitive* lightPrim;
+    /* 0x8C */ Primitive* whitePrim;
+} ET_Rbo6Ending;
+
+typedef struct {
+    /* 0x7C */ Primitive* prim;
+    /* 0x84 */ Primitive* glowPrim;
+    /* 0x90 */ s32 accelY;
+    /* 0x9C */ u16 posYHistory[6];
+} ET_Rbo6Bubble;
+
+typedef struct {
+    /* 0x7C */ Primitive* prim;
+    /* 0x80 */ Primitive* crystalPrim;
+    /* 0x84 */ s16 crystalAngle[4];
+    /* 0xA0 */ s16 timer;
+    /* 0xA4 */ s16 rotSpeedX;
+    /* 0xA6 */ s16 rotSpeedY;
+    /* 0xA8 */ s32 collapse;
+} ET_Rbo6Castle3D;
+
+#define RBO6_EXT(entity, type) ((type*)&(entity)->ext)
+
 #endif // RBO6_H

@@ -1,0 +1,57 @@
+@@PCDATA-SOURCE 0 disks/us/BOSS/MAR/MAR.BIN 4cd6c07959db859f5bc19390a283f34df4bf1619
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only data for the mar overlay, generated from the US raw data
+// segments 0x5D4 and 0x688 that are not yet migrated to C.
+#include <common.h>
+
+u8 D_us_801805D4[4] __attribute__((aligned(4))) = {
+@@PCDATA 0 5D4 x2 4 4 0
+};
+u8 D_us_801805D8[4] __attribute__((aligned(4))) = {
+@@PCDATA 0 5D8 x2 4 4 0
+};
+u8 D_us_801805DC[8] __attribute__((aligned(4))) = {
+@@PCDATA 0 5DC x2 4 8 0
+};
+u8 D_us_801805E4[4] __attribute__((aligned(4))) = {
+@@PCDATA 0 5E4 x2 4 4 0
+};
+u8 D_us_801805E8[8] __attribute__((aligned(4))) = {
+@@PCDATA 0 5E8 x2 4 8 0
+};
+u8 D_us_801805F0[144] __attribute__((aligned(4))) = {
+@@PCDATA 0 5F0 x2 4 12x12 0
+};
+u8 D_us_80180688[8] __attribute__((aligned(4))) = {
+@@PCDATA 0 688 x2 4 8 0
+};
+u8 D_us_80180690[20] __attribute__((aligned(4))) = {
+@@PCDATA 0 690 x2 4 12,8 0
+};
+u8 D_us_801806A4[20] __attribute__((aligned(4))) = {
+@@PCDATA 0 6A4 x2 4 12,8 0
+};
+u8 D_us_801806B8[20] __attribute__((aligned(4))) = {
+@@PCDATA 0 6B8 x2 4 12,8 0
+};
+u8 D_us_801806CC[24] __attribute__((aligned(4))) = {
+@@PCDATA 0 6CC x2 4 12x2 0
+};
+u8 D_us_801806E4[8] __attribute__((aligned(4))) = {
+@@PCDATA 0 6E4 x2 4 8 0
+};
+u8 D_us_801806EC[20] __attribute__((aligned(4))) = {
+@@PCDATA 0 6EC x2 4 12,8 0
+};
+u8 D_us_80180700[24] __attribute__((aligned(4))) = {
+@@PCDATA 0 700 x2 4 12x2 0
+};
+u8 D_us_80180718[12] __attribute__((aligned(4))) = {
+@@PCDATA 0 718 x2 4 12 0
+};
+u8 D_us_80180724[20] __attribute__((aligned(4))) = {
+@@PCDATA 0 724 x2 4 12,8 0
+};
+u8 D_us_80180738[12] __attribute__((aligned(4))) = {
+@@PCDATA 0 738 x2 4 12 0
+};

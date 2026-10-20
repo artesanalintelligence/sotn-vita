@@ -406,7 +406,61 @@ static void RecordFrame(void) {
     frameCount++;
 }
 
+// Optional periodic state trace for headless testing: SOTN_REPLAY_TRACE=<n>
+// prints the player state and the toughest live entities every n frames.
+static void ReplayTrace(void) {
+    static int every = -1;
+    const char* env;
+    int i, j, n;
+    int best[3] = {-1, -1, -1};
+
+    if (every < 0) {
+        env = getenv("SOTN_REPLAY_TRACE");
+        every = env ? atoi(env) : 0;
+    }
+    if (every <= 0 || replayFrameCursor % every) {
+        return;
+    }
+    for (i = 1; i < LEN(g_Entities); i++) {
+        if (!g_Entities[i].entityId || g_Entities[i].hitPoints <= 0 ||
+            g_Entities[i].hitPoints == 0x7FFF) {
+            continue;
+        }
+        for (j = 0; j < 3; j++) {
+            if (best[j] < 0 || g_Entities[i].hitPoints >
+                                   g_Entities[best[j]].hitPoints) {
+                for (n = 2; n > j; n--) {
+                    best[n] = best[n - 1];
+                }
+                best[j] = i;
+                break;
+            }
+        }
+    }
+    printf("TRACE f=%u stage=%02X state=%d/%d player=(%d,%d) hp=%d/%d",
+           replayFrameCursor, g_StageId, g_GameState, g_GameStep,
+           g_Entities[0].posX.i.hi,
+           g_Entities[0].posY.i.hi, g_Status.hp, g_Status.hpMax);
+    for (j = 0; j < 3 && best[j] >= 0; j++) {
+        printf(" [%d id=%02X step=%d hp=%d]", best[j],
+               g_Entities[best[j]].entityId, g_Entities[best[j]].step,
+               g_Entities[best[j]].hitPoints);
+    }
+    // SOTN_REPLAY_TRACE_SLOT=<entity index> always dumps that entity too
+    env = getenv("SOTN_REPLAY_TRACE_SLOT");
+    if (env && (i = atoi(env)) > 0 && i < LEN(g_Entities)) {
+        printf(" slot%d={id=%02X step=%d/%d hp=%d pos=(%d,%d) anim=%d}", i,
+               g_Entities[i].entityId, g_Entities[i].step,
+               g_Entities[i].step_s, g_Entities[i].hitPoints,
+               g_Entities[i].posX.i.hi, g_Entities[i].posY.i.hi,
+               g_Entities[i].animCurFrame);
+    }
+    printf("\n");
+    fflush(stdout);
+}
+
 static void ReplayFrameReal(void) {
+    ReplayTrace();
     Psyz_PadsSet(0, &replayPadFrames[(size_t)replayFrameCursor * PAD_BUF_LEN],
                  PAD_BUF_LEN);
 

@@ -571,7 +571,243 @@ void func_us_801A269C(Entity* self) {
 
 #include "e_minotaur.h"
 
+#ifndef NON_MATCHING
 INCLUDE_ASM("boss/bo2/nonmatchings/unk_224DC", func_us_801A3E04);
+#else
+// Attack patterns the fight controller cycles through. Each entry gives
+// the position (relative to the player) both bosses walk to before starting
+// the paired attack steps.
+typedef struct {
+    s32 minotaurPosX;
+    s32 minotaurStep;
+    s32 werewolfPosX;
+    s32 werewolfStep;
+} BossPattern;
+extern BossPattern D_us_80180AB4[];
+extern s32 D_us_80180B74;
+extern s32 g_CutsceneFlags;
+
+// Minotaur & Werewolf fight controller. The Werewolf is spawned right after
+// it and the Minotaur four slots after it. The current attack pattern index
+// is kept in ext.werewolf.moveAway.
+void func_us_801A3E04(Entity* self) {
+    Entity* minotaur;
+    Entity* werewolf;
+    Entity* entity;
+    Primitive* prim;
+    BossPattern* pattern;
+    s16 scrollX;
+    s16 scrollY;
+    s16 posY;
+    s32 primIndex;
+    u8 index;
+
+    scrollX = g_Tilemap.scrollX.i.hi;
+    scrollY = g_Tilemap.scrollY.i.hi;
+    werewolf = self + 1;
+    FntPrint("set_step %x\n", self->step);
+    minotaur = self + 4;
+    FntPrint("boss_go %x\n", D_us_80180AAC);
+    if (self->step >= 5 && self->step < 9 && werewolf->flags & FLAG_DEAD &&
+        minotaur->flags & FLAG_DEAD && self->step != 8) {
+        SetStep(8);
+    }
+    switch (self->step) {
+    case 0:
+        InitializeEntity(g_EInitInteractable);
+        primIndex = g_api.AllocPrimitives(PRIM_G4, 1);
+        if (primIndex == -1) {
+            self->step = 0;
+            return;
+        }
+        self->primIndex = primIndex;
+        prim = &g_PrimBuf[primIndex];
+        self->ext.werewolf.prim = prim;
+        self->flags |= FLAG_HAS_PRIMS;
+        prim->r0 = prim->g0 = prim->b0 = 0;
+        prim->x1 = prim->x3 = 0x100;
+        prim->y2 = prim->y3 = 0x100;
+        prim->priority = 0x1F0;
+        prim->x0 = prim->x2 = 0;
+        prim->y0 = prim->y1 = 0;
+        prim->drawMode = DRAW_HIDE;
+        LOW(prim->r1) = LOW(prim->r0);
+        LOW(prim->r2) = LOW(prim->r0);
+        LOW(prim->r3) = LOW(prim->r0);
+        self->ext.werewolf.moveAway = 0;
+        // fallthrough
+    case 1:
+        if (g_CastleFlags[RICHTER_CS_AFTER_M_AND_W] || g_PlayableCharacter ||
+            g_DemoMode != Demo_None) {
+            if (GetDistanceToPlayerX() < 0x10) {
+                D_us_80180B74 = 1;
+                stopMusicFlag = false;
+                currentMusicId = 0x31D;
+                g_api.PlaySfx(0x31D);
+                SetStep(2);
+                return;
+            }
+        } else if (g_CutsceneFlags & 0x10) {
+            SetStep(2);
+            return;
+        }
+        break;
+    case 2:
+        switch (self->step_s) {
+        case 0:
+            entity = &g_Entities[112];
+            CreateEntityFromCurrentEntity(E_UNK_28, entity);
+            posY = 0xD0 - scrollY;
+            entity->posX.i.hi = 0x150 - scrollX;
+            entity->posY.i.hi = posY;
+            entity->params = 0;
+            entity = &g_Entities[113];
+            CreateEntityFromCurrentEntity(E_UNK_28, entity);
+            entity->posX.i.hi = 0xA0 - scrollX;
+            entity->posY.i.hi = posY;
+            entity->params = 1;
+            self->ext.werewolf.timer = 0x80;
+            self->step_s++;
+            // fallthrough
+        case 1:
+            if (!--self->ext.werewolf.timer) {
+                SetStep(3);
+                return;
+            }
+            break;
+        }
+        break;
+    case 3:
+        CreateEntityFromCurrentEntity(E_MINOTAUR, minotaur);
+        CreateEntityFromCurrentEntity(E_WEREWOLF, werewolf);
+        minotaur->posX.i.hi = 0x160 - scrollX;
+        minotaur->posY.i.hi = 0xA8 - scrollY;
+        werewolf->posX.i.hi = 0xA0 - scrollX;
+        werewolf->posY.i.hi = 0xB5 - scrollY;
+        g_api.TimeAttackController(
+            TIMEATTACK_EVENT_MINOTAUR_WEREWOLF_DEFEAT, TIMEATTACK_SET_VISITED);
+        SetStep(4);
+        // fallthrough
+    case 4:
+        switch (self->step_s) {
+        case 0:
+            self->ext.werewolf.timer = 0x100;
+            self->step_s++;
+            // fallthrough
+        case 1:
+            if (--self->ext.werewolf.timer) {
+                return;
+            }
+            self->step_s++;
+            break;
+        case 2:
+            if (g_CastleFlags[RICHTER_CS_AFTER_M_AND_W] ||
+                g_PlayableCharacter || g_DemoMode != Demo_None) {
+                D_us_80180AAC = 1;
+            }
+            SetStep(5);
+            return;
+        }
+        break;
+    case 5:
+        pattern = &D_us_80180AB4[self->ext.werewolf.moveAway];
+        if (!(minotaur->flags & FLAG_DEAD)) {
+            minotaur->ext.minotaur.deathPuffPosX = pattern->minotaurPosX;
+            minotaur->ext.minotaur.nextStep = pattern->minotaurStep;
+        }
+        if (!(werewolf->flags & FLAG_DEAD)) {
+            werewolf->ext.minotaur.deathPuffPosX = pattern->werewolfPosX;
+            werewolf->ext.minotaur.nextStep = pattern->werewolfStep;
+        }
+        SetStep(6);
+        return;
+    case 6:
+        if (minotaur->ext.minotaur.isReady && werewolf->ext.minotaur.isReady) {
+            pattern = &D_us_80180AB4[self->ext.werewolf.moveAway];
+            if (pattern->werewolfStep == 0xE && pattern->minotaurStep == 0xC &&
+                abs(minotaur->posX.i.hi - werewolf->posX.i.hi) < 0x40) {
+                // too close to charge at each other: breath + flame spin
+                minotaur->ext.minotaur.nextStep = 0xB;
+                werewolf->ext.minotaur.nextStep = 0x18;
+            }
+            werewolf->ext.minotaur.hasNextStep = true;
+            minotaur->ext.minotaur.hasNextStep = true;
+            SetStep(7);
+            return;
+        }
+        break;
+    case 7:
+        index = self->ext.werewolf.moveAway;
+        self->ext.werewolf.moveAway = index + 1;
+        pattern = &D_us_80180AB4[self->ext.werewolf.moveAway];
+        if (pattern->werewolfStep == 0x18 &&
+            (minotaur->posX.i.hi - PLAYER.posX.i.hi) *
+                    (werewolf->posX.i.hi - PLAYER.posX.i.hi) <
+                0) {
+            // the player stands between both bosses
+            self->ext.werewolf.moveAway = index + 2;
+            pattern++;
+        }
+        if (pattern->minotaurPosX == -1) {
+            self->ext.werewolf.moveAway = 0;
+        }
+        SetStep(5);
+        return;
+    case 8:
+        switch (self->step_s) {
+        case 0:
+            g_api.PlaySfx(SET_UNK_92);
+            self->ext.werewolf.timer = 0x100;
+            g_api.TimeAttackController(
+                TIMEATTACK_EVENT_MINOTAUR_WEREWOLF_DEFEAT,
+                TIMEATTACK_SET_RECORD);
+            self->step_s++;
+            // fallthrough
+        case 1:
+            if (!--self->ext.werewolf.timer) {
+                self->step_s++;
+                if (!g_CastleFlags[RICHTER_CS_AFTER_M_AND_W] &&
+                    !g_PlayableCharacter && g_DemoMode == Demo_None) {
+                    CreateEntityFromCurrentEntity(
+                        E_CUTSCENE_DIALOGUE, &g_Entities[200]);
+                    g_Entities[200].params = 1;
+                    CreateEntityFromCurrentEntity(E_UNK_26, &g_Entities[96]);
+                    g_Entities[96].params = 1;
+                    return;
+                }
+                self->step_s++;
+            }
+            break;
+        case 2:
+            if (g_CutsceneFlags & 0x1000) {
+                self->step_s++;
+            }
+            break;
+        case 3:
+            entity = AllocEntity(&g_Entities[160], &g_Entities[192]);
+            if (entity != NULL) {
+                CreateEntityFromEntity(E_LIFE_UP_SPAWN, self, entity);
+                stopMusicFlag = true;
+                D_us_80180B74 = 0;
+                entity->posX.i.hi = 0x100 - g_Tilemap.scrollX.i.hi;
+                entity->params = 2;
+                entity->posY.i.hi = 0x80 - g_Tilemap.scrollY.i.hi;
+                currentMusicId = 0x323;
+                self->step_s++;
+            }
+            break;
+        case 4:
+            if (!g_api.func_80131F68()) {
+                stopMusicFlag = false;
+                g_api.PlaySfx(currentMusicId);
+                self->step_s++;
+            }
+            break;
+        }
+        break;
+    }
+}
+#endif
 
 void func_us_801A460C(Entity* self) {
     DRAWENV drawEnv;

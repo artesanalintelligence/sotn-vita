@@ -21,6 +21,22 @@ extern s32 D_us_801D4DF0;
 extern s32 D_us_801D4DF4;
 extern EInit g_EInitInteractable;
 
+#ifdef VERSION_PC
+// The door parts wake each other up through `ext.*.unk84`, but each part
+// reads it through its own ext layout. Those only line up when pointers are
+// 4 bytes wide, so write the flag through the layout the receiver uses.
+static void WakeUpDoorPart(Entity* entity) {
+    if (entity->entityId == E_ID(ID_19) || entity->entityId == E_ID(ID_1A)) {
+        entity->ext.et_801BE2C8.unk84 = 1;
+    } else {
+        entity->ext.et_801BDA0C.unk84 = 1;
+    }
+}
+#define WAKE_UP(entity, layout) WakeUpDoorPart(entity)
+#else
+#define WAKE_UP(entity, layout) (entity)->ext.layout.unk84 = 1
+#endif
+
 // hit during enter sequence
 void EntityUnkId18(Entity* self) {
     s32 i;
@@ -84,9 +100,9 @@ void EntityUnkId18(Entity* self) {
 
     case 3:
         entity = self + 1;
-        entity->ext.unkDoor.unk84 = 1;
+        WAKE_UP(entity, unkDoor);
         entity++;
-        entity->ext.unkDoor.unk84 = 1;
+        WAKE_UP(entity, unkDoor);
         self->step++;
         break;
 
@@ -261,7 +277,7 @@ void EntityUnkId17(Entity* self) {
                 self->palette = PAL_FLAG(0x4F);
                 self->step++;
                 if (self->params == 5) {
-                    (self + 1)->ext.et_801BDA0C.unk84 = 1;
+                    WAKE_UP(self + 1, et_801BDA0C);
                 }
             }
         }
@@ -288,10 +304,10 @@ void EntityUnkId17(Entity* self) {
         }
         self->ext.et_801BDA0C.unk80 += self->ext.et_801BDA0C.unk88;
         if (abs(self->ext.et_801BDA0C.unk80) > FIX(12)) {
-            (self + 2)->ext.et_801BDA0C.unk84 = 1;
+            WAKE_UP(self + 2, et_801BDA0C);
             self->step++;
             if (self->params == 5) {
-                (self + 1)->ext.et_801BDA0C.unk84 = 1;
+                WAKE_UP(self + 1, et_801BDA0C);
             }
         }
         tempEntity = self + 2;

@@ -67,6 +67,7 @@ static void printHelp(void) {
     printf("  --record <path>    record controller input to a file\n");
     printf("  --replay <path>    replay controller input from a file\n");
     printf("  --spawn-point <name>  start at a named spawn point\n");
+    printf("         room:<stage id>:<room>[:<x>:<y>]  start in any room\n");
     printf("  --replay-and-exit  quit automatically once the replay or demo "
            "ends\n");
     printf("  --replay-fast      disable frame limit during replay or demo\n");
@@ -185,4 +186,14 @@ int Main(int argc, char* argv[]) {
     return 0;
 }
 
-int main(int argc, char* argv[]) { return Main(argc, argv); }
+#ifdef __vita__
+// no command line on the Vita: arguments come from ux0:data/sotn/args.txt
+void Vita_LoadArgs(int* argc, char*** argv);
+#endif
+
+int main(int argc, char* argv[]) {
+#ifdef __vita__
+    Vita_LoadArgs(&argc, &argv);
+#endif
+    return Main(argc, argv);
+}

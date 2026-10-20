@@ -17,3 +17,4 @@ pygfxd
 pillow
 toml
 intervaltree==3.1.0
+numpy

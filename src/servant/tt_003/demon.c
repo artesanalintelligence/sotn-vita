@@ -11,11 +11,21 @@ static Entity* s_CurrentSwitch;
 static bool D_us_801786DC;
 static s32 s_LastTargetedEntityIndex;
 
-#include "demon_data.h"
+// TT_006 (Nose Devil) reuses this file with its own data tables
+#ifndef DEMON_DATA_H
+#define DEMON_DATA_H "demon_data.h"
+#endif
+#include DEMON_DATA_H
 
 #ifdef VERSION_PSP
 extern s16 D_092F2810[];
 #define buggyPtr D_092F2810
+#elif defined(DEMON_IDLE_SFX_TABLE)
+#define buggyPtr DEMON_IDLE_SFX_TABLE
+#elif defined(VERSION_PC)
+// g_Events is defined as static by shared_events.h at the end of this file
+static ServantEvent g_Events[];
+#define buggyPtr ((s16*)g_Events)
 #else
 extern ServantEvent g_Events[];
 #define buggyPtr ((s16*)g_Events)
@@ -1297,7 +1307,7 @@ void UpdateServantAdditionalInit(Entity* self) {
         rnd = rand() % 0x100;
         if (s_DemonStats.unk8 == true) {
             for (i = 0; true; i++) {
-                if (rnd <= g_SfxDemonIntroPrevSummoned[i * 2]) {
+                if (rnd <= (s32)g_SfxDemonIntroPrevSummoned[i * 2]) {
                     sfxEvent = (ServantSfxEventDesc*)
                         g_SfxDemonIntroPrevSummoned[i * 2 + 1];
                     break;
@@ -1305,7 +1315,7 @@ void UpdateServantAdditionalInit(Entity* self) {
             }
         } else {
             for (i = 0; true; i++) {
-                if (rnd <= g_SfxDemonIntroNewSummoned[i * 2]) {
+                if (rnd <= (s32)g_SfxDemonIntroNewSummoned[i * 2]) {
                     sfxEvent = (ServantSfxEventDesc*)
                         g_SfxDemonIntroNewSummoned[i * 2 + 1];
                     break;

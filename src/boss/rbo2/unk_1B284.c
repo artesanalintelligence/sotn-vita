@@ -2,6 +2,9 @@
 #include "rbo2.h"
 #include "sfx.h"
 
+#ifdef VERSION_PC
+#include "unk_1B284_pc.h"
+#else
 INCLUDE_ASM("boss/rbo2/nonmatchings/unk_1B284", EntityBreakable);
 
 INCLUDE_ASM("boss/rbo2/nonmatchings/unk_1B284", func_us_8019A98C_from_rcen);
@@ -48,6 +51,7 @@ INCLUDE_ASM("boss/rbo2/nonmatchings/unk_1B284", polarPlacePartsList);
 INCLUDE_ASM("boss/rbo2/nonmatchings/unk_1B284", func_us_8019D260_from_rcen);
 
 INCLUDE_ASM("boss/rbo2/nonmatchings/unk_1B284", func_us_8019F260);
+#endif
 
 extern EInit g_EInitInteractable;
 extern s32 g_BossMgrState;

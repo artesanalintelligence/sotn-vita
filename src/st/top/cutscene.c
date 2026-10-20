@@ -10,7 +10,11 @@ STATIC_PAD_BSS(0xC00);
 s32 g_SkipCutscene;
 Dialogue g_Dialogue;
 STATIC_PAD_BSS(0x68);
+#ifdef VERSION_PC
+u32 g_CutsceneFlags; // shared with post_richter_cutscene
+#else
 static u32 g_CutsceneFlags;
+#endif
 s32 D_us_801BC514;
 static s32 g_IsCutsceneDone;
 

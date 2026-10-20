@@ -17,7 +17,7 @@ extern AnimationFrame* D_A5000_8017AB20;
 extern s32 D_A5000_8017AB70[];
 
 extern u8 D_A5000_8017ABB0[];
-extern s32 D_A5000_8017AC50[];
+extern SVECTOR* D_A5000_8017AC50[];
 extern SVECTOR* D_A5000_8017AC90[];
 extern VECTOR D_A5000_8017ACD8;
 

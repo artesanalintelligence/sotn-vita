@@ -626,7 +626,7 @@ void EntityLesserDemonFireball(Entity* self) {
         prim->v0 = prim->v1 = 0x40;
         prim->v2 = prim->v3 = 0x5F;
         prim->x0 = self->posX.i.hi;
-#ifdef VERSION_PSP
+#if defined(VERSION_PSP) || defined(VERSION_PC)
         prim->x3 = prim->x0;
 #else
         prim->x3 = uninitializedPrim->x0;

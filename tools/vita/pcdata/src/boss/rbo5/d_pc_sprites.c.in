@@ -1,0 +1,1780 @@
+@@PCDATA-SOURCE 0 disks/us/BOSS/RBO5/RBO5.BIN 4794abe060a76673daeb8b039d59d1077ea81f4b
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only typed copy of the data that the PSX build still keeps as raw
+// assembly: the Doppleganger unarmed attack animations and the sprite frame
+// tables used to draw the Doppleganger and its sub-entities.
+#include "rbo5.h"
+
+extern u8 D_us_80184124[];
+extern u8 D_us_80184140[];
+extern u8 D_us_8018415C[];
+extern u8 D_us_80184178[];
+extern u8 D_us_80184190[];
+extern u8 D_us_801841A8[];
+extern u8 D_us_801841C0[];
+extern u8 D_us_80184224[];
+extern u8 D_us_80184238[];
+extern u8 D_us_8018424C[];
+extern u8 D_us_80184260[];
+extern u8 D_us_80184270[];
+extern u8 D_us_80184280[];
+extern u8 D_us_80184290[];
+extern void* D_us_801842CC[];
+extern void* D_us_801842E8[];
+
+u8 D_us_80184124[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4124 x2 4 12x2,4 1
+};
+u8 D_us_80184140[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4140 x2 4 12x2,4 1
+};
+u8 D_us_8018415C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 415C x2 4 12x2,4 1
+};
+u8 D_us_80184178[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4178 x2 4 12x2 1
+};
+u8 D_us_80184190[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4190 x2 4 12x2 1
+};
+u8 D_us_801841A8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 41A8 x2 4 12x2 1
+};
+u8 D_us_801841C0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 41C0 x2 4 12x8,4 1
+};
+u8 D_us_80184224[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4224 x2 4 12,8 1
+};
+u8 D_us_80184238[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4238 x2 4 12,8 1
+};
+u8 D_us_8018424C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 424C x2 4 12,8 1
+};
+u8 D_us_80184260[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4260 x2 4 12,4 1
+};
+u8 D_us_80184270[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4270 x2 4 12,4 1
+};
+u8 D_us_80184280[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4280 x2 4 12,4 1
+};
+u8 D_us_80184290[] __attribute__((aligned(4))) = {
+@@PCDATA 0 4290 x2 4 12x5 1
+};
+void* D_us_801842CC[] = {
+    D_us_80184124, D_us_80184124, D_us_80184140, D_us_8018415C, D_us_80184178,
+    D_us_80184190, D_us_801841A8,
+};
+void* D_us_801842E8[] = {
+    D_us_80184224, D_us_80184224, D_us_80184238, D_us_8018424C, D_us_80184260,
+    D_us_80184270, D_us_80184280,
+};
+
+DopWeaponAnimation D_us_80184304[] = {
+    {(AnimationFrame*)D_us_801842CC, (s8*)D_us_801841C0, 0x060B, 0x41, 0x04},
+    {(AnimationFrame*)D_us_801842E8, (s8*)D_us_80184290, 0x060B, 0xA7, 0x04},
+    {(AnimationFrame*)D_us_801842CC, (s8*)D_us_801841C0, 0x060B, 0x41, 0x04},
+};
+
+extern void* D_us_801B0B50[];
+extern u8 D_us_801B0F74[];
+extern u8 D_us_801B0F7C[];
+extern u8 D_us_801B0F84[];
+extern u8 D_us_801B0F8C[];
+extern u8 D_us_801B0F94[];
+extern u8 D_us_801B0F9C[];
+extern u8 D_us_801B0FA4[];
+extern u8 D_us_801B0FAC[];
+extern u8 D_us_801B0FB4[];
+extern u8 D_us_801B0FBC[];
+extern u8 D_us_801B0FC4[];
+extern u8 D_us_801B0FCC[];
+extern u8 D_us_801B0FD4[];
+extern u8 D_us_801B0FDC[];
+extern u8 D_us_801B0FE4[];
+extern u8 D_us_801B0FEC[];
+extern u8 D_us_801B0FF4[];
+extern u8 D_us_801B0FFC[];
+extern u8 D_us_801B1004[];
+extern u8 D_us_801B100C[];
+extern u8 D_us_801B1014[];
+extern u8 D_us_801B101C[];
+extern u8 D_us_801B1024[];
+extern u8 D_us_801B102C[];
+extern u8 D_us_801B1034[];
+extern u8 D_us_801B103C[];
+extern u8 D_us_801B1044[];
+extern u8 D_us_801B104C[];
+extern u8 D_us_801B1054[];
+extern u8 D_us_801B105C[];
+extern u8 D_us_801B1064[];
+extern u8 D_us_801B106C[];
+extern u8 D_us_801B1074[];
+extern u8 D_us_801B107C[];
+extern u8 D_us_801B1084[];
+extern u8 D_us_801B108C[];
+extern u8 D_us_801B1094[];
+extern u8 D_us_801B109C[];
+extern u8 D_us_801B10A4[];
+extern u8 D_us_801B10AC[];
+extern u8 D_us_801B10B4[];
+extern u8 D_us_801B10BC[];
+extern u8 D_us_801B10C4[];
+extern u8 D_us_801B10CC[];
+extern u8 D_us_801B10D4[];
+extern u8 D_us_801B10DC[];
+extern u8 D_us_801B10E4[];
+extern u8 D_us_801B10EC[];
+extern u8 D_us_801B10F4[];
+extern u8 D_us_801B10FC[];
+extern u8 D_us_801B1104[];
+extern u8 D_us_801B110C[];
+extern u8 D_us_801B1114[];
+extern u8 D_us_801B111C[];
+extern u8 D_us_801B1124[];
+extern u8 D_us_801B112C[];
+extern u8 D_us_801B1134[];
+extern u8 D_us_801B113C[];
+extern u8 D_us_801B1144[];
+extern u8 D_us_801B114C[];
+extern u8 D_us_801B1154[];
+extern u8 D_us_801B115C[];
+extern u8 D_us_801B1164[];
+extern u8 D_us_801B116C[];
+extern u8 D_us_801B1174[];
+extern u8 D_us_801B117C[];
+extern u8 D_us_801B1184[];
+extern u8 D_us_801B118C[];
+extern u8 D_us_801B1194[];
+extern u8 D_us_801B119C[];
+extern u8 D_us_801B11A4[];
+extern u8 D_us_801B11AC[];
+extern u8 D_us_801B11B4[];
+extern u8 D_us_801B11BC[];
+extern u8 D_us_801B11C4[];
+extern u8 D_us_801B11CC[];
+extern u8 D_us_801B11D4[];
+extern u8 D_us_801B11DC[];
+extern u8 D_us_801B11E4[];
+extern u8 D_us_801B11EC[];
+extern u8 D_us_801B11F4[];
+extern u8 D_us_801B11FC[];
+extern u8 D_us_801B1204[];
+extern u8 D_us_801B120C[];
+extern u8 D_us_801B1214[];
+extern u8 D_us_801B121C[];
+extern u8 D_us_801B1224[];
+extern u8 D_us_801B122C[];
+extern u8 D_us_801B1234[];
+extern u8 D_us_801B123C[];
+extern u8 D_us_801B1244[];
+extern u8 D_us_801B124C[];
+extern u8 D_us_801B1254[];
+extern u8 D_us_801B125C[];
+extern u8 D_us_801B1264[];
+extern u8 D_us_801B126C[];
+extern u8 D_us_801B1274[];
+extern u8 D_us_801B127C[];
+extern u8 D_us_801B1284[];
+extern u8 D_us_801B128C[];
+extern u8 D_us_801B1294[];
+extern u8 D_us_801B129C[];
+extern u8 D_us_801B12A4[];
+extern u8 D_us_801B12AC[];
+extern u8 D_us_801B12B4[];
+extern u8 D_us_801B12BC[];
+extern u8 D_us_801B12C4[];
+extern u8 D_us_801B12CC[];
+extern u8 D_us_801B12D4[];
+extern u8 D_us_801B12DC[];
+extern u8 D_us_801B12E4[];
+extern u8 D_us_801B12EC[];
+extern u8 D_us_801B12F4[];
+extern u8 D_us_801B12FC[];
+extern u8 D_us_801B1304[];
+extern u8 D_us_801B130C[];
+extern u8 D_us_801B1314[];
+extern u8 D_us_801B131C[];
+extern u8 D_us_801B1324[];
+extern u8 D_us_801B132C[];
+extern u8 D_us_801B1334[];
+extern u8 D_us_801B133C[];
+extern u8 D_us_801B1344[];
+extern u8 D_us_801B134C[];
+extern u8 D_us_801B1354[];
+extern u8 D_us_801B135C[];
+extern u8 D_us_801B1364[];
+extern u8 D_us_801B136C[];
+extern u8 D_us_801B1374[];
+extern u8 D_us_801B137C[];
+extern u8 D_us_801B1384[];
+extern u8 D_us_801B138C[];
+extern u8 D_us_801B1394[];
+extern u8 D_us_801B139C[];
+extern u8 D_us_801B13A4[];
+extern u8 D_us_801B13AC[];
+extern u8 D_us_801B13B4[];
+extern u8 D_us_801B13BC[];
+extern u8 D_us_801B13C4[];
+extern u8 D_us_801B13CC[];
+extern u8 D_us_801B13D4[];
+extern u8 D_us_801B13DC[];
+extern u8 D_us_801B13E4[];
+extern u8 D_us_801B13EC[];
+extern u8 D_us_801B13F4[];
+extern u8 D_us_801B13FC[];
+extern u8 D_us_801B1404[];
+extern u8 D_us_801B140C[];
+extern u8 D_us_801B1414[];
+extern u8 D_us_801B141C[];
+extern u8 D_us_801B1424[];
+extern u8 D_us_801B142C[];
+extern u8 D_us_801B1434[];
+extern u8 D_us_801B143C[];
+extern u8 D_us_801B1444[];
+extern u8 D_us_801B144C[];
+extern u8 D_us_801B1454[];
+extern u8 D_us_801B145C[];
+extern u8 D_us_801B1464[];
+extern u8 D_us_801B146C[];
+extern u8 D_us_801B1474[];
+extern u8 D_us_801B147C[];
+extern u8 D_us_801B1484[];
+extern u8 D_us_801B148C[];
+extern u8 D_us_801B1494[];
+extern u8 D_us_801B149C[];
+extern u8 D_us_801B14A4[];
+extern u8 D_us_801B14AC[];
+extern u8 D_us_801B14B4[];
+extern u8 D_us_801B14BC[];
+extern u8 D_us_801B14C4[];
+extern u8 D_us_801B14CC[];
+extern u8 D_us_801B14D4[];
+extern u8 D_us_801B14DC[];
+extern u8 D_us_801B14E4[];
+extern u8 D_us_801B14EC[];
+extern u8 D_us_801B14F4[];
+extern u8 D_us_801B14FC[];
+extern u8 D_us_801B1504[];
+extern u8 D_us_801B150C[];
+extern u8 D_us_801B1514[];
+extern u8 D_us_801B151C[];
+extern u8 D_us_801B1524[];
+extern u8 D_us_801B152C[];
+extern u8 D_us_801B1534[];
+extern u8 D_us_801B153C[];
+extern u8 D_us_801B1544[];
+extern u8 D_us_801B154C[];
+extern u8 D_us_801B1554[];
+extern u8 D_us_801B155C[];
+extern u8 D_us_801B1564[];
+extern u8 D_us_801B156C[];
+extern u8 D_us_801B1574[];
+extern u8 D_us_801B157C[];
+extern u8 D_us_801B1584[];
+extern u8 D_us_801B158C[];
+extern u8 D_us_801B1594[];
+extern u8 D_us_801B159C[];
+extern u8 D_us_801B15A4[];
+extern u8 D_us_801B15AC[];
+extern u8 D_us_801B15B4[];
+extern u8 D_us_801B15BC[];
+extern u8 D_us_801B15C4[];
+extern u8 D_us_801B15CC[];
+extern u8 D_us_801B15D4[];
+extern u8 D_us_801B15DC[];
+extern u8 D_us_801B15E4[];
+extern u8 D_us_801B15EC[];
+extern u8 D_us_801B15F4[];
+extern u8 D_us_801B15FC[];
+extern u8 D_us_801B1604[];
+extern u8 D_us_801B160C[];
+extern u8 D_us_801B1614[];
+extern u8 D_us_801B161C[];
+extern u8 D_us_801B1624[];
+extern u8 D_us_801B162C[];
+extern u8 D_us_801B1634[];
+extern u8 D_us_801B163C[];
+extern u8 D_us_801B1644[];
+extern u8 D_us_801B164C[];
+extern u8 D_us_801B1654[];
+extern u8 D_us_801B165C[];
+extern u8 D_us_801B1664[];
+extern u8 D_us_801B166C[];
+extern void* D_us_801B1674[];
+extern u8 D_us_801B16BC[];
+extern u8 D_us_801B16C4[];
+extern u8 D_us_801B16CC[];
+extern u8 D_us_801B16D4[];
+extern u8 D_us_801B16DC[];
+extern u8 D_us_801B16E4[];
+extern u8 D_us_801B16EC[];
+extern u8 D_us_801B16F4[];
+extern u8 D_us_801B16FC[];
+extern u8 D_us_801B1704[];
+extern u8 D_us_801B170C[];
+extern u8 D_us_801B1714[];
+extern u8 D_us_801B171C[];
+extern u8 D_us_801B1724[];
+extern u8 D_us_801B172C[];
+extern u8 D_us_801B1734[];
+extern void* D_us_801B173C[];
+extern u8 D_us_801B1880[];
+extern u8 D_us_801B189C[];
+extern u8 D_us_801B18B8[];
+extern u8 D_us_801B18D4[];
+extern u8 D_us_801B18F0[];
+extern u8 D_us_801B190C[];
+extern u8 D_us_801B1928[];
+extern u8 D_us_801B1944[];
+extern u8 D_us_801B1960[];
+extern u8 D_us_801B197C[];
+extern u8 D_us_801B1998[];
+extern u8 D_us_801B19B4[];
+extern u8 D_us_801B19D0[];
+extern u8 D_us_801B19EC[];
+extern u8 D_us_801B1A08[];
+extern u8 D_us_801B1A24[];
+extern u8 D_us_801B1A40[];
+extern u8 D_us_801B1A5C[];
+extern u8 D_us_801B1A78[];
+extern u8 D_us_801B1A94[];
+extern u8 D_us_801B1AB0[];
+extern u8 D_us_801B1ACC[];
+extern u8 D_us_801B1AE8[];
+extern u8 D_us_801B1B04[];
+extern u8 D_us_801B1B20[];
+extern u8 D_us_801B1B3C[];
+extern u8 D_us_801B1B58[];
+extern u8 D_us_801B1B74[];
+extern u8 D_us_801B1B90[];
+extern u8 D_us_801B1BAC[];
+extern u8 D_us_801B1BC8[];
+extern u8 D_us_801B1BE4[];
+extern u8 D_us_801B1C00[];
+extern u8 D_us_801B1C1C[];
+extern u8 D_us_801B1C38[];
+extern u8 D_us_801B1C54[];
+extern u8 D_us_801B1C70[];
+extern u8 D_us_801B1C8C[];
+extern u8 D_us_801B1CA8[];
+extern u8 D_us_801B1CC4[];
+extern u8 D_us_801B1CE0[];
+extern u8 D_us_801B1CFC[];
+extern u8 D_us_801B1D18[];
+extern u8 D_us_801B1D34[];
+extern u8 D_us_801B1D50[];
+extern u8 D_us_801B1D6C[];
+extern u8 D_us_801B1D88[];
+extern u8 D_us_801B1DA4[];
+extern u8 D_us_801B1DC0[];
+extern u8 D_us_801B1DDC[];
+extern u8 D_us_801B1DF8[];
+extern u8 D_us_801B1E14[];
+extern u8 D_us_801B1E30[];
+extern u8 D_us_801B1E4C[];
+extern u8 D_us_801B1E68[];
+extern u8 D_us_801B1E84[];
+extern u8 D_us_801B1EA0[];
+extern u8 D_us_801B1EBC[];
+extern u8 D_us_801B1ED8[];
+extern u8 D_us_801B1EF4[];
+extern u8 D_us_801B1F10[];
+extern u8 D_us_801B1F2C[];
+extern u8 D_us_801B1F48[];
+extern u8 D_us_801B1F64[];
+extern u8 D_us_801B1F80[];
+extern u8 D_us_801B1F9C[];
+extern u8 D_us_801B1FB8[];
+extern u8 D_us_801B1FD4[];
+extern u8 D_us_801B1FF0[];
+extern u8 D_us_801B200C[];
+extern u8 D_us_801B2028[];
+extern u8 D_us_801B2044[];
+extern u8 D_us_801B2060[];
+extern u8 D_us_801B207C[];
+extern u8 D_us_801B2098[];
+extern u8 D_us_801B20B4[];
+extern u8 D_us_801B20D0[];
+extern u8 D_us_801B20EC[];
+extern u8 D_us_801B2108[];
+extern u8 D_us_801B2124[];
+extern void* D_us_801B2140[];
+extern u8 D_us_801B21DC[];
+extern u8 D_us_801B21F8[];
+extern u8 D_us_801B2214[];
+extern u8 D_us_801B2230[];
+extern u8 D_us_801B224C[];
+extern u8 D_us_801B2268[];
+extern u8 D_us_801B2284[];
+extern u8 D_us_801B22A0[];
+extern u8 D_us_801B22BC[];
+extern u8 D_us_801B22D8[];
+extern u8 D_us_801B22F4[];
+extern u8 D_us_801B2310[];
+extern u8 D_us_801B232C[];
+extern u8 D_us_801B2348[];
+extern u8 D_us_801B2364[];
+extern u8 D_us_801B2380[];
+extern u8 D_us_801B239C[];
+extern u8 D_us_801B23B8[];
+extern u8 D_us_801B23D4[];
+extern u8 D_us_801B23F0[];
+extern u8 D_us_801B240C[];
+extern u8 D_us_801B2428[];
+extern u8 D_us_801B2444[];
+extern u8 D_us_801B2460[];
+extern u8 D_us_801B247C[];
+extern u8 D_us_801B2498[];
+extern u8 D_us_801B24B4[];
+extern u8 D_us_801B24D0[];
+extern u8 D_us_801B24EC[];
+extern u8 D_us_801B2508[];
+extern u8 D_us_801B2524[];
+extern u8 D_us_801B2540[];
+extern u8 D_us_801B255C[];
+extern u8 D_us_801B2578[];
+extern u8 D_us_801B2594[];
+extern u8 D_us_801B25B0[];
+extern u8 D_us_801B25CC[];
+extern u8 D_us_801B25E8[];
+extern void* D_us_801B2604[];
+extern u8 D_us_801B26BC[];
+extern u8 D_us_801B26D8[];
+extern u8 D_us_801B26F4[];
+extern u8 D_us_801B2710[];
+extern u8 D_us_801B2740[];
+extern u8 D_us_801B275C[];
+extern u8 D_us_801B2778[];
+extern u8 D_us_801B2794[];
+extern u8 D_us_801B27B0[];
+extern u8 D_us_801B27CC[];
+extern u8 D_us_801B27E8[];
+extern u8 D_us_801B2804[];
+extern u8 D_us_801B2820[];
+extern u8 D_us_801B283C[];
+extern u8 D_us_801B2858[];
+extern u8 D_us_801B2874[];
+extern u8 D_us_801B2890[];
+extern u8 D_us_801B28AC[];
+extern u8 D_us_801B28C8[];
+extern u8 D_us_801B28E4[];
+extern u8 D_us_801B2900[];
+extern u8 D_us_801B291C[];
+extern u8 D_us_801B2938[];
+extern u8 D_us_801B2954[];
+extern u8 D_us_801B2970[];
+extern u8 D_us_801B298C[];
+extern u8 D_us_801B29A8[];
+extern u8 D_us_801B29C4[];
+extern u8 D_us_801B29E0[];
+extern u8 D_us_801B29FC[];
+extern u8 D_us_801B2A18[];
+extern u8 D_us_801B2A34[];
+extern u8 D_us_801B2A50[];
+extern u8 D_us_801B2A6C[];
+extern u8 D_us_801B2A88[];
+extern u8 D_us_801B2AB8[];
+extern u8 D_us_801B2B00[];
+extern u8 D_us_801B2B1C[];
+extern u8 D_us_801B2B38[];
+extern u8 D_us_801B2B54[];
+
+void* D_us_801B0B50[] = {
+    NULL, D_us_801B0F74, D_us_801B0F7C, D_us_801B0F84, D_us_801B0F8C,
+    D_us_801B0F94, D_us_801B0F9C, D_us_801B0FA4, D_us_801B0FAC, D_us_801B0FB4,
+    D_us_801B0FBC, D_us_801B0FC4, D_us_801B0FCC, D_us_801B0FD4, D_us_801B0FDC,
+    D_us_801B0FE4, D_us_801B0FEC, D_us_801B0FF4, D_us_801B0FFC, D_us_801B1004,
+    D_us_801B100C, D_us_801B1014, D_us_801B101C, D_us_801B1024, D_us_801B102C,
+    D_us_801B1034, D_us_801B103C, D_us_801B1044, D_us_801B104C, D_us_801B1054,
+    D_us_801B105C, D_us_801B1064, D_us_801B106C, D_us_801B1074, D_us_801B107C,
+    D_us_801B1084, D_us_801B108C, D_us_801B1094, D_us_801B109C, D_us_801B10A4,
+    D_us_801B10AC, D_us_801B10B4, D_us_801B10BC, D_us_801B10C4, D_us_801B10CC,
+    D_us_801B10D4, D_us_801B10DC, D_us_801B10E4, D_us_801B10EC, D_us_801B10F4,
+    D_us_801B10FC, D_us_801B1104, D_us_801B110C, D_us_801B1114, D_us_801B111C,
+    D_us_801B1124, D_us_801B112C, D_us_801B1134, D_us_801B113C, D_us_801B1144,
+    D_us_801B114C, D_us_801B1154, D_us_801B115C, D_us_801B1164, D_us_801B116C,
+    D_us_801B1174, D_us_801B117C, D_us_801B1184, D_us_801B118C, D_us_801B1194,
+    D_us_801B119C, D_us_801B11A4, D_us_801B11AC, D_us_801B11B4, D_us_801B11BC,
+    D_us_801B11C4, D_us_801B11CC, D_us_801B11D4, D_us_801B11DC, D_us_801B11E4,
+    D_us_801B11EC, D_us_801B11F4, D_us_801B11FC, D_us_801B1204, D_us_801B120C,
+    D_us_801B1214, D_us_801B121C, D_us_801B1224, D_us_801B122C, D_us_801B1234,
+    D_us_801B123C, D_us_801B1244, D_us_801B124C, D_us_801B1254, D_us_801B125C,
+    D_us_801B1264, D_us_801B126C, D_us_801B1274, D_us_801B127C, D_us_801B1284,
+    D_us_801B128C, D_us_801B1294, D_us_801B129C, D_us_801B12A4, D_us_801B12AC,
+    D_us_801B12B4, D_us_801B12BC, D_us_801B12C4, D_us_801B12CC, D_us_801B12D4,
+    D_us_801B12DC, D_us_801B12E4, D_us_801B12EC, D_us_801B12F4, D_us_801B12FC,
+    D_us_801B1304, D_us_801B130C, D_us_801B1314, D_us_801B131C, D_us_801B1324,
+    D_us_801B132C, D_us_801B1334, D_us_801B133C, D_us_801B1344, D_us_801B134C,
+    D_us_801B1354, D_us_801B135C, D_us_801B1364, D_us_801B136C, D_us_801B1374,
+    D_us_801B137C, D_us_801B1384, D_us_801B138C, D_us_801B1394, D_us_801B139C,
+    D_us_801B13A4, D_us_801B13AC, D_us_801B13B4, D_us_801B13BC, D_us_801B13C4,
+    D_us_801B13CC, D_us_801B13D4, D_us_801B13DC, D_us_801B13E4, D_us_801B13EC,
+    D_us_801B13F4, D_us_801B13FC, D_us_801B1404, D_us_801B140C, D_us_801B1414,
+    D_us_801B141C, D_us_801B1424, D_us_801B142C, D_us_801B1434, D_us_801B143C,
+    D_us_801B1444, D_us_801B144C, D_us_801B1454, D_us_801B145C, D_us_801B1464,
+    D_us_801B146C, D_us_801B1474, D_us_801B147C, D_us_801B1484, D_us_801B148C,
+    D_us_801B1494, D_us_801B149C, D_us_801B14A4, D_us_801B14AC, D_us_801B14B4,
+    D_us_801B14BC, D_us_801B14C4, D_us_801B14CC, D_us_801B14D4, D_us_801B14DC,
+    D_us_801B14E4, D_us_801B14EC, D_us_801B14F4, D_us_801B14FC, D_us_801B1504,
+    D_us_801B150C, D_us_801B1514, D_us_801B151C, D_us_801B1524, D_us_801B152C,
+    D_us_801B1534, D_us_801B153C, D_us_801B1544, D_us_801B154C, D_us_801B1554,
+    D_us_801B155C, D_us_801B1564, D_us_801B156C, D_us_801B1574, D_us_801B157C,
+    D_us_801B1584, D_us_801B158C, D_us_801B1594, D_us_801B159C, D_us_801B15A4,
+    D_us_801B15AC, D_us_801B15B4, D_us_801B15BC, D_us_801B15C4, D_us_801B15CC,
+    D_us_801B15D4, D_us_801B15DC, D_us_801B15E4, D_us_801B15EC, D_us_801B15F4,
+    D_us_801B15FC, D_us_801B1604, D_us_801B160C, D_us_801B1614, D_us_801B161C,
+    D_us_801B1624, D_us_801B162C, D_us_801B1634, D_us_801B163C, D_us_801B1644,
+    D_us_801B164C, D_us_801B1654, D_us_801B165C, D_us_801B1664, D_us_801B166C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C,
+    D_us_801B163C, D_us_801B163C, D_us_801B163C, D_us_801B163C, NULL,
+};
+u8 D_us_801B0F74[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30F74 x2 4 8 1
+};
+u8 D_us_801B0F7C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30F7C x2 4 8 1
+};
+u8 D_us_801B0F84[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30F84 x2 4 8 1
+};
+u8 D_us_801B0F8C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30F8C x2 4 8 1
+};
+u8 D_us_801B0F94[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30F94 x2 4 8 1
+};
+u8 D_us_801B0F9C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30F9C x2 4 8 1
+};
+u8 D_us_801B0FA4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FA4 x2 4 8 1
+};
+u8 D_us_801B0FAC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FAC x2 4 8 1
+};
+u8 D_us_801B0FB4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FB4 x2 4 8 1
+};
+u8 D_us_801B0FBC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FBC x2 4 8 1
+};
+u8 D_us_801B0FC4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FC4 x2 4 8 1
+};
+u8 D_us_801B0FCC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FCC x2 4 8 1
+};
+u8 D_us_801B0FD4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FD4 x2 4 8 1
+};
+u8 D_us_801B0FDC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FDC x2 4 8 1
+};
+u8 D_us_801B0FE4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FE4 x2 4 8 1
+};
+u8 D_us_801B0FEC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FEC x2 4 8 1
+};
+u8 D_us_801B0FF4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FF4 x2 4 8 1
+};
+u8 D_us_801B0FFC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 30FFC x2 4 8 1
+};
+u8 D_us_801B1004[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31004 x2 4 8 1
+};
+u8 D_us_801B100C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3100C x2 4 8 1
+};
+u8 D_us_801B1014[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31014 x2 4 8 1
+};
+u8 D_us_801B101C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3101C x2 4 8 1
+};
+u8 D_us_801B1024[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31024 x2 4 8 1
+};
+u8 D_us_801B102C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3102C x2 4 8 1
+};
+u8 D_us_801B1034[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31034 x2 4 8 1
+};
+u8 D_us_801B103C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3103C x2 4 8 1
+};
+u8 D_us_801B1044[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31044 x2 4 8 1
+};
+u8 D_us_801B104C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3104C x2 4 8 1
+};
+u8 D_us_801B1054[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31054 x2 4 8 1
+};
+u8 D_us_801B105C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3105C x2 4 8 1
+};
+u8 D_us_801B1064[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31064 x2 4 8 1
+};
+u8 D_us_801B106C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3106C x2 4 8 1
+};
+u8 D_us_801B1074[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31074 x2 4 8 1
+};
+u8 D_us_801B107C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3107C x2 4 8 1
+};
+u8 D_us_801B1084[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31084 x2 4 8 1
+};
+u8 D_us_801B108C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3108C x2 4 8 1
+};
+u8 D_us_801B1094[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31094 x2 4 8 1
+};
+u8 D_us_801B109C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3109C x2 4 8 1
+};
+u8 D_us_801B10A4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310A4 x2 4 8 1
+};
+u8 D_us_801B10AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310AC x2 4 8 1
+};
+u8 D_us_801B10B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310B4 x2 4 8 1
+};
+u8 D_us_801B10BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310BC x2 4 8 1
+};
+u8 D_us_801B10C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310C4 x2 4 8 1
+};
+u8 D_us_801B10CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310CC x2 4 8 1
+};
+u8 D_us_801B10D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310D4 x2 4 8 1
+};
+u8 D_us_801B10DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310DC x2 4 8 1
+};
+u8 D_us_801B10E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310E4 x2 4 8 1
+};
+u8 D_us_801B10EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310EC x2 4 8 1
+};
+u8 D_us_801B10F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310F4 x2 4 8 1
+};
+u8 D_us_801B10FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 310FC x2 4 8 1
+};
+u8 D_us_801B1104[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31104 x2 4 8 1
+};
+u8 D_us_801B110C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3110C x2 4 8 1
+};
+u8 D_us_801B1114[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31114 x2 4 8 1
+};
+u8 D_us_801B111C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3111C x2 4 8 1
+};
+u8 D_us_801B1124[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31124 x2 4 8 1
+};
+u8 D_us_801B112C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3112C x2 4 8 1
+};
+u8 D_us_801B1134[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31134 x2 4 8 1
+};
+u8 D_us_801B113C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3113C x2 4 8 1
+};
+u8 D_us_801B1144[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31144 x2 4 8 1
+};
+u8 D_us_801B114C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3114C x2 4 8 1
+};
+u8 D_us_801B1154[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31154 x2 4 8 1
+};
+u8 D_us_801B115C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3115C x2 4 8 1
+};
+u8 D_us_801B1164[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31164 x2 4 8 1
+};
+u8 D_us_801B116C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3116C x2 4 8 1
+};
+u8 D_us_801B1174[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31174 x2 4 8 1
+};
+u8 D_us_801B117C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3117C x2 4 8 1
+};
+u8 D_us_801B1184[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31184 x2 4 8 1
+};
+u8 D_us_801B118C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3118C x2 4 8 1
+};
+u8 D_us_801B1194[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31194 x2 4 8 1
+};
+u8 D_us_801B119C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3119C x2 4 8 1
+};
+u8 D_us_801B11A4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311A4 x2 4 8 1
+};
+u8 D_us_801B11AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311AC x2 4 8 1
+};
+u8 D_us_801B11B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311B4 x2 4 8 1
+};
+u8 D_us_801B11BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311BC x2 4 8 1
+};
+u8 D_us_801B11C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311C4 x2 4 8 1
+};
+u8 D_us_801B11CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311CC x2 4 8 1
+};
+u8 D_us_801B11D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311D4 x2 4 8 1
+};
+u8 D_us_801B11DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311DC x2 4 8 1
+};
+u8 D_us_801B11E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311E4 x2 4 8 1
+};
+u8 D_us_801B11EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311EC x2 4 8 1
+};
+u8 D_us_801B11F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311F4 x2 4 8 1
+};
+u8 D_us_801B11FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 311FC x2 4 8 1
+};
+u8 D_us_801B1204[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31204 x2 4 8 1
+};
+u8 D_us_801B120C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3120C x2 4 8 1
+};
+u8 D_us_801B1214[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31214 x2 4 8 1
+};
+u8 D_us_801B121C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3121C x2 4 8 1
+};
+u8 D_us_801B1224[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31224 x2 4 8 1
+};
+u8 D_us_801B122C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3122C x2 4 8 1
+};
+u8 D_us_801B1234[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31234 x2 4 8 1
+};
+u8 D_us_801B123C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3123C x2 4 8 1
+};
+u8 D_us_801B1244[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31244 x2 4 8 1
+};
+u8 D_us_801B124C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3124C x2 4 8 1
+};
+u8 D_us_801B1254[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31254 x2 4 8 1
+};
+u8 D_us_801B125C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3125C x2 4 8 1
+};
+u8 D_us_801B1264[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31264 x2 4 8 1
+};
+u8 D_us_801B126C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3126C x2 4 8 1
+};
+u8 D_us_801B1274[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31274 x2 4 8 1
+};
+u8 D_us_801B127C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3127C x2 4 8 1
+};
+u8 D_us_801B1284[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31284 x2 4 8 1
+};
+u8 D_us_801B128C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3128C x2 4 8 1
+};
+u8 D_us_801B1294[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31294 x2 4 8 1
+};
+u8 D_us_801B129C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3129C x2 4 8 1
+};
+u8 D_us_801B12A4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312A4 x2 4 8 1
+};
+u8 D_us_801B12AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312AC x2 4 8 1
+};
+u8 D_us_801B12B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312B4 x2 4 8 1
+};
+u8 D_us_801B12BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312BC x2 4 8 1
+};
+u8 D_us_801B12C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312C4 x2 4 8 1
+};
+u8 D_us_801B12CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312CC x2 4 8 1
+};
+u8 D_us_801B12D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312D4 x2 4 8 1
+};
+u8 D_us_801B12DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312DC x2 4 8 1
+};
+u8 D_us_801B12E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312E4 x2 4 8 1
+};
+u8 D_us_801B12EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312EC x2 4 8 1
+};
+u8 D_us_801B12F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312F4 x2 4 8 1
+};
+u8 D_us_801B12FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 312FC x2 4 8 1
+};
+u8 D_us_801B1304[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31304 x2 4 8 1
+};
+u8 D_us_801B130C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3130C x2 4 8 1
+};
+u8 D_us_801B1314[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31314 x2 4 8 1
+};
+u8 D_us_801B131C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3131C x2 4 8 1
+};
+u8 D_us_801B1324[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31324 x2 4 8 1
+};
+u8 D_us_801B132C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3132C x2 4 8 1
+};
+u8 D_us_801B1334[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31334 x2 4 8 1
+};
+u8 D_us_801B133C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3133C x2 4 8 1
+};
+u8 D_us_801B1344[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31344 x2 4 8 1
+};
+u8 D_us_801B134C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3134C x2 4 8 1
+};
+u8 D_us_801B1354[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31354 x2 4 8 1
+};
+u8 D_us_801B135C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3135C x2 4 8 1
+};
+u8 D_us_801B1364[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31364 x2 4 8 1
+};
+u8 D_us_801B136C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3136C x2 4 8 1
+};
+u8 D_us_801B1374[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31374 x2 4 8 1
+};
+u8 D_us_801B137C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3137C x2 4 8 1
+};
+u8 D_us_801B1384[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31384 x2 4 8 1
+};
+u8 D_us_801B138C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3138C x2 4 8 1
+};
+u8 D_us_801B1394[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31394 x2 4 8 1
+};
+u8 D_us_801B139C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3139C x2 4 8 1
+};
+u8 D_us_801B13A4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313A4 x2 4 8 1
+};
+u8 D_us_801B13AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313AC x2 4 8 1
+};
+u8 D_us_801B13B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313B4 x2 4 8 1
+};
+u8 D_us_801B13BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313BC x2 4 8 1
+};
+u8 D_us_801B13C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313C4 x2 4 8 1
+};
+u8 D_us_801B13CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313CC x2 4 8 1
+};
+u8 D_us_801B13D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313D4 x2 4 8 1
+};
+u8 D_us_801B13DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313DC x2 4 8 1
+};
+u8 D_us_801B13E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313E4 x2 4 8 1
+};
+u8 D_us_801B13EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313EC x2 4 8 1
+};
+u8 D_us_801B13F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313F4 x2 4 8 1
+};
+u8 D_us_801B13FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 313FC x2 4 8 1
+};
+u8 D_us_801B1404[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31404 x2 4 8 1
+};
+u8 D_us_801B140C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3140C x2 4 8 1
+};
+u8 D_us_801B1414[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31414 x2 4 8 1
+};
+u8 D_us_801B141C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3141C x2 4 8 1
+};
+u8 D_us_801B1424[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31424 x2 4 8 1
+};
+u8 D_us_801B142C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3142C x2 4 8 1
+};
+u8 D_us_801B1434[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31434 x2 4 8 1
+};
+u8 D_us_801B143C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3143C x2 4 8 1
+};
+u8 D_us_801B1444[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31444 x2 4 8 1
+};
+u8 D_us_801B144C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3144C x2 4 8 1
+};
+u8 D_us_801B1454[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31454 x2 4 8 1
+};
+u8 D_us_801B145C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3145C x2 4 8 1
+};
+u8 D_us_801B1464[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31464 x2 4 8 1
+};
+u8 D_us_801B146C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3146C x2 4 8 1
+};
+u8 D_us_801B1474[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31474 x2 4 8 1
+};
+u8 D_us_801B147C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3147C x2 4 8 1
+};
+u8 D_us_801B1484[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31484 x2 4 8 1
+};
+u8 D_us_801B148C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3148C x2 4 8 1
+};
+u8 D_us_801B1494[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31494 x2 4 8 1
+};
+u8 D_us_801B149C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3149C x2 4 8 1
+};
+u8 D_us_801B14A4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314A4 x2 4 8 1
+};
+u8 D_us_801B14AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314AC x2 4 8 1
+};
+u8 D_us_801B14B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314B4 x2 4 8 1
+};
+u8 D_us_801B14BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314BC x2 4 8 1
+};
+u8 D_us_801B14C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314C4 x2 4 8 1
+};
+u8 D_us_801B14CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314CC x2 4 8 1
+};
+u8 D_us_801B14D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314D4 x2 4 8 1
+};
+u8 D_us_801B14DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314DC x2 4 8 1
+};
+u8 D_us_801B14E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314E4 x2 4 8 1
+};
+u8 D_us_801B14EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314EC x2 4 8 1
+};
+u8 D_us_801B14F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314F4 x2 4 8 1
+};
+u8 D_us_801B14FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 314FC x2 4 8 1
+};
+u8 D_us_801B1504[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31504 x2 4 8 1
+};
+u8 D_us_801B150C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3150C x2 4 8 1
+};
+u8 D_us_801B1514[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31514 x2 4 8 1
+};
+u8 D_us_801B151C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3151C x2 4 8 1
+};
+u8 D_us_801B1524[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31524 x2 4 8 1
+};
+u8 D_us_801B152C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3152C x2 4 8 1
+};
+u8 D_us_801B1534[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31534 x2 4 8 1
+};
+u8 D_us_801B153C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3153C x2 4 8 1
+};
+u8 D_us_801B1544[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31544 x2 4 8 1
+};
+u8 D_us_801B154C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3154C x2 4 8 1
+};
+u8 D_us_801B1554[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31554 x2 4 8 1
+};
+u8 D_us_801B155C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3155C x2 4 8 1
+};
+u8 D_us_801B1564[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31564 x2 4 8 1
+};
+u8 D_us_801B156C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3156C x2 4 8 1
+};
+u8 D_us_801B1574[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31574 x2 4 8 1
+};
+u8 D_us_801B157C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3157C x2 4 8 1
+};
+u8 D_us_801B1584[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31584 x2 4 8 1
+};
+u8 D_us_801B158C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3158C x2 4 8 1
+};
+u8 D_us_801B1594[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31594 x2 4 8 1
+};
+u8 D_us_801B159C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3159C x2 4 8 1
+};
+u8 D_us_801B15A4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315A4 x2 4 8 1
+};
+u8 D_us_801B15AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315AC x2 4 8 1
+};
+u8 D_us_801B15B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315B4 x2 4 8 1
+};
+u8 D_us_801B15BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315BC x2 4 8 1
+};
+u8 D_us_801B15C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315C4 x2 4 8 1
+};
+u8 D_us_801B15CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315CC x2 4 8 1
+};
+u8 D_us_801B15D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315D4 x2 4 8 1
+};
+u8 D_us_801B15DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315DC x2 4 8 1
+};
+u8 D_us_801B15E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315E4 x2 4 8 1
+};
+u8 D_us_801B15EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315EC x2 4 8 1
+};
+u8 D_us_801B15F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315F4 x2 4 8 1
+};
+u8 D_us_801B15FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 315FC x2 4 8 1
+};
+u8 D_us_801B1604[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31604 x2 4 8 1
+};
+u8 D_us_801B160C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3160C x2 4 8 1
+};
+u8 D_us_801B1614[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31614 x2 4 8 1
+};
+u8 D_us_801B161C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3161C x2 4 8 1
+};
+u8 D_us_801B1624[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31624 x2 4 8 1
+};
+u8 D_us_801B162C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3162C x2 4 8 1
+};
+u8 D_us_801B1634[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31634 x2 4 8 1
+};
+u8 D_us_801B163C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3163C x2 4 8 1
+};
+u8 D_us_801B1644[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31644 x2 4 8 1
+};
+u8 D_us_801B164C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3164C x2 4 8 1
+};
+u8 D_us_801B1654[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31654 x2 4 8 1
+};
+u8 D_us_801B165C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3165C x2 4 8 1
+};
+u8 D_us_801B1664[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31664 x2 4 8 1
+};
+u8 D_us_801B166C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3166C x2 4 8 1
+};
+void* D_us_801B1674[] = {
+    NULL, D_us_801B16BC, D_us_801B16C4, D_us_801B16CC, D_us_801B16D4,
+    D_us_801B16DC, D_us_801B16E4, D_us_801B16EC, D_us_801B16F4, D_us_801B16FC,
+    D_us_801B1704, D_us_801B170C, D_us_801B1714, D_us_801B171C, D_us_801B1724,
+    D_us_801B172C, D_us_801B1734, NULL,
+};
+u8 D_us_801B16BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316BC x2 4 8 1
+};
+u8 D_us_801B16C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316C4 x2 4 8 1
+};
+u8 D_us_801B16CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316CC x2 4 8 1
+};
+u8 D_us_801B16D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316D4 x2 4 8 1
+};
+u8 D_us_801B16DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316DC x2 4 8 1
+};
+u8 D_us_801B16E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316E4 x2 4 8 1
+};
+u8 D_us_801B16EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316EC x2 4 8 1
+};
+u8 D_us_801B16F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316F4 x2 4 8 1
+};
+u8 D_us_801B16FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 316FC x2 4 8 1
+};
+u8 D_us_801B1704[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31704 x2 4 8 1
+};
+u8 D_us_801B170C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3170C x2 4 8 1
+};
+u8 D_us_801B1714[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31714 x2 4 8 1
+};
+u8 D_us_801B171C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3171C x2 4 8 1
+};
+u8 D_us_801B1724[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31724 x2 4 8 1
+};
+u8 D_us_801B172C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3172C x2 4 8 1
+};
+u8 D_us_801B1734[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31734 x2 4 8 1
+};
+void* D_us_801B173C[] = {
+    NULL, D_us_801B1880, D_us_801B189C, D_us_801B18B8, D_us_801B18D4,
+    D_us_801B18F0, D_us_801B190C, D_us_801B1928, D_us_801B1944, D_us_801B1960,
+    D_us_801B197C, D_us_801B1998, D_us_801B19B4, D_us_801B19D0, D_us_801B19EC,
+    D_us_801B1A08, D_us_801B1A24, D_us_801B1A40, D_us_801B1A5C, D_us_801B1A78,
+    D_us_801B1A94, D_us_801B1AB0, D_us_801B1ACC, D_us_801B1AE8, D_us_801B1B04,
+    D_us_801B1B20, D_us_801B1B3C, D_us_801B1B58, D_us_801B1B74, D_us_801B1B90,
+    D_us_801B1BAC, D_us_801B1BC8, D_us_801B1BE4, D_us_801B1C00, D_us_801B1C1C,
+    D_us_801B1C38, D_us_801B1C54, D_us_801B1C70, D_us_801B1C8C, D_us_801B1CA8,
+    D_us_801B1CC4, D_us_801B1CE0, D_us_801B1CFC, D_us_801B1D18, D_us_801B1D34,
+    D_us_801B1D50, D_us_801B1D6C, D_us_801B1D88, D_us_801B1DA4, D_us_801B1DC0,
+    D_us_801B1DDC, D_us_801B1DF8, D_us_801B1E14, D_us_801B1E30, D_us_801B1E4C,
+    D_us_801B1E68, D_us_801B1E84, D_us_801B1EA0, D_us_801B1EBC, D_us_801B1ED8,
+    D_us_801B1EF4, D_us_801B1F10, D_us_801B1F2C, D_us_801B1F48, D_us_801B1F64,
+    D_us_801B1F80, D_us_801B1F9C, D_us_801B1FB8, D_us_801B1FD4, D_us_801B1FF0,
+    D_us_801B200C, D_us_801B2028, D_us_801B2044, D_us_801B2060, D_us_801B207C,
+    D_us_801B2098, D_us_801B20B4, D_us_801B20D0, D_us_801B20EC, D_us_801B2108,
+    D_us_801B2124,
+};
+u8 D_us_801B1880[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31880 x2 4 12x2,4 1
+};
+u8 D_us_801B189C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3189C x2 4 12x2,4 1
+};
+u8 D_us_801B18B8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 318B8 x2 4 12x2,4 1
+};
+u8 D_us_801B18D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 318D4 x2 4 12x2,4 1
+};
+u8 D_us_801B18F0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 318F0 x2 4 12x2,4 1
+};
+u8 D_us_801B190C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3190C x2 4 12x2,4 1
+};
+u8 D_us_801B1928[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31928 x2 4 12x2,4 1
+};
+u8 D_us_801B1944[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31944 x2 4 12x2,4 1
+};
+u8 D_us_801B1960[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31960 x2 4 12x2,4 1
+};
+u8 D_us_801B197C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3197C x2 4 12x2,4 1
+};
+u8 D_us_801B1998[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31998 x2 4 12x2,4 1
+};
+u8 D_us_801B19B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 319B4 x2 4 12x2,4 1
+};
+u8 D_us_801B19D0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 319D0 x2 4 12x2,4 1
+};
+u8 D_us_801B19EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 319EC x2 4 12x2,4 1
+};
+u8 D_us_801B1A08[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31A08 x2 4 12x2,4 1
+};
+u8 D_us_801B1A24[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31A24 x2 4 12x2,4 1
+};
+u8 D_us_801B1A40[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31A40 x2 4 12x2,4 1
+};
+u8 D_us_801B1A5C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31A5C x2 4 12x2,4 1
+};
+u8 D_us_801B1A78[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31A78 x2 4 12x2,4 1
+};
+u8 D_us_801B1A94[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31A94 x2 4 12x2,4 1
+};
+u8 D_us_801B1AB0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31AB0 x2 4 12x2,4 1
+};
+u8 D_us_801B1ACC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31ACC x2 4 12x2,4 1
+};
+u8 D_us_801B1AE8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31AE8 x2 4 12x2,4 1
+};
+u8 D_us_801B1B04[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31B04 x2 4 12x2,4 1
+};
+u8 D_us_801B1B20[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31B20 x2 4 12x2,4 1
+};
+u8 D_us_801B1B3C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31B3C x2 4 12x2,4 1
+};
+u8 D_us_801B1B58[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31B58 x2 4 12x2,4 1
+};
+u8 D_us_801B1B74[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31B74 x2 4 12x2,4 1
+};
+u8 D_us_801B1B90[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31B90 x2 4 12x2,4 1
+};
+u8 D_us_801B1BAC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31BAC x2 4 12x2,4 1
+};
+u8 D_us_801B1BC8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31BC8 x2 4 12x2,4 1
+};
+u8 D_us_801B1BE4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31BE4 x2 4 12x2,4 1
+};
+u8 D_us_801B1C00[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31C00 x2 4 12x2,4 1
+};
+u8 D_us_801B1C1C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31C1C x2 4 12x2,4 1
+};
+u8 D_us_801B1C38[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31C38 x2 4 12x2,4 1
+};
+u8 D_us_801B1C54[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31C54 x2 4 12x2,4 1
+};
+u8 D_us_801B1C70[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31C70 x2 4 12x2,4 1
+};
+u8 D_us_801B1C8C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31C8C x2 4 12x2,4 1
+};
+u8 D_us_801B1CA8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31CA8 x2 4 12x2,4 1
+};
+u8 D_us_801B1CC4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31CC4 x2 4 12x2,4 1
+};
+u8 D_us_801B1CE0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31CE0 x2 4 12x2,4 1
+};
+u8 D_us_801B1CFC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31CFC x2 4 12x2,4 1
+};
+u8 D_us_801B1D18[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31D18 x2 4 12x2,4 1
+};
+u8 D_us_801B1D34[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31D34 x2 4 12x2,4 1
+};
+u8 D_us_801B1D50[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31D50 x2 4 12x2,4 1
+};
+u8 D_us_801B1D6C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31D6C x2 4 12x2,4 1
+};
+u8 D_us_801B1D88[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31D88 x2 4 12x2,4 1
+};
+u8 D_us_801B1DA4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31DA4 x2 4 12x2,4 1
+};
+u8 D_us_801B1DC0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31DC0 x2 4 12x2,4 1
+};
+u8 D_us_801B1DDC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31DDC x2 4 12x2,4 1
+};
+u8 D_us_801B1DF8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31DF8 x2 4 12x2,4 1
+};
+u8 D_us_801B1E14[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31E14 x2 4 12x2,4 1
+};
+u8 D_us_801B1E30[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31E30 x2 4 12x2,4 1
+};
+u8 D_us_801B1E4C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31E4C x2 4 12x2,4 1
+};
+u8 D_us_801B1E68[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31E68 x2 4 12x2,4 1
+};
+u8 D_us_801B1E84[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31E84 x2 4 12x2,4 1
+};
+u8 D_us_801B1EA0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31EA0 x2 4 12x2,4 1
+};
+u8 D_us_801B1EBC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31EBC x2 4 12x2,4 1
+};
+u8 D_us_801B1ED8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31ED8 x2 4 12x2,4 1
+};
+u8 D_us_801B1EF4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31EF4 x2 4 12x2,4 1
+};
+u8 D_us_801B1F10[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31F10 x2 4 12x2,4 1
+};
+u8 D_us_801B1F2C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31F2C x2 4 12x2,4 1
+};
+u8 D_us_801B1F48[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31F48 x2 4 12x2,4 1
+};
+u8 D_us_801B1F64[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31F64 x2 4 12x2,4 1
+};
+u8 D_us_801B1F80[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31F80 x2 4 12x2,4 1
+};
+u8 D_us_801B1F9C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31F9C x2 4 12x2,4 1
+};
+u8 D_us_801B1FB8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31FB8 x2 4 12x2,4 1
+};
+u8 D_us_801B1FD4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31FD4 x2 4 12x2,4 1
+};
+u8 D_us_801B1FF0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 31FF0 x2 4 12x2,4 1
+};
+u8 D_us_801B200C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3200C x2 4 12x2,4 1
+};
+u8 D_us_801B2028[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32028 x2 4 12x2,4 1
+};
+u8 D_us_801B2044[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32044 x2 4 12x2,4 1
+};
+u8 D_us_801B2060[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32060 x2 4 12x2,4 1
+};
+u8 D_us_801B207C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3207C x2 4 12x2,4 1
+};
+u8 D_us_801B2098[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32098 x2 4 12x2,4 1
+};
+u8 D_us_801B20B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 320B4 x2 4 12x2,4 1
+};
+u8 D_us_801B20D0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 320D0 x2 4 12x2,4 1
+};
+u8 D_us_801B20EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 320EC x2 4 12x2,4 1
+};
+u8 D_us_801B2108[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32108 x2 4 12x2,4 1
+};
+u8 D_us_801B2124[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32124 x2 4 12x2,4 1
+};
+void* D_us_801B2140[] = {
+    NULL, D_us_801B21DC, D_us_801B21F8, D_us_801B2214, D_us_801B2230,
+    D_us_801B224C, D_us_801B2268, D_us_801B2284, D_us_801B22A0, D_us_801B22BC,
+    D_us_801B22D8, D_us_801B22F4, D_us_801B2310, D_us_801B232C, D_us_801B2348,
+    D_us_801B2364, D_us_801B2380, D_us_801B239C, D_us_801B23B8, D_us_801B23D4,
+    D_us_801B23F0, D_us_801B240C, D_us_801B2428, D_us_801B2444, D_us_801B2460,
+    D_us_801B247C, D_us_801B2498, D_us_801B24B4, D_us_801B24D0, D_us_801B24EC,
+    D_us_801B2508, D_us_801B2524, D_us_801B2540, D_us_801B255C, D_us_801B2578,
+    D_us_801B2594, D_us_801B25B0, D_us_801B25CC, D_us_801B25E8,
+};
+u8 D_us_801B21DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 321DC x2 4 12x2,4 1
+};
+u8 D_us_801B21F8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 321F8 x2 4 12x2,4 1
+};
+u8 D_us_801B2214[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32214 x2 4 12x2,4 1
+};
+u8 D_us_801B2230[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32230 x2 4 12x2,4 1
+};
+u8 D_us_801B224C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3224C x2 4 12x2,4 1
+};
+u8 D_us_801B2268[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32268 x2 4 12x2,4 1
+};
+u8 D_us_801B2284[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32284 x2 4 12x2,4 1
+};
+u8 D_us_801B22A0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 322A0 x2 4 12x2,4 1
+};
+u8 D_us_801B22BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 322BC x2 4 12x2,4 1
+};
+u8 D_us_801B22D8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 322D8 x2 4 12x2,4 1
+};
+u8 D_us_801B22F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 322F4 x2 4 12x2,4 1
+};
+u8 D_us_801B2310[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32310 x2 4 12x2,4 1
+};
+u8 D_us_801B232C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3232C x2 4 12x2,4 1
+};
+u8 D_us_801B2348[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32348 x2 4 12x2,4 1
+};
+u8 D_us_801B2364[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32364 x2 4 12x2,4 1
+};
+u8 D_us_801B2380[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32380 x2 4 12x2,4 1
+};
+u8 D_us_801B239C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3239C x2 4 12x2,4 1
+};
+u8 D_us_801B23B8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 323B8 x2 4 12x2,4 1
+};
+u8 D_us_801B23D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 323D4 x2 4 12x2,4 1
+};
+u8 D_us_801B23F0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 323F0 x2 4 12x2,4 1
+};
+u8 D_us_801B240C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3240C x2 4 12x2,4 1
+};
+u8 D_us_801B2428[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32428 x2 4 12x2,4 1
+};
+u8 D_us_801B2444[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32444 x2 4 12x2,4 1
+};
+u8 D_us_801B2460[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32460 x2 4 12x2,4 1
+};
+u8 D_us_801B247C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3247C x2 4 12x2,4 1
+};
+u8 D_us_801B2498[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32498 x2 4 12x2,4 1
+};
+u8 D_us_801B24B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 324B4 x2 4 12x2,4 1
+};
+u8 D_us_801B24D0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 324D0 x2 4 12x2,4 1
+};
+u8 D_us_801B24EC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 324EC x2 4 12x2,4 1
+};
+u8 D_us_801B2508[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32508 x2 4 12x2,4 1
+};
+u8 D_us_801B2524[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32524 x2 4 12x2,4 1
+};
+u8 D_us_801B2540[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32540 x2 4 12x2,4 1
+};
+u8 D_us_801B255C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3255C x2 4 12x2,4 1
+};
+u8 D_us_801B2578[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32578 x2 4 12x2,4 1
+};
+u8 D_us_801B2594[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32594 x2 4 12x2,4 1
+};
+u8 D_us_801B25B0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 325B0 x2 4 12x2,4 1
+};
+u8 D_us_801B25CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 325CC x2 4 12x2,4 1
+};
+u8 D_us_801B25E8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 325E8 x2 4 12x2,4 1
+};
+void* D_us_801B2604[] = {
+    NULL, D_us_801B26BC, D_us_801B26D8, D_us_801B26F4, D_us_801B2710,
+    D_us_801B2740, D_us_801B275C, D_us_801B2778, D_us_801B2794, D_us_801B27B0,
+    D_us_801B27CC, D_us_801B27E8, D_us_801B2804, D_us_801B2820, D_us_801B283C,
+    D_us_801B2858, D_us_801B2874, D_us_801B2890, D_us_801B28AC, D_us_801B28C8,
+    D_us_801B28E4, D_us_801B2900, D_us_801B291C, D_us_801B2938, D_us_801B2954,
+    D_us_801B2970, D_us_801B298C, D_us_801B29A8, D_us_801B29C4, D_us_801B29E0,
+    D_us_801B29FC, D_us_801B2A18, D_us_801B2A34, D_us_801B2A50, D_us_801B2A6C,
+    D_us_801B2A88, D_us_801B2AB8, D_us_801B2B00, D_us_801B2B1C, D_us_801B2B38,
+    D_us_801B2B54, NULL, NULL, NULL, NULL, NULL,
+};
+u8 D_us_801B26BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 326BC x2 4 12x2,4 1
+};
+u8 D_us_801B26D8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 326D8 x2 4 12x2,4 1
+};
+u8 D_us_801B26F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 326F4 x2 4 12x2,4 1
+};
+u8 D_us_801B2710[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32710 x2 4 12x4 1
+};
+u8 D_us_801B2740[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32740 x2 4 12x2,4 1
+};
+u8 D_us_801B275C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3275C x2 4 12x2,4 1
+};
+u8 D_us_801B2778[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32778 x2 4 12x2,4 1
+};
+u8 D_us_801B2794[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32794 x2 4 12x2,4 1
+};
+u8 D_us_801B27B0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 327B0 x2 4 12x2,4 1
+};
+u8 D_us_801B27CC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 327CC x2 4 12x2,4 1
+};
+u8 D_us_801B27E8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 327E8 x2 4 12x2,4 1
+};
+u8 D_us_801B2804[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32804 x2 4 12x2,4 1
+};
+u8 D_us_801B2820[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32820 x2 4 12x2,4 1
+};
+u8 D_us_801B283C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3283C x2 4 12x2,4 1
+};
+u8 D_us_801B2858[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32858 x2 4 12x2,4 1
+};
+u8 D_us_801B2874[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32874 x2 4 12x2,4 1
+};
+u8 D_us_801B2890[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32890 x2 4 12x2,4 1
+};
+u8 D_us_801B28AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 328AC x2 4 12x2,4 1
+};
+u8 D_us_801B28C8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 328C8 x2 4 12x2,4 1
+};
+u8 D_us_801B28E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 328E4 x2 4 12x2,4 1
+};
+u8 D_us_801B2900[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32900 x2 4 12x2,4 1
+};
+u8 D_us_801B291C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3291C x2 4 12x2,4 1
+};
+u8 D_us_801B2938[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32938 x2 4 12x2,4 1
+};
+u8 D_us_801B2954[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32954 x2 4 12x2,4 1
+};
+u8 D_us_801B2970[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32970 x2 4 12x2,4 1
+};
+u8 D_us_801B298C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 3298C x2 4 12x2,4 1
+};
+u8 D_us_801B29A8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 329A8 x2 4 12x2,4 1
+};
+u8 D_us_801B29C4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 329C4 x2 4 12x2,4 1
+};
+u8 D_us_801B29E0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 329E0 x2 4 12x2,4 1
+};
+u8 D_us_801B29FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 329FC x2 4 12x2,4 1
+};
+u8 D_us_801B2A18[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32A18 x2 4 12x2,4 1
+};
+u8 D_us_801B2A34[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32A34 x2 4 12x2,4 1
+};
+u8 D_us_801B2A50[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32A50 x2 4 12x2,4 1
+};
+u8 D_us_801B2A6C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32A6C x2 4 12x2,4 1
+};
+u8 D_us_801B2A88[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32A88 x2 4 12x4 1
+};
+u8 D_us_801B2AB8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32AB8 x2 4 12x6 1
+};
+u8 D_us_801B2B00[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32B00 x2 4 12x2,4 1
+};
+u8 D_us_801B2B1C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32B1C x2 4 12x2,4 1
+};
+u8 D_us_801B2B38[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32B38 x2 4 12x2,4 1
+};
+u8 D_us_801B2B54[] __attribute__((aligned(4))) = {
+@@PCDATA 0 32B54 x2 4 12x2,4 1
+};

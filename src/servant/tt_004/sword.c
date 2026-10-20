@@ -5,6 +5,31 @@
 #include <scratchpad.h>
 #include <sfx.h>
 
+#ifdef VERSION_PC
+#include <psyz/gte.h>
+
+// psyz does not provide gte_stdp nor the PSY-Q CompMatrix
+#define gte_stdp(r0) (*(r0) = Psyz_GteDataRead(8))
+#define CompMatrix SwordCompMatrix
+static MATRIX* SwordCompMatrix(MATRIX* m0, MATRIX* m1, MATRIX* m2) {
+    s32 t[3];
+    s32 i;
+
+    for (i = 0; i < 3; i++) {
+        t[i] = m0->t[i] + (s32)(((s64)m0->m[i][0] * m1->t[0] +
+                                 (s64)m0->m[i][1] * m1->t[1] +
+                                 (s64)m0->m[i][2] * m1->t[2]) >>
+                                12);
+    }
+    *m2 = *m0;
+    MulMatrix(m2, m1);
+    m2->t[0] = t[0];
+    m2->t[1] = t[1];
+    m2->t[2] = t[2];
+    return m2;
+}
+#endif
+
 #define UNK_SWORD_PRIM_COUNT 96
 #define CLUT_INDEX_SERVANT_2 0x410
 

@@ -1,0 +1,255 @@
+@@PCDATA-SOURCE 0 disks/us/BOSS/BO5/BO5.BIN a90ab719a6db9ff6b72ea1a59a09c0cece69c31a
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only copy of the data that the PSX build still keeps as raw assembly
+// (asm/us/boss/bo5/data/{6DC,B7C,C24}.data.s).
+#include "bo5.h"
+
+extern u8 D_us_801806DC[];
+extern u8 D_us_801806E0[];
+extern u8 D_us_801806E4[];
+extern u8 D_us_801807E4[];
+extern u8 D_us_80180804[];
+extern u8 D_us_80180824[];
+extern u8 D_us_80180830[];
+extern u8 D_us_80180844[];
+extern u8 D_us_80180858[];
+extern u8 D_us_80180884[];
+extern u8 D_us_8018088C[];
+extern u8 D_us_80180894[];
+extern u8 D_us_8018089C[];
+extern u8 D_us_801808AC[];
+extern u8 D_us_801808BC[];
+extern u8 D_us_801808D4[];
+extern u8 D_us_801808FC[];
+extern u8 D_us_8018091C[];
+extern u8 D_us_80180928[];
+extern u8 D_us_80180938[];
+extern u8 D_us_80180944[];
+extern u8 D_us_80180950[];
+extern u8 D_us_8018096C[];
+extern u8 D_us_8018098C[];
+extern u8 D_us_801809D8[];
+extern u8 D_us_801809F0[];
+extern u8 D_us_801809F8[];
+extern u8 D_us_80180A00[];
+extern u8 D_us_80180A0C[];
+extern u8 D_us_80180A18[];
+extern u8 D_us_80180A2C[];
+extern u8 D_us_80180A48[];
+extern u8 D_us_80180AAC[];
+extern u8 D_us_80180ABC[];
+extern u8 D_us_80180ACC[];
+extern u8 D_us_80180ADC[];
+extern u8 D_us_80180AE4[];
+extern u8 D_us_80180AEC[];
+extern u8 D_us_80180B0C[];
+extern u8 D_us_80180B74[];
+extern u8 D_us_80180B7C[];
+extern u8 D_us_80180B80[];
+extern u8 D_us_80180B84[];
+extern u8 D_us_80180B88[];
+extern u8 D_us_80180B8C[];
+extern u8 D_us_80180C24[];
+extern u8 D_us_80180C48[];
+extern u8 D_us_80180C5C[];
+extern u8 D_us_80180C6C[];
+extern u8 D_us_80180C74[];
+extern u8 D_us_80180C84[];
+extern u8 D_us_80180C90[];
+extern u8 D_us_80180C98[];
+extern u8 D_us_80180CA8[];
+extern u8 D_us_80180CC0[];
+extern u8 D_us_80180CCC[];
+extern u8 D_us_80180CD4[];
+extern u8 D_us_80180CF0[];
+extern u8 D_us_80180D00[];
+extern u8 D_us_80180D10[];
+extern u8 D_us_80180D20[];
+extern u8 D_us_80180D30[];
+
+u8 D_us_801806DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 2C x2 4 4 1
+};
+u8 D_us_801806E0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 40 x2 4 4 1
+};
+u8 D_us_801806E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 6E4 x2 4 12x21,4 1
+};
+u8 D_us_801807E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 7E4 x2 4 12x2,8 1
+};
+u8 D_us_80180804[] __attribute__((aligned(4))) = {
+@@PCDATA 0 804 x2 4 12x2,8 1
+};
+u8 D_us_80180824[] __attribute__((aligned(4))) = {
+@@PCDATA 0 824 x2 4 12 1
+};
+u8 D_us_80180830[] __attribute__((aligned(4))) = {
+@@PCDATA 0 830 x2 4 12,8 1
+};
+u8 D_us_80180844[] __attribute__((aligned(4))) = {
+@@PCDATA 0 844 x2 4 12,8 1
+};
+u8 D_us_80180858[] __attribute__((aligned(4))) = {
+@@PCDATA 0 858 x2 4 12x3,8 1
+};
+u8 D_us_80180884[] __attribute__((aligned(4))) = {
+@@PCDATA 0 884 x2 4 8 1
+};
+u8 D_us_8018088C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 88C x2 4 8 1
+};
+u8 D_us_80180894[] __attribute__((aligned(4))) = {
+@@PCDATA 0 894 x2 4 8 1
+};
+u8 D_us_8018089C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 89C x2 4 12,4 1
+};
+u8 D_us_801808AC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 8AC x2 4 12,4 1
+};
+u8 D_us_801808BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 8BC x2 4 12x2 1
+};
+u8 D_us_801808D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 8D4 x2 4 12x3,4 1
+};
+u8 D_us_801808FC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 8FC x2 4 12x2,8 1
+};
+u8 D_us_8018091C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 91C x2 4 11 1
+};
+u8 D_us_80180928[] __attribute__((aligned(4))) = {
+@@PCDATA 0 928 x2 4 12,4 1
+};
+u8 D_us_80180938[] __attribute__((aligned(4))) = {
+@@PCDATA 0 938 x2 4 12 1
+};
+u8 D_us_80180944[] __attribute__((aligned(4))) = {
+@@PCDATA 0 944 x2 4 12 1
+};
+u8 D_us_80180950[] __attribute__((aligned(4))) = {
+@@PCDATA 0 950 x2 4 12x2,4 1
+};
+u8 D_us_8018096C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 96C x2 4 12x2,8 1
+};
+u8 D_us_8018098C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 98C x2 4 12x6,4 1
+};
+u8 D_us_801809D8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 9D8 x2 4 12x2 1
+};
+u8 D_us_801809F0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 9F0 x2 4 8 1
+};
+u8 D_us_801809F8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 9F8 x2 4 8 1
+};
+u8 D_us_80180A00[] __attribute__((aligned(4))) = {
+@@PCDATA 0 A00 x2 4 12 1
+};
+u8 D_us_80180A0C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 A0C x2 4 12 1
+};
+u8 D_us_80180A18[] __attribute__((aligned(4))) = {
+@@PCDATA 0 A18 x2 4 12,8 1
+};
+u8 D_us_80180A2C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 A2C x2 4 12x2,4 1
+};
+u8 D_us_80180A48[] __attribute__((aligned(4))) = {
+@@PCDATA 0 A48 x2 4 12x8,4 1
+};
+u8 D_us_80180AAC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 AAC x2 4 12,4 1
+};
+u8 D_us_80180ABC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 ABC x2 4 12,4 1
+};
+u8 D_us_80180ACC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 ACC x2 4 12,4 1
+};
+u8 D_us_80180ADC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 ADC x2 4 8 1
+};
+u8 D_us_80180AE4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 AE4 x2 4 8 1
+};
+u8 D_us_80180AEC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 AEC x2 4 12x2,8 1
+};
+u8 D_us_80180B0C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B0C x2 4 12x8,8 1
+};
+u8 D_us_80180B74[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B74 x2 4 4 1
+};
+u8 D_us_80180B7C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B7A x2 4 4 1
+};
+u8 D_us_80180B80[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B80 x2 4 4 1
+};
+u8 D_us_80180B84[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B84 x2 4 4 1
+};
+u8 D_us_80180B88[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B88 x2 4 4 1
+};
+u8 D_us_80180B8C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B8C x2 4 12x12 1
+};
+u8 D_us_80180C24[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C24 x2 4 12x3 1
+};
+u8 D_us_80180C48[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C48 x2 4 12,8 1
+};
+u8 D_us_80180C5C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C5C x2 4 12,4 1
+};
+u8 D_us_80180C6C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C6C x2 4 8 1
+};
+u8 D_us_80180C74[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C74 x2 4 12,4 1
+};
+u8 D_us_80180C84[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C84 x2 4 12 1
+};
+u8 D_us_80180C90[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C90 x2 4 8 1
+};
+u8 D_us_80180C98[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C98 x2 4 12,4 1
+};
+u8 D_us_80180CA8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 CA8 x2 4 12x2 1
+};
+u8 D_us_80180CC0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 CC0 x2 4 12 1
+};
+u8 D_us_80180CCC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 CCC x2 4 8 1
+};
+u8 D_us_80180CD4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 CD4 x2 4 12x2,4 1
+};
+u8 D_us_80180CF0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 CF0 x2 4 12,4 1
+};
+u8 D_us_80180D00[] __attribute__((aligned(4))) = {
+@@PCDATA 0 D00 x2 4 12,4 1
+};
+u8 D_us_80180D10[] __attribute__((aligned(4))) = {
+@@PCDATA 0 D10 x2 4 12,4 1
+};
+u8 D_us_80180D20[] __attribute__((aligned(4))) = {
+@@PCDATA 0 D20 x2 4 12,4 1
+};
+u8 D_us_80180D30[] __attribute__((aligned(4))) = {
+@@PCDATA 0 D30 x2 4 12,4 1
+};

@@ -15,7 +15,12 @@ void func_us_801C4954(s32 resetAnims, s32 arg1) {
             g_Entities[E_ID_43].animCurFrame = 0;
         prim = &g_PrimBuf[g_Entities[E_AFTERIMAGE_1].primIndex];
         while (prim != NULL) {
-            prim->x1 = 0;
+#ifdef VERSION_PC
+            // on 64-bit hosts the DR_ENV pointer that DRA stores at r1
+            // overlaps x1, and x1 is unused by PRIM_ENV anyway
+            if (prim->type != PRIM_ENV)
+#endif
+                prim->x1 = 0;
             prim = prim->next;
         }
     }
@@ -30,7 +35,7 @@ void func_us_801C4954(s32 resetAnims, s32 arg1) {
     }
 }
 
-static void ForceAfterImageOn(void) UNUSED {
+static UNUSED void ForceAfterImageOn(void) {
     g_Entities[STAGE_ENTITY_START + E_AFTERIMAGE_1].ext.afterImage.index = 0;
 }
 

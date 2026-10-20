@@ -8,10 +8,16 @@
 static const char* actor_names[] = {_S("Alucard"), _S("Maria")};
 
 // bss
-static s32 g_SkipCutscene;
+#ifdef VERSION_PC
+// shared with CA94.c, which on PSX resolves them by address
+#define CUTSCENE_STATIC
+#else
+#define CUTSCENE_STATIC static
+#endif
+CUTSCENE_STATIC s32 g_SkipCutscene;
 static Dialogue g_Dialogue;
 static s32 D_us_8019AEB8[26];
-static u32 g_CutsceneFlags;
+CUTSCENE_STATIC u32 g_CutsceneFlags;
 STATIC_PAD_BSS(4);
 u16 g_Statues[];
 static s16 D_us_8019AF2A;
@@ -294,9 +300,13 @@ void EntityCutscene(Entity* self) {
                 ptr |= *g_Dialogue.scriptCur++;
                 ptr <<= 4;
                 ptr |= *g_Dialogue.scriptCur++;
+#ifdef VERSION_PC
+                g_Dialogue.scriptCur += *CS_NEXT(ptr) << 2;
+#else
                 // This needs help. Casting the const to short is good.
                 ptr += (u16)0x100000;
                 g_Dialogue.scriptCur += *(u16*)ptr << 2;
+#endif
 
                 ptr = *g_Dialogue.scriptCur++;
                 ptr <<= 4;
@@ -305,7 +315,11 @@ void EntityCutscene(Entity* self) {
                 ptr |= *g_Dialogue.scriptCur++;
                 ptr <<= 4;
                 ptr |= *g_Dialogue.scriptCur;
+#ifdef VERSION_PC
+                g_Dialogue.scriptCur = CS_PTR(ptr);
+#else
                 g_Dialogue.scriptCur = (const char*)ptr + 0x100000;
+#endif
                 continue;
 
             case 15:
@@ -316,7 +330,11 @@ void EntityCutscene(Entity* self) {
                 ptr |= *g_Dialogue.scriptCur++;
                 ptr <<= 4;
                 ptr |= *g_Dialogue.scriptCur;
+#ifdef VERSION_PC
+                g_Dialogue.scriptCur = CS_PTR(ptr);
+#else
                 g_Dialogue.scriptCur = (const char*)ptr + 0x100000;
+#endif
                 continue;
 
             case 16:
@@ -347,7 +365,11 @@ void EntityCutscene(Entity* self) {
                     ptr |= *g_Dialogue.scriptCur++;
                     ptr <<= 4;
                     ptr |= *g_Dialogue.scriptCur++;
+#ifdef VERSION_PC
+                    ptr = (u_long)CS_PTR(ptr);
+#else
                     ptr += 0x100000;
+#endif
                     nextChar2 = g_Dialogue.scriptCur++[0];
                     LoadTPage((u_long*)ptr, 1, 0, D_us_801805E4[nextChar2],
                               0x100, 0x30, 0x48);

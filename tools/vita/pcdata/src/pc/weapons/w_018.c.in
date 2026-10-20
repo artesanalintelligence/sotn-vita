@@ -1,0 +1,45 @@
+@@PCDATA-SOURCE 0 disks/us/BIN/WEAPON0.BIN b8dcd64f95d197d3f59ab3e46f67897ecdc477cb
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only data for weapon overlay w_018, generated from the US raw
+// data segment. Pointers are kept as real pointers so the layout
+// matches the weapon code on both 32-bit and 64-bit hosts.
+#include <common.h>
+
+#if defined(WEAPON1)
+#define HAND_ID 1
+#else
+#define HAND_ID 0
+#endif
+
+typedef u8 T_D_82000_8017A488[544];
+typedef u8 T_D_82000_8017A6A8[60];
+typedef u8 T_D_82000_8017A6E4[64];
+typedef u8 T_D_82000_8017A724[12];
+typedef struct {
+    void* p0;
+    void* p1;
+} T_g_WeaponCluts;
+
+extern T_D_82000_8017A488 D_82000_8017A488;
+extern T_D_82000_8017A6A8 D_82000_8017A6A8;
+extern T_D_82000_8017A6E4 D_82000_8017A6E4;
+extern T_D_82000_8017A724 D_82000_8017A724;
+extern T_g_WeaponCluts g_WeaponCluts;
+
+T_D_82000_8017A488 D_82000_8017A488 __attribute__((aligned(8))) = {
+@@PCDATA 0 82488 x2 4 12x45,4 0
+};
+T_D_82000_8017A6A8 D_82000_8017A6A8 __attribute__((aligned(8))) = {
+@@PCDATA 0 826A8 x2 4 12x5 0
+};
+T_D_82000_8017A6E4 D_82000_8017A6E4 __attribute__((aligned(8))) = {
+@@PCDATA 0 826E4 x2 4 12x5,4 0
+};
+T_D_82000_8017A724 D_82000_8017A724 __attribute__((aligned(8))) = {
+@@PCDATA 0 82724 x2 4 12 0
+};
+T_g_WeaponCluts g_WeaponCluts = {
+    &D_82000_8017A488,
+    &D_82000_8017A488,
+};
+s32 g_HandId = HAND_ID;

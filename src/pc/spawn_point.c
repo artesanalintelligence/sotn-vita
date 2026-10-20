@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 #include "spawn_point.h"
 
+#include <stdlib.h>
 #include <string.h>
 
 extern u32 CheckAndDoLevelUp(void);
@@ -20,6 +21,7 @@ static const struct SpawnPoint s_SpawnPoints[] = {
     {STAGE_NO4, 5, 176, 396, "caverns-soul"},
     {STAGE_RNO0, 0, 64, 132, "reverse-marble-soul"},
     {STAGE_RNO4, 5, 208, 132, "reverse-caverns-soul"},
+    {STAGE_RLIB, 0, 352, 640, "reverse-library-tinman"},
 };
 
 enum SpawnPointStep {
@@ -32,11 +34,44 @@ static enum SpawnPointStep s_Step = SpawnPoint_Off;
 static const struct SpawnPoint* s_Spawn = NULL;
 static void (*s_InitRoomEntities)(s32 layoutId) = NULL;
 
+// "room:<stage id>:<room index>[:<x>:<y>]" spawns in any room, mainly to
+// smoke test every room of a stage
+static struct SpawnPoint s_CustomSpawn;
+static const struct SpawnPoint* ParseRoomSpawnPoint(const char* name) {
+    long v[4] = {-1, -1, 128, 128};
+    const char* p = name + 5;
+    char* end;
+    s32 i;
+
+    for (i = 0; i < LEN(v); i++) {
+        v[i] = strtol(p, &end, 0);
+        if (end == p || v[i] < 0 || v[i] > 0x7FFF) {
+            return NULL;
+        }
+        if (*end != ':') {
+            break;
+        }
+        p = end + 1;
+    }
+    if (*end != '\0' || i == 0 || i == 2 || v[0] > 0xFF || v[1] > 0xFF) {
+        return NULL;
+    }
+    s_CustomSpawn.stageId = (s16)v[0];
+    s_CustomSpawn.roomIndex = (u8)v[1];
+    s_CustomSpawn.x = (s16)v[2];
+    s_CustomSpawn.y = (s16)v[3];
+    s_CustomSpawn.name = name;
+    return &s_CustomSpawn;
+}
+
 static const struct SpawnPoint* FindSpawnPoint(const char* name) {
     s32 i;
 
     if (name == NULL) {
         return NULL;
+    }
+    if (!strncmp(name, "room:", 5)) {
+        return ParseRoomSpawnPoint(name);
     }
     for (i = 0; i < LEN(s_SpawnPoints); i++) {
         if (!strcmp(name, s_SpawnPoints[i].name)) {
@@ -61,6 +96,7 @@ void SpawnPoint_Init(const struct InitGameParams* params) {
 
 void SpawnPoint_OnFrame(void) {
     const RoomHeader* room;
+    s32 i;
 
     if (s_Step != SpawnPoint_PickRoom) {
         return;
@@ -70,6 +106,25 @@ void SpawnPoint_OnFrame(void) {
     }
     if (g_StageId != s_Spawn->stageId || g_api.o.rooms == NULL) {
         ERRORF("spawn point does not match the loaded stage %02X", g_StageId);
+        s_Step = SpawnPoint_Off;
+        return;
+    }
+    // the rooms array is terminated by an entry whose left is 0x40
+    for (i = 0; i < s_Spawn->roomIndex; i++) {
+        if (g_api.o.rooms[i].left == 0x40) {
+            break;
+        }
+    }
+    if (g_api.o.rooms[i].left == 0x40) {
+        ERRORF("room %d not found in stage %02X", s_Spawn->roomIndex,
+               g_StageId);
+        s_Step = SpawnPoint_Off;
+        return;
+    }
+    // rooms without a tileset only teleport to another stage
+    if (g_api.o.rooms[i].load.tilesetId == 0xFF) {
+        ERRORF("room %d of stage %02X is a stage transition",
+               s_Spawn->roomIndex, g_StageId);
         s_Step = SpawnPoint_Off;
         return;
     }

@@ -334,7 +334,7 @@ void EntitySnowflakes(Entity* self) {
         if (!(g_Timer % 7)) {
             prim = self->ext.lava.prim;
             prim = FindFirstUnkPrim(prim);
-#ifdef VERSION_PSP
+#if defined(VERSION_PSP) || defined(VERSION_PC)
             if (prim != NULL) {
 #else
             if (1) {

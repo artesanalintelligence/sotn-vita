@@ -276,7 +276,9 @@ u32 UpdateAnim(s8* frameProps, AnimationFrame** anims) {
     s32 ret;
 #endif
 
-#if defined(VERSION_PSP)
+#if defined(VERSION_PSP) || defined(VERSION_PC)
+    // e.g. EntityChair calls UpdateAnim without an animation, which reads
+    // from address 0 on PSX
     if (!g_CurrentEntity->anim) {
         return -1;
     }

@@ -1,0 +1,34 @@
+@@PCDATA-SOURCE 0 disks/us/BIN/WEAPON0.BIN b8dcd64f95d197d3f59ab3e46f67897ecdc477cb
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only data for weapon overlay w_021, generated from the US raw
+// data segment. Pointers are kept as real pointers so the layout
+// matches the weapon code on both 32-bit and 64-bit hosts.
+#include <common.h>
+
+#if defined(WEAPON1)
+#define HAND_ID 1
+#else
+#define HAND_ID 0
+#endif
+
+typedef u8 T_D_97000_8017A564[544];
+typedef struct {
+    void* p0;
+    void* p1;
+    void* p2;
+    void* p3;
+} T_g_WeaponCluts;
+
+extern T_D_97000_8017A564 D_97000_8017A564;
+extern T_g_WeaponCluts g_WeaponCluts;
+
+T_D_97000_8017A564 D_97000_8017A564 __attribute__((aligned(8))) = {
+@@PCDATA 0 97564 x2 4 12x45,4 0
+};
+T_g_WeaponCluts g_WeaponCluts = {
+    &D_97000_8017A564,
+    &D_97000_8017A564,
+    &D_97000_8017A564,
+    &D_97000_8017A564,
+};
+s32 g_HandId = HAND_ID;

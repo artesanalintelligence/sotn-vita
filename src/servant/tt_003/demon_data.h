@@ -161,12 +161,14 @@ static AnimationFrame* g_DemonAnimationFrames[] = {
 static ServantSfxEventDesc s_SfxIntroCommand[] = {
     {0, 9, DEMON_INTRO_COMMAND}, {-1, 0, 0}};
 
-static s32 g_SfxDemonIntroPrevSummoned[] = {0xFF, (s32)s_SfxIntroCommand};
+static s32* g_SfxDemonIntroPrevSummoned[] = {
+    (s32*)0xFF, (s32*)s_SfxIntroCommand};
 
 static ServantSfxEventDesc s_SfxIntroIntroReady[] = {
     {0, 9, DEMON_INTRO_READY}, {-1, 0, 0}};
 
-static s32 g_SfxDemonIntroNewSummoned[] = {0xFF, (s32)s_SfxIntroIntroReady};
+static s32* g_SfxDemonIntroNewSummoned[] = {
+    (s32*)0xFF, (s32*)s_SfxIntroIntroReady};
 
 static ServantSfxEventDesc s_SfxEventSwitch1[] = {
     {0, 0, DEMON_SWITCH_1}, {-1, 7, 0}};
@@ -174,5 +176,5 @@ static ServantSfxEventDesc s_SfxEventSwitch1[] = {
 static ServantSfxEventDesc s_SfxEventSwitch2[] = {
     {0, 0, DEMON_SWITCH_2}, {-1, 7, 0}};
 
-static s32 g_SfxDemonSwitchRandomizer[] = {
-    0x7F, (s32)s_SfxEventSwitch1, 0xFF, (s32)s_SfxEventSwitch2};
+static s32* g_SfxDemonSwitchRandomizer[] = {
+    (s32*)0x7F, (s32*)s_SfxEventSwitch1, (s32*)0xFF, (s32*)s_SfxEventSwitch2};

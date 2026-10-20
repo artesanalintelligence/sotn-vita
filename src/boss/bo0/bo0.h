@@ -47,7 +47,7 @@ typedef enum EntityID {
     E_UNK_27,               // func_pspeu_0923CB80
     E_BIG_RED_FIREBALL,     // EntityBigRedFireball
     E_PRISONER,             // EntityPrisoner
-    E_UNK_2A,               // func_us_801B001C
+    E_FURNITURE,            // func_us_801B001C
     E_UNK_2B,               // func_us_801AD338
     E_OLROX_AFTER_IMAGE,    // EntityOlroxAfterImage
     E_UNK_2D,               // func_us_801AFAF4/func_pspeu_0925CBE8

@@ -12,16 +12,37 @@ if(MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "$<$<CONFIG:Debug>:MultiThreadedDebugDLL>$<$<NOT:$<CONFIG:Debug>>:MultiThreadedDLL>")
 endif()
 
-# Overlay compatibility
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# Overlay compatibility. The Vita links overlays statically, see psyz_add_module
+if(NOT VITA)
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 option(ENABLE_ASAN "Enable AddressSanitizer" ON)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang")
-    set(CMAKE_BUILD_TYPE Debug)
-    if(ENABLE_ASAN)
+    if(VITA)
+        # optimized build for the PS Vita Cortex-A9. The decompiled code
+        # relies on type punning and on wrapping signed arithmetic.
+        if(NOT CMAKE_BUILD_TYPE)
+            set(CMAKE_BUILD_TYPE Release)
+        endif()
+        set(CMAKE_C_FLAGS_RELEASE "-O2 -g -DNDEBUG")
+        set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g -DNDEBUG")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-strict-aliasing -fwrapv")
+        # arm-vita-eabi defaults to short enums, the game expects int enums
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-short-enums")
+        # string literals stay in the .rodata of their object instead of a
+        # pool merged with the C library's, so that the link map tells the
+        # game's data apart for the release build (tools/vita/RELEASE.md)
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-merge-constants")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard")
+    else()
+        set(CMAKE_BUILD_TYPE Debug)
+    endif()
+    if(ENABLE_ASAN AND NOT VITA)
         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
         set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fsanitize=address")
@@ -56,6 +77,12 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror=switch-outside-range")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror=switch-unreachable")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror=builtin-declaration-mismatch")
+    if(VITA)
+        # with optimizations GCC flags the intentional writes across adjacent
+        # struct fields done by the decompiled code (e.g. Primitive colors)
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-error=stringop-overflow")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-error=stringop-overread")
+    endif()
 endif()
 
 if(MSVC)
@@ -1559,6 +1586,14 @@ endif()
 
 add_subdirectory(tools/psyz/psyz)
 
+if(VITA)
+    # debug aid: the watchdog (--watchdog) prints the last game functions called
+    option(SOTN_VITA_TRACE_CALLS "Trace game function calls on the Vita" OFF)
+    if(SOTN_VITA_TRACE_CALLS)
+        add_compile_options(-finstrument-functions)
+    endif()
+endif()
+
 add_executable(${PROJECT_NAME}
     ${SOURCE_FILES_PC}
     ${SOURCE_FILES_CORE})
@@ -1617,7 +1652,7 @@ function(add_overlay name)
         OVERLAY_BUILD
     )
 
-    if(NOT MSVC AND NOT APPLE)
+    if(NOT MSVC AND NOT APPLE AND NOT VITA)
         target_link_options(${name} PRIVATE -Wl,-Bsymbolic)
     endif()
 
@@ -1666,3 +1701,25 @@ endforeach()
 add_overlay(tt_000 ${SOURCE_FILES_TT_000})
 add_overlay(tt_001 ${SOURCE_FILES_TT_001})
 add_overlay(tt_002 ${SOURCE_FILES_TT_002})
+
+# Additional PC overlays, one file per group so they can be maintained independently
+file(GLOB _pc_overlay_groups CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/cmake/pc_overlays_*.cmake)
+foreach(_group ${_pc_overlay_groups})
+    include(${_group})
+endforeach()
+
+if(VITA)
+    include("${VITASDK}/share/vita.cmake" REQUIRED)
+    set(VITA_APP_NAME "Castlevania SOTN")
+    set(VITA_TITLEID "SOTN00001")
+    set(VITA_VERSION "01.00")
+    # release builds leave the game data out of the executable, see
+    # tools/vita/RELEASE.md
+    include(tools/vita/vita_link.cmake)
+    vita_writable_rodata(${PROJECT_NAME})
+    vita_link_map(${PROJECT_NAME})
+    vita_create_self(eboot.bin ${PROJECT_NAME})
+    vita_create_vpk(sotn.vpk ${VITA_TITLEID} eboot.bin
+        VERSION ${VITA_VERSION}
+        NAME ${VITA_APP_NAME})
+endif()

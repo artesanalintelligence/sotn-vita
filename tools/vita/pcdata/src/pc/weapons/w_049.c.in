@@ -1,0 +1,142 @@
+@@PCDATA-SOURCE 0 disks/us/BIN/WEAPON0.BIN b8dcd64f95d197d3f59ab3e46f67897ecdc477cb
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only data for weapon overlay w_049, generated from the US raw
+// data segment. Pointers are kept as real pointers so the layout
+// matches the weapon code on both 32-bit and 64-bit hosts.
+#include <common.h>
+
+#if defined(WEAPON1)
+#define HAND_ID 1
+#else
+#define HAND_ID 0
+#endif
+
+typedef u8 T_D_15B000_8017AC00[736];
+typedef u8 T_D_15B000_8017AEE0[28];
+typedef u8 T_D_15B000_8017AEFC[28];
+typedef u8 T_D_15B000_8017AF18[28];
+typedef u8 T_D_15B000_8017AF34[24];
+typedef u8 T_D_15B000_8017AF4C[24];
+typedef u8 T_D_15B000_8017AF64[24];
+typedef u8 T_D_15B000_8017AF7C[100];
+typedef struct {
+    void* p0;
+    void* p1;
+    void* p2;
+    void* p3;
+    void* p4;
+    void* p5;
+    void* p6;
+} T_D_15B000_8017AFE0;
+typedef struct {
+    void* p0;
+    void* p1;
+    u8 d2[8];
+    void* p3;
+    void* p4;
+    u8 d5[8];
+    void* p6;
+    void* p7;
+    u8 d8[8];
+    void* p9;
+    void* p10;
+    u8 d11[8];
+} T_D_15B000_8017AFFC;
+typedef u8 T_D_15B000_8017B03C[56];
+typedef u8 T_D_15B000_8017B074[96];
+typedef u8 T_D_15B000_8017B0D4[56];
+typedef u8 T_D_15B000_8017B10C[56];
+typedef struct {
+    void* p0;
+} T_g_WeaponCluts;
+
+extern T_D_15B000_8017AC00 D_15B000_8017AC00;
+extern T_D_15B000_8017AEE0 D_15B000_8017AEE0;
+extern T_D_15B000_8017AEFC D_15B000_8017AEFC;
+extern T_D_15B000_8017AF18 D_15B000_8017AF18;
+extern T_D_15B000_8017AF34 D_15B000_8017AF34;
+extern T_D_15B000_8017AF4C D_15B000_8017AF4C;
+extern T_D_15B000_8017AF64 D_15B000_8017AF64;
+extern T_D_15B000_8017AF7C D_15B000_8017AF7C;
+extern T_D_15B000_8017AFE0 D_15B000_8017AFE0;
+extern T_D_15B000_8017AFFC D_15B000_8017AFFC;
+extern T_D_15B000_8017B03C D_15B000_8017B03C;
+extern T_D_15B000_8017B074 D_15B000_8017B074;
+extern T_D_15B000_8017B0D4 D_15B000_8017B0D4;
+extern T_D_15B000_8017B10C D_15B000_8017B10C;
+extern T_g_WeaponCluts g_WeaponCluts;
+
+T_D_15B000_8017AC00 D_15B000_8017AC00 __attribute__((aligned(8))) = {
+@@PCDATA 0 15BC00 x2 4 12x61,4 0
+};
+T_D_15B000_8017AEE0 D_15B000_8017AEE0 __attribute__((aligned(8))) = {
+@@PCDATA 0 15BEE0 x2 4 12x2,4 0
+};
+T_D_15B000_8017AEFC D_15B000_8017AEFC __attribute__((aligned(8))) = {
+@@PCDATA 0 15BEFC x2 4 12x2,4 0
+};
+T_D_15B000_8017AF18 D_15B000_8017AF18 __attribute__((aligned(8))) = {
+@@PCDATA 0 15BF18 x2 4 12x2,4 0
+};
+T_D_15B000_8017AF34 D_15B000_8017AF34 __attribute__((aligned(8))) = {
+@@PCDATA 0 15BF34 x2 4 12x2 0
+};
+T_D_15B000_8017AF4C D_15B000_8017AF4C __attribute__((aligned(8))) = {
+@@PCDATA 0 15BF4C x2 4 12x2 0
+};
+T_D_15B000_8017AF64 D_15B000_8017AF64 __attribute__((aligned(8))) = {
+@@PCDATA 0 15BF64 x2 4 12x2 0
+};
+T_D_15B000_8017AF7C D_15B000_8017AF7C __attribute__((aligned(8))) = {
+@@PCDATA 0 15BF7C x2 4 12x8,4 0
+};
+T_D_15B000_8017AFE0 D_15B000_8017AFE0 = {
+    &D_15B000_8017AEE0,
+    &D_15B000_8017AEE0,
+    &D_15B000_8017AEFC,
+    &D_15B000_8017AF18,
+    &D_15B000_8017AF34,
+    &D_15B000_8017AF4C,
+    &D_15B000_8017AF64,
+};
+T_D_15B000_8017AFFC D_15B000_8017AFFC = {
+    &D_15B000_8017AFE0,
+    &D_15B000_8017AF7C,
+    {
+@@PCDATA 0 15C004 x2 8 8 0
+    },
+    &D_15B000_8017AFE0,
+    &D_15B000_8017AF7C,
+    {
+@@PCDATA 0 15C014 x2 8 8 0
+    },
+    &D_15B000_8017AFE0,
+    &D_15B000_8017AF7C,
+    {
+@@PCDATA 0 15C024 x2 8 8 0
+    },
+    &D_15B000_8017AFE0,
+    &D_15B000_8017AF7C,
+    {
+@@PCDATA 0 15C034 x2 8 8 0
+    },
+};
+T_D_15B000_8017B03C D_15B000_8017B03C __attribute__((aligned(8))) = {
+@@PCDATA 0 15C03C x2 4 12x4,8 0
+};
+T_D_15B000_8017B074 D_15B000_8017B074 __attribute__((aligned(8))) = {
+@@PCDATA 0 15C074 x2 4 12x8 0
+};
+T_D_15B000_8017B0D4 D_15B000_8017B0D4 __attribute__((aligned(8))) = {
+@@PCDATA 0 15C0D4 x2 4 12x4,8 0
+};
+T_D_15B000_8017B10C D_15B000_8017B10C __attribute__((aligned(8))) = {
+@@PCDATA 0 15C10C x2 4 12x4,8 0
+};
+T_g_WeaponCluts g_WeaponCluts = {
+    &D_15B000_8017AC00,
+};
+s32 g_HandId = HAND_ID;
+
+// .bss
+u8 D_15B000_8017C8CC[0x1000] __attribute__((aligned(8)));

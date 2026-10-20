@@ -1,0 +1,1320 @@
+@@PCDATA-SOURCE 0 disks/us/BOSS/BO6/BO6.BIN fe067af9b7adca08dc99b108129a0f45a7ad45cd
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// PC-only copy of the Richter sprite frames, palettes and sprite banks
+// still kept as raw assembly on PSX. Generated from the splat output.
+// clang-format off
+#include "common.h"
+
+u8 bo6_pc_sprites_blob[] __attribute__((aligned(8))) = {
+@@PCDATA 0 303C x2 4 12x5783 1
+@@PCDATA 0 13F50 x2 4 12 1 5:A0
+@@PCDATA 0 13F63 x2 4 12x73 1
+@@PCDATA 0 142CF x2 4 12 1 5:00,6:00,8:00
+@@PCDATA 0 142D4 x2 4 12x3900 1
+@@PCDATA 0 4E754 x2 4 12x1015 1
+@@PCDATA 0 4E754 x2 4 12x351 1
+@@PCDATA 0 4F7C8 x2 4 12 1 8:04,9:3D,A:1A,B:80
+@@PCDATA 0 239B8 x2 4 12x883,4 1
+};
+
+__asm__(".globl D_us_80183350\n.set D_us_80183350, bo6_pc_sprites_blob + 0x314\n");
+__asm__(".globl D_us_80183564\n.set D_us_80183564, bo6_pc_sprites_blob + 0x528\n");
+__asm__(".globl D_us_8018376C\n.set D_us_8018376C, bo6_pc_sprites_blob + 0x730\n");
+__asm__(".globl D_us_80183968\n.set D_us_80183968, bo6_pc_sprites_blob + 0x92C\n");
+__asm__(".globl D_us_80183B24\n.set D_us_80183B24, bo6_pc_sprites_blob + 0xAE8\n");
+__asm__(".globl D_us_80183CE0\n.set D_us_80183CE0, bo6_pc_sprites_blob + 0xCA4\n");
+__asm__(".globl D_us_80183F00\n.set D_us_80183F00, bo6_pc_sprites_blob + 0xEC4\n");
+__asm__(".globl D_us_80184120\n.set D_us_80184120, bo6_pc_sprites_blob + 0x10E4\n");
+__asm__(".globl D_us_80184380\n.set D_us_80184380, bo6_pc_sprites_blob + 0x1344\n");
+__asm__(".globl D_us_80184594\n.set D_us_80184594, bo6_pc_sprites_blob + 0x1558\n");
+__asm__(".globl D_us_8018475C\n.set D_us_8018475C, bo6_pc_sprites_blob + 0x1720\n");
+__asm__(".globl D_us_80184918\n.set D_us_80184918, bo6_pc_sprites_blob + 0x18DC\n");
+__asm__(".globl D_us_80184B78\n.set D_us_80184B78, bo6_pc_sprites_blob + 0x1B3C\n");
+__asm__(".globl D_us_80184D34\n.set D_us_80184D34, bo6_pc_sprites_blob + 0x1CF8\n");
+__asm__(".globl D_us_80184EFC\n.set D_us_80184EFC, bo6_pc_sprites_blob + 0x1EC0\n");
+__asm__(".globl D_us_801850B8\n.set D_us_801850B8, bo6_pc_sprites_blob + 0x207C\n");
+__asm__(".globl D_us_80185278\n.set D_us_80185278, bo6_pc_sprites_blob + 0x223C\n");
+__asm__(".globl D_us_801853E4\n.set D_us_801853E4, bo6_pc_sprites_blob + 0x23A8\n");
+__asm__(".globl D_us_80185538\n.set D_us_80185538, bo6_pc_sprites_blob + 0x24FC\n");
+__asm__(".globl D_us_80185758\n.set D_us_80185758, bo6_pc_sprites_blob + 0x271C\n");
+__asm__(".globl D_us_801859D4\n.set D_us_801859D4, bo6_pc_sprites_blob + 0x2998\n");
+__asm__(".globl D_us_80185B94\n.set D_us_80185B94, bo6_pc_sprites_blob + 0x2B58\n");
+__asm__(".globl D_us_80185D00\n.set D_us_80185D00, bo6_pc_sprites_blob + 0x2CC4\n");
+__asm__(".globl D_us_80185F0C\n.set D_us_80185F0C, bo6_pc_sprites_blob + 0x2ED0\n");
+__asm__(".globl D_us_801861B0\n.set D_us_801861B0, bo6_pc_sprites_blob + 0x3174\n");
+__asm__(".globl D_us_80186364\n.set D_us_80186364, bo6_pc_sprites_blob + 0x3328\n");
+__asm__(".globl D_us_80186560\n.set D_us_80186560, bo6_pc_sprites_blob + 0x3524\n");
+__asm__(".globl D_us_801867CC\n.set D_us_801867CC, bo6_pc_sprites_blob + 0x3790\n");
+__asm__(".globl D_us_801869A0\n.set D_us_801869A0, bo6_pc_sprites_blob + 0x3964\n");
+__asm__(".globl D_us_80186C0C\n.set D_us_80186C0C, bo6_pc_sprites_blob + 0x3BD0\n");
+__asm__(".globl D_us_80186E78\n.set D_us_80186E78, bo6_pc_sprites_blob + 0x3E3C\n");
+__asm__(".globl D_us_8018704C\n.set D_us_8018704C, bo6_pc_sprites_blob + 0x4010\n");
+__asm__(".globl D_us_8018726C\n.set D_us_8018726C, bo6_pc_sprites_blob + 0x4230\n");
+__asm__(".globl D_us_80187440\n.set D_us_80187440, bo6_pc_sprites_blob + 0x4404\n");
+__asm__(".globl D_us_80187654\n.set D_us_80187654, bo6_pc_sprites_blob + 0x4618\n");
+__asm__(".globl D_us_80187814\n.set D_us_80187814, bo6_pc_sprites_blob + 0x47D8\n");
+__asm__(".globl D_us_801879E8\n.set D_us_801879E8, bo6_pc_sprites_blob + 0x49AC\n");
+__asm__(".globl D_us_80187C1C\n.set D_us_80187C1C, bo6_pc_sprites_blob + 0x4BE0\n");
+__asm__(".globl D_us_80187E24\n.set D_us_80187E24, bo6_pc_sprites_blob + 0x4DE8\n");
+__asm__(".globl D_us_801880D8\n.set D_us_801880D8, bo6_pc_sprites_blob + 0x509C\n");
+__asm__(".globl D_us_80188338\n.set D_us_80188338, bo6_pc_sprites_blob + 0x52FC\n");
+__asm__(".globl D_us_80188534\n.set D_us_80188534, bo6_pc_sprites_blob + 0x54F8\n");
+__asm__(".globl D_us_80188808\n.set D_us_80188808, bo6_pc_sprites_blob + 0x57CC\n");
+__asm__(".globl D_us_80188ADC\n.set D_us_80188ADC, bo6_pc_sprites_blob + 0x5AA0\n");
+__asm__(".globl D_us_80188DB0\n.set D_us_80188DB0, bo6_pc_sprites_blob + 0x5D74\n");
+__asm__(".globl D_us_80188FC8\n.set D_us_80188FC8, bo6_pc_sprites_blob + 0x5F8C\n");
+__asm__(".globl D_us_801891B8\n.set D_us_801891B8, bo6_pc_sprites_blob + 0x617C\n");
+__asm__(".globl D_us_80189318\n.set D_us_80189318, bo6_pc_sprites_blob + 0x62DC\n");
+__asm__(".globl D_us_801894EC\n.set D_us_801894EC, bo6_pc_sprites_blob + 0x64B0\n");
+__asm__(".globl D_us_80189694\n.set D_us_80189694, bo6_pc_sprites_blob + 0x6658\n");
+__asm__(".globl D_us_8018980C\n.set D_us_8018980C, bo6_pc_sprites_blob + 0x67D0\n");
+__asm__(".globl D_us_801899F0\n.set D_us_801899F0, bo6_pc_sprites_blob + 0x69B4\n");
+__asm__(".globl D_us_80189C10\n.set D_us_80189C10, bo6_pc_sprites_blob + 0x6BD4\n");
+__asm__(".globl D_us_80189E30\n.set D_us_80189E30, bo6_pc_sprites_blob + 0x6DF4\n");
+__asm__(".globl D_us_8018A044\n.set D_us_8018A044, bo6_pc_sprites_blob + 0x7008\n");
+__asm__(".globl D_us_8018A33C\n.set D_us_8018A33C, bo6_pc_sprites_blob + 0x7300\n");
+__asm__(".globl D_us_8018A5C4\n.set D_us_8018A5C4, bo6_pc_sprites_blob + 0x7588\n");
+__asm__(".globl D_us_8018A8C8\n.set D_us_8018A8C8, bo6_pc_sprites_blob + 0x788C\n");
+__asm__(".globl D_us_8018ACCC\n.set D_us_8018ACCC, bo6_pc_sprites_blob + 0x7C90\n");
+__asm__(".globl D_us_8018B210\n.set D_us_8018B210, bo6_pc_sprites_blob + 0x81D4\n");
+__asm__(".globl D_us_8018B508\n.set D_us_8018B508, bo6_pc_sprites_blob + 0x84CC\n");
+__asm__(".globl D_us_8018B774\n.set D_us_8018B774, bo6_pc_sprites_blob + 0x8738\n");
+__asm__(".globl D_us_8018B9E0\n.set D_us_8018B9E0, bo6_pc_sprites_blob + 0x89A4\n");
+__asm__(".globl D_us_8018BC4C\n.set D_us_8018BC4C, bo6_pc_sprites_blob + 0x8C10\n");
+__asm__(".globl D_us_8018BEB8\n.set D_us_8018BEB8, bo6_pc_sprites_blob + 0x8E7C\n");
+__asm__(".globl D_us_8018C00C\n.set D_us_8018C00C, bo6_pc_sprites_blob + 0x8FD0\n");
+__asm__(".globl D_us_8018C1F0\n.set D_us_8018C1F0, bo6_pc_sprites_blob + 0x91B4\n");
+__asm__(".globl D_us_8018C398\n.set D_us_8018C398, bo6_pc_sprites_blob + 0x935C\n");
+__asm__(".globl D_us_8018C54C\n.set D_us_8018C54C, bo6_pc_sprites_blob + 0x9510\n");
+__asm__(".globl D_us_8018C7D4\n.set D_us_8018C7D4, bo6_pc_sprites_blob + 0x9798\n");
+__asm__(".globl D_us_8018C9E0\n.set D_us_8018C9E0, bo6_pc_sprites_blob + 0x99A4\n");
+__asm__(".globl D_us_8018CBE8\n.set D_us_8018CBE8, bo6_pc_sprites_blob + 0x9BAC\n");
+__asm__(".globl D_us_8018CC18\n.set D_us_8018CC18, bo6_pc_sprites_blob + 0x9BDC\n");
+__asm__(".globl D_us_8018CE70\n.set D_us_8018CE70, bo6_pc_sprites_blob + 0x9E34\n");
+__asm__(".globl D_us_8018D07C\n.set D_us_8018D07C, bo6_pc_sprites_blob + 0xA040\n");
+__asm__(".globl D_us_8018D2E8\n.set D_us_8018D2E8, bo6_pc_sprites_blob + 0xA2AC\n");
+__asm__(".globl D_us_8018D554\n.set D_us_8018D554, bo6_pc_sprites_blob + 0xA518\n");
+__asm__(".globl D_us_8018D6E8\n.set D_us_8018D6E8, bo6_pc_sprites_blob + 0xA6AC\n");
+__asm__(".globl D_us_8018DA7C\n.set D_us_8018DA7C, bo6_pc_sprites_blob + 0xAA40\n");
+__asm__(".globl D_us_8018DD88\n.set D_us_8018DD88, bo6_pc_sprites_blob + 0xAD4C\n");
+__asm__(".globl D_us_8018E04C\n.set D_us_8018E04C, bo6_pc_sprites_blob + 0xB010\n");
+__asm__(".globl D_us_8018E26C\n.set D_us_8018E26C, bo6_pc_sprites_blob + 0xB230\n");
+__asm__(".globl D_us_8018E530\n.set D_us_8018E530, bo6_pc_sprites_blob + 0xB4F4\n");
+__asm__(".globl D_us_8018E818\n.set D_us_8018E818, bo6_pc_sprites_blob + 0xB7DC\n");
+__asm__(".globl D_us_8018EB48\n.set D_us_8018EB48, bo6_pc_sprites_blob + 0xBB0C\n");
+__asm__(".globl D_us_8018ED68\n.set D_us_8018ED68, bo6_pc_sprites_blob + 0xBD2C\n");
+__asm__(".globl D_us_8018F01C\n.set D_us_8018F01C, bo6_pc_sprites_blob + 0xBFE0\n");
+__asm__(".globl D_us_8018F270\n.set D_us_8018F270, bo6_pc_sprites_blob + 0xC234\n");
+__asm__(".globl D_us_8018F520\n.set D_us_8018F520, bo6_pc_sprites_blob + 0xC4E4\n");
+__asm__(".globl D_us_8018F6EC\n.set D_us_8018F6EC, bo6_pc_sprites_blob + 0xC6B0\n");
+__asm__(".globl D_us_8018F8B0\n.set D_us_8018F8B0, bo6_pc_sprites_blob + 0xC874\n");
+__asm__(".globl D_us_8018FA84\n.set D_us_8018FA84, bo6_pc_sprites_blob + 0xCA48\n");
+__asm__(".globl D_us_8018FCE0\n.set D_us_8018FCE0, bo6_pc_sprites_blob + 0xCCA4\n");
+__asm__(".globl D_us_8018FEF4\n.set D_us_8018FEF4, bo6_pc_sprites_blob + 0xCEB8\n");
+__asm__(".globl D_us_801900C8\n.set D_us_801900C8, bo6_pc_sprites_blob + 0xD08C\n");
+__asm__(".globl D_us_80190334\n.set D_us_80190334, bo6_pc_sprites_blob + 0xD2F8\n");
+__asm__(".globl D_us_80190588\n.set D_us_80190588, bo6_pc_sprites_blob + 0xD54C\n");
+__asm__(".globl D_us_801907DC\n.set D_us_801907DC, bo6_pc_sprites_blob + 0xD7A0\n");
+__asm__(".globl D_us_80190A8C\n.set D_us_80190A8C, bo6_pc_sprites_blob + 0xDA50\n");
+__asm__(".globl D_us_80190F7C\n.set D_us_80190F7C, bo6_pc_sprites_blob + 0xDF40\n");
+__asm__(".globl D_us_80191348\n.set D_us_80191348, bo6_pc_sprites_blob + 0xE30C\n");
+__asm__(".globl D_us_80191674\n.set D_us_80191674, bo6_pc_sprites_blob + 0xE638\n");
+__asm__(".globl D_us_80191938\n.set D_us_80191938, bo6_pc_sprites_blob + 0xE8FC\n");
+__asm__(".globl D_us_80191CE4\n.set D_us_80191CE4, bo6_pc_sprites_blob + 0xECA8\n");
+__asm__(".globl D_us_80191EB8\n.set D_us_80191EB8, bo6_pc_sprites_blob + 0xEE7C\n");
+__asm__(".globl D_us_8019206C\n.set D_us_8019206C, bo6_pc_sprites_blob + 0xF030\n");
+__asm__(".globl D_us_80192268\n.set D_us_80192268, bo6_pc_sprites_blob + 0xF22C\n");
+__asm__(".globl D_us_8019256C\n.set D_us_8019256C, bo6_pc_sprites_blob + 0xF530\n");
+__asm__(".globl D_us_80192870\n.set D_us_80192870, bo6_pc_sprites_blob + 0xF834\n");
+__asm__(".globl D_us_80192AEC\n.set D_us_80192AEC, bo6_pc_sprites_blob + 0xFAB0\n");
+__asm__(".globl D_us_80192C40\n.set D_us_80192C40, bo6_pc_sprites_blob + 0xFC04\n");
+__asm__(".globl D_us_80192D94\n.set D_us_80192D94, bo6_pc_sprites_blob + 0xFD58\n");
+__asm__(".globl D_us_80192EE8\n.set D_us_80192EE8, bo6_pc_sprites_blob + 0xFEAC\n");
+__asm__(".globl D_us_8019318C\n.set D_us_8019318C, bo6_pc_sprites_blob + 0x10150\n");
+__asm__(".globl D_us_80193440\n.set D_us_80193440, bo6_pc_sprites_blob + 0x10404\n");
+__asm__(".globl D_us_801936E4\n.set D_us_801936E4, bo6_pc_sprites_blob + 0x106A8\n");
+__asm__(".globl D_us_80193968\n.set D_us_80193968, bo6_pc_sprites_blob + 0x1092C\n");
+__asm__(".globl D_us_80193BDC\n.set D_us_80193BDC, bo6_pc_sprites_blob + 0x10BA0\n");
+__asm__(".globl D_us_80193F50\n.set D_us_80193F50, bo6_pc_sprites_blob + 0x10F14\n");
+__asm__(".globl D_us_801942D4\n.set D_us_801942D4, bo6_pc_sprites_blob + 0x11298\n");
+__asm__(".globl D_us_80194578\n.set D_us_80194578, bo6_pc_sprites_blob + 0x1153C\n");
+__asm__(".globl D_us_8019481C\n.set D_us_8019481C, bo6_pc_sprites_blob + 0x117E0\n");
+__asm__(".globl D_us_80194AC0\n.set D_us_80194AC0, bo6_pc_sprites_blob + 0x11A84\n");
+__asm__(".globl D_us_80194D64\n.set D_us_80194D64, bo6_pc_sprites_blob + 0x11D28\n");
+__asm__(".globl D_us_80195018\n.set D_us_80195018, bo6_pc_sprites_blob + 0x11FDC\n");
+__asm__(".globl D_us_801952CC\n.set D_us_801952CC, bo6_pc_sprites_blob + 0x12290\n");
+__asm__(".globl D_us_80195580\n.set D_us_80195580, bo6_pc_sprites_blob + 0x12544\n");
+__asm__(".globl D_us_80195834\n.set D_us_80195834, bo6_pc_sprites_blob + 0x127F8\n");
+__asm__(".globl D_us_80195AE8\n.set D_us_80195AE8, bo6_pc_sprites_blob + 0x12AAC\n");
+__asm__(".globl D_us_80195D9C\n.set D_us_80195D9C, bo6_pc_sprites_blob + 0x12D60\n");
+__asm__(".globl D_us_80196050\n.set D_us_80196050, bo6_pc_sprites_blob + 0x13014\n");
+__asm__(".globl D_us_80196304\n.set D_us_80196304, bo6_pc_sprites_blob + 0x132C8\n");
+__asm__(".globl D_us_801965D8\n.set D_us_801965D8, bo6_pc_sprites_blob + 0x1359C\n");
+__asm__(".globl D_us_801968BC\n.set D_us_801968BC, bo6_pc_sprites_blob + 0x13880\n");
+__asm__(".globl D_us_80196B80\n.set D_us_80196B80, bo6_pc_sprites_blob + 0x13B44\n");
+__asm__(".globl D_us_80196E44\n.set D_us_80196E44, bo6_pc_sprites_blob + 0x13E08\n");
+__asm__(".globl D_us_80197138\n.set D_us_80197138, bo6_pc_sprites_blob + 0x140FC\n");
+__asm__(".globl D_us_80197530\n.set D_us_80197530, bo6_pc_sprites_blob + 0x144F4\n");
+__asm__(".globl D_us_801978E4\n.set D_us_801978E4, bo6_pc_sprites_blob + 0x148A8\n");
+__asm__(".globl D_us_80197BB8\n.set D_us_80197BB8, bo6_pc_sprites_blob + 0x14B7C\n");
+__asm__(".globl D_us_80197F2C\n.set D_us_80197F2C, bo6_pc_sprites_blob + 0x14EF0\n");
+__asm__(".globl D_us_80198230\n.set D_us_80198230, bo6_pc_sprites_blob + 0x151F4\n");
+__asm__(".globl D_us_80198450\n.set D_us_80198450, bo6_pc_sprites_blob + 0x15414\n");
+__asm__(".globl D_us_801986CC\n.set D_us_801986CC, bo6_pc_sprites_blob + 0x15690\n");
+__asm__(".globl D_us_80198948\n.set D_us_80198948, bo6_pc_sprites_blob + 0x1590C\n");
+__asm__(".globl D_us_80198B74\n.set D_us_80198B74, bo6_pc_sprites_blob + 0x15B38\n");
+__asm__(".globl D_us_80198D38\n.set D_us_80198D38, bo6_pc_sprites_blob + 0x15CFC\n");
+__asm__(".globl D_us_80198EFC\n.set D_us_80198EFC, bo6_pc_sprites_blob + 0x15EC0\n");
+__asm__(".globl D_us_80199030\n.set D_us_80199030, bo6_pc_sprites_blob + 0x15FF4\n");
+__asm__(".globl D_us_801991A8\n.set D_us_801991A8, bo6_pc_sprites_blob + 0x1616C\n");
+__asm__(".globl D_us_801992DC\n.set D_us_801992DC, bo6_pc_sprites_blob + 0x162A0\n");
+__asm__(".globl D_us_80199454\n.set D_us_80199454, bo6_pc_sprites_blob + 0x16418\n");
+__asm__(".globl D_us_8019965C\n.set D_us_8019965C, bo6_pc_sprites_blob + 0x16620\n");
+__asm__(".globl D_us_80199864\n.set D_us_80199864, bo6_pc_sprites_blob + 0x16828\n");
+__asm__(".globl D_us_80199A6C\n.set D_us_80199A6C, bo6_pc_sprites_blob + 0x16A30\n");
+__asm__(".globl D_us_80199BD8\n.set D_us_80199BD8, bo6_pc_sprites_blob + 0x16B9C\n");
+__asm__(".globl D_us_80199D44\n.set D_us_80199D44, bo6_pc_sprites_blob + 0x16D08\n");
+__asm__(".globl D_us_80199F0C\n.set D_us_80199F0C, bo6_pc_sprites_blob + 0x16ED0\n");
+__asm__(".globl D_us_8019A0C8\n.set D_us_8019A0C8, bo6_pc_sprites_blob + 0x1708C\n");
+__asm__(".globl D_us_8019A0CC\n.set D_us_8019A0CC, bo6_pc_sprites_blob + 0x17090\n");
+__asm__(".globl D_us_8019A0D0\n.set D_us_8019A0D0, bo6_pc_sprites_blob + 0x17094\n");
+__asm__(".globl D_us_8019A2E1\n.set D_us_8019A2E1, bo6_pc_sprites_blob + 0x172A5\n");
+__asm__(".globl D_us_8019A2FB\n.set D_us_8019A2FB, bo6_pc_sprites_blob + 0x172BF\n");
+__asm__(".globl D_8019A4F4\n.set D_8019A4F4, bo6_pc_sprites_blob + 0x174B8\n");
+__asm__(".globl D_8019ACC4\n.set D_8019ACC4, bo6_pc_sprites_blob + 0x17C88\n");
+__asm__(".globl D_8019DDA8\n.set D_8019DDA8, bo6_pc_sprites_blob + 0x1AD6C\n");
+__asm__(".globl D_us_8019E9A0\n.set D_us_8019E9A0, bo6_pc_sprites_blob + 0x1B964\n");
+__asm__(".globl D_us_8019EFA0\n.set D_us_8019EFA0, bo6_pc_sprites_blob + 0x1BF64\n");
+__asm__(".globl D_us_8019F1A0\n.set D_us_8019F1A0, bo6_pc_sprites_blob + 0x1C164\n");
+__asm__(".globl D_us_8019F3A0\n.set D_us_8019F3A0, bo6_pc_sprites_blob + 0x1C364\n");
+__asm__(".globl D_us_8019F5A0\n.set D_us_8019F5A0, bo6_pc_sprites_blob + 0x1C564\n");
+__asm__(".globl bo6_tilemap_0\n.set bo6_tilemap_0, bo6_pc_sprites_blob + 0x1C764\n");
+__asm__(".globl D_us_801A3D04\n.set D_us_801A3D04, bo6_pc_sprites_blob + 0x20CC8\n");
+__asm__(".globl D_us_801A3D0C\n.set D_us_801A3D0C, bo6_pc_sprites_blob + 0x20CD0\n");
+__asm__(".globl D_us_801A3D14\n.set D_us_801A3D14, bo6_pc_sprites_blob + 0x20CD8\n");
+__asm__(".globl D_us_801A3D1C\n.set D_us_801A3D1C, bo6_pc_sprites_blob + 0x20CE0\n");
+__asm__(".globl D_us_801A3D24\n.set D_us_801A3D24, bo6_pc_sprites_blob + 0x20CE8\n");
+__asm__(".globl D_us_801A3D2C\n.set D_us_801A3D2C, bo6_pc_sprites_blob + 0x20CF0\n");
+__asm__(".globl D_us_801A3D34\n.set D_us_801A3D34, bo6_pc_sprites_blob + 0x20CF8\n");
+__asm__(".globl D_us_801A3D3C\n.set D_us_801A3D3C, bo6_pc_sprites_blob + 0x20D00\n");
+__asm__(".globl D_us_801A3D44\n.set D_us_801A3D44, bo6_pc_sprites_blob + 0x20D08\n");
+__asm__(".globl D_us_801A3D4C\n.set D_us_801A3D4C, bo6_pc_sprites_blob + 0x20D10\n");
+__asm__(".globl D_us_801A3D54\n.set D_us_801A3D54, bo6_pc_sprites_blob + 0x20D18\n");
+__asm__(".globl D_us_801A3D5C\n.set D_us_801A3D5C, bo6_pc_sprites_blob + 0x20D20\n");
+__asm__(".globl D_us_801A3D64\n.set D_us_801A3D64, bo6_pc_sprites_blob + 0x20D28\n");
+__asm__(".globl D_us_801A3D6C\n.set D_us_801A3D6C, bo6_pc_sprites_blob + 0x20D30\n");
+__asm__(".globl D_us_801A3D74\n.set D_us_801A3D74, bo6_pc_sprites_blob + 0x20D38\n");
+__asm__(".globl D_us_801A3D7C\n.set D_us_801A3D7C, bo6_pc_sprites_blob + 0x20D40\n");
+__asm__(".globl D_us_801A3D84\n.set D_us_801A3D84, bo6_pc_sprites_blob + 0x20D48\n");
+__asm__(".globl D_us_801A3D8C\n.set D_us_801A3D8C, bo6_pc_sprites_blob + 0x20D50\n");
+__asm__(".globl D_us_801A3D94\n.set D_us_801A3D94, bo6_pc_sprites_blob + 0x20D58\n");
+__asm__(".globl D_us_801A3D9C\n.set D_us_801A3D9C, bo6_pc_sprites_blob + 0x20D60\n");
+__asm__(".globl D_us_801A3DA4\n.set D_us_801A3DA4, bo6_pc_sprites_blob + 0x20D68\n");
+__asm__(".globl D_us_801A3DAC\n.set D_us_801A3DAC, bo6_pc_sprites_blob + 0x20D70\n");
+__asm__(".globl D_us_801A3DB4\n.set D_us_801A3DB4, bo6_pc_sprites_blob + 0x20D78\n");
+__asm__(".globl D_us_801A3DBC\n.set D_us_801A3DBC, bo6_pc_sprites_blob + 0x20D80\n");
+__asm__(".globl D_us_801A3DC4\n.set D_us_801A3DC4, bo6_pc_sprites_blob + 0x20D88\n");
+__asm__(".globl D_us_801A3DCC\n.set D_us_801A3DCC, bo6_pc_sprites_blob + 0x20D90\n");
+__asm__(".globl D_us_801A3DD4\n.set D_us_801A3DD4, bo6_pc_sprites_blob + 0x20D98\n");
+__asm__(".globl D_us_801A3DDC\n.set D_us_801A3DDC, bo6_pc_sprites_blob + 0x20DA0\n");
+__asm__(".globl D_us_801A3DE4\n.set D_us_801A3DE4, bo6_pc_sprites_blob + 0x20DA8\n");
+__asm__(".globl D_us_801A3DEC\n.set D_us_801A3DEC, bo6_pc_sprites_blob + 0x20DB0\n");
+__asm__(".globl D_us_801A3DF4\n.set D_us_801A3DF4, bo6_pc_sprites_blob + 0x20DB8\n");
+__asm__(".globl D_us_801A3DFC\n.set D_us_801A3DFC, bo6_pc_sprites_blob + 0x20DC0\n");
+__asm__(".globl D_us_801A3E04\n.set D_us_801A3E04, bo6_pc_sprites_blob + 0x20DC8\n");
+__asm__(".globl D_us_801A3E0C\n.set D_us_801A3E0C, bo6_pc_sprites_blob + 0x20DD0\n");
+__asm__(".globl D_us_801A3E14\n.set D_us_801A3E14, bo6_pc_sprites_blob + 0x20DD8\n");
+__asm__(".globl D_us_801A3E1C\n.set D_us_801A3E1C, bo6_pc_sprites_blob + 0x20DE0\n");
+__asm__(".globl D_us_801A3E24\n.set D_us_801A3E24, bo6_pc_sprites_blob + 0x20DE8\n");
+__asm__(".globl D_us_801A3E2C\n.set D_us_801A3E2C, bo6_pc_sprites_blob + 0x20DF0\n");
+__asm__(".globl D_us_801A3E34\n.set D_us_801A3E34, bo6_pc_sprites_blob + 0x20DF8\n");
+__asm__(".globl D_us_801A3E3C\n.set D_us_801A3E3C, bo6_pc_sprites_blob + 0x20E00\n");
+__asm__(".globl D_us_801A3E44\n.set D_us_801A3E44, bo6_pc_sprites_blob + 0x20E08\n");
+__asm__(".globl D_us_801A3E4C\n.set D_us_801A3E4C, bo6_pc_sprites_blob + 0x20E10\n");
+__asm__(".globl D_us_801A3E54\n.set D_us_801A3E54, bo6_pc_sprites_blob + 0x20E18\n");
+__asm__(".globl D_us_801A3E5C\n.set D_us_801A3E5C, bo6_pc_sprites_blob + 0x20E20\n");
+__asm__(".globl D_us_801A3E64\n.set D_us_801A3E64, bo6_pc_sprites_blob + 0x20E28\n");
+__asm__(".globl D_us_801A3E6C\n.set D_us_801A3E6C, bo6_pc_sprites_blob + 0x20E30\n");
+__asm__(".globl D_us_801A3E74\n.set D_us_801A3E74, bo6_pc_sprites_blob + 0x20E38\n");
+__asm__(".globl D_us_801A3E7C\n.set D_us_801A3E7C, bo6_pc_sprites_blob + 0x20E40\n");
+__asm__(".globl D_us_801A3E84\n.set D_us_801A3E84, bo6_pc_sprites_blob + 0x20E48\n");
+__asm__(".globl D_us_801A3E8C\n.set D_us_801A3E8C, bo6_pc_sprites_blob + 0x20E50\n");
+__asm__(".globl D_us_801A3E94\n.set D_us_801A3E94, bo6_pc_sprites_blob + 0x20E58\n");
+__asm__(".globl D_us_801A3E9C\n.set D_us_801A3E9C, bo6_pc_sprites_blob + 0x20E60\n");
+__asm__(".globl D_us_801A3EA4\n.set D_us_801A3EA4, bo6_pc_sprites_blob + 0x20E68\n");
+__asm__(".globl D_us_801A3EAC\n.set D_us_801A3EAC, bo6_pc_sprites_blob + 0x20E70\n");
+__asm__(".globl D_us_801A3EB4\n.set D_us_801A3EB4, bo6_pc_sprites_blob + 0x20E78\n");
+__asm__(".globl D_us_801A3EBC\n.set D_us_801A3EBC, bo6_pc_sprites_blob + 0x20E80\n");
+__asm__(".globl D_us_801A3EC4\n.set D_us_801A3EC4, bo6_pc_sprites_blob + 0x20E88\n");
+__asm__(".globl D_us_801A3ECC\n.set D_us_801A3ECC, bo6_pc_sprites_blob + 0x20E90\n");
+__asm__(".globl D_us_801A3ED4\n.set D_us_801A3ED4, bo6_pc_sprites_blob + 0x20E98\n");
+__asm__(".globl D_us_801A3EDC\n.set D_us_801A3EDC, bo6_pc_sprites_blob + 0x20EA0\n");
+__asm__(".globl D_us_801A3EE4\n.set D_us_801A3EE4, bo6_pc_sprites_blob + 0x20EA8\n");
+__asm__(".globl D_us_801A3EEC\n.set D_us_801A3EEC, bo6_pc_sprites_blob + 0x20EB0\n");
+__asm__(".globl D_us_801A3EF4\n.set D_us_801A3EF4, bo6_pc_sprites_blob + 0x20EB8\n");
+__asm__(".globl D_us_801A3EFC\n.set D_us_801A3EFC, bo6_pc_sprites_blob + 0x20EC0\n");
+__asm__(".globl D_us_801A3F04\n.set D_us_801A3F04, bo6_pc_sprites_blob + 0x20EC8\n");
+__asm__(".globl D_us_801A3F0C\n.set D_us_801A3F0C, bo6_pc_sprites_blob + 0x20ED0\n");
+__asm__(".globl D_us_801A3F14\n.set D_us_801A3F14, bo6_pc_sprites_blob + 0x20ED8\n");
+__asm__(".globl D_us_801A3F1C\n.set D_us_801A3F1C, bo6_pc_sprites_blob + 0x20EE0\n");
+__asm__(".globl D_us_801A3F24\n.set D_us_801A3F24, bo6_pc_sprites_blob + 0x20EE8\n");
+__asm__(".globl D_us_801A3F2C\n.set D_us_801A3F2C, bo6_pc_sprites_blob + 0x20EF0\n");
+__asm__(".globl D_us_801A3F34\n.set D_us_801A3F34, bo6_pc_sprites_blob + 0x20EF8\n");
+__asm__(".globl D_us_801A3F3C\n.set D_us_801A3F3C, bo6_pc_sprites_blob + 0x20F00\n");
+__asm__(".globl D_us_801A3F44\n.set D_us_801A3F44, bo6_pc_sprites_blob + 0x20F08\n");
+__asm__(".globl D_us_801A3F4C\n.set D_us_801A3F4C, bo6_pc_sprites_blob + 0x20F10\n");
+__asm__(".globl D_us_801A3F54\n.set D_us_801A3F54, bo6_pc_sprites_blob + 0x20F18\n");
+__asm__(".globl D_us_801A3F5C\n.set D_us_801A3F5C, bo6_pc_sprites_blob + 0x20F20\n");
+__asm__(".globl D_us_801A3F64\n.set D_us_801A3F64, bo6_pc_sprites_blob + 0x20F28\n");
+__asm__(".globl D_us_801A3F6C\n.set D_us_801A3F6C, bo6_pc_sprites_blob + 0x20F30\n");
+__asm__(".globl D_us_801A3F74\n.set D_us_801A3F74, bo6_pc_sprites_blob + 0x20F38\n");
+__asm__(".globl D_us_801A3F7C\n.set D_us_801A3F7C, bo6_pc_sprites_blob + 0x20F40\n");
+__asm__(".globl D_us_801A3F84\n.set D_us_801A3F84, bo6_pc_sprites_blob + 0x20F48\n");
+__asm__(".globl D_us_801A3F8C\n.set D_us_801A3F8C, bo6_pc_sprites_blob + 0x20F50\n");
+__asm__(".globl D_us_801A3F94\n.set D_us_801A3F94, bo6_pc_sprites_blob + 0x20F58\n");
+__asm__(".globl D_us_801A3F9C\n.set D_us_801A3F9C, bo6_pc_sprites_blob + 0x20F60\n");
+__asm__(".globl D_us_801A3FA4\n.set D_us_801A3FA4, bo6_pc_sprites_blob + 0x20F68\n");
+__asm__(".globl D_us_801A3FAC\n.set D_us_801A3FAC, bo6_pc_sprites_blob + 0x20F70\n");
+__asm__(".globl D_us_801A3FB4\n.set D_us_801A3FB4, bo6_pc_sprites_blob + 0x20F78\n");
+__asm__(".globl D_us_801A3FBC\n.set D_us_801A3FBC, bo6_pc_sprites_blob + 0x20F80\n");
+__asm__(".globl D_us_801A3FC4\n.set D_us_801A3FC4, bo6_pc_sprites_blob + 0x20F88\n");
+__asm__(".globl D_us_801A3FCC\n.set D_us_801A3FCC, bo6_pc_sprites_blob + 0x20F90\n");
+__asm__(".globl D_us_801A3FD4\n.set D_us_801A3FD4, bo6_pc_sprites_blob + 0x20F98\n");
+__asm__(".globl D_us_801A3FDC\n.set D_us_801A3FDC, bo6_pc_sprites_blob + 0x20FA0\n");
+__asm__(".globl D_us_801A3FE4\n.set D_us_801A3FE4, bo6_pc_sprites_blob + 0x20FA8\n");
+__asm__(".globl D_us_801A3FEC\n.set D_us_801A3FEC, bo6_pc_sprites_blob + 0x20FB0\n");
+__asm__(".globl D_us_801A3FF4\n.set D_us_801A3FF4, bo6_pc_sprites_blob + 0x20FB8\n");
+__asm__(".globl D_us_801A3FFC\n.set D_us_801A3FFC, bo6_pc_sprites_blob + 0x20FC0\n");
+__asm__(".globl D_us_801A4004\n.set D_us_801A4004, bo6_pc_sprites_blob + 0x20FC8\n");
+__asm__(".globl D_us_801A400C\n.set D_us_801A400C, bo6_pc_sprites_blob + 0x20FD0\n");
+__asm__(".globl D_us_801A4014\n.set D_us_801A4014, bo6_pc_sprites_blob + 0x20FD8\n");
+__asm__(".globl D_us_801A401C\n.set D_us_801A401C, bo6_pc_sprites_blob + 0x20FE0\n");
+__asm__(".globl D_us_801A4024\n.set D_us_801A4024, bo6_pc_sprites_blob + 0x20FE8\n");
+__asm__(".globl D_us_801A402C\n.set D_us_801A402C, bo6_pc_sprites_blob + 0x20FF0\n");
+__asm__(".globl D_us_801A4034\n.set D_us_801A4034, bo6_pc_sprites_blob + 0x20FF8\n");
+__asm__(".globl D_us_801A403C\n.set D_us_801A403C, bo6_pc_sprites_blob + 0x21000\n");
+__asm__(".globl D_us_801A4044\n.set D_us_801A4044, bo6_pc_sprites_blob + 0x21008\n");
+__asm__(".globl D_us_801A404C\n.set D_us_801A404C, bo6_pc_sprites_blob + 0x21010\n");
+__asm__(".globl D_us_801A4054\n.set D_us_801A4054, bo6_pc_sprites_blob + 0x21018\n");
+__asm__(".globl D_us_801A405C\n.set D_us_801A405C, bo6_pc_sprites_blob + 0x21020\n");
+__asm__(".globl D_us_801A4064\n.set D_us_801A4064, bo6_pc_sprites_blob + 0x21028\n");
+__asm__(".globl D_us_801A406C\n.set D_us_801A406C, bo6_pc_sprites_blob + 0x21030\n");
+__asm__(".globl D_us_801A4074\n.set D_us_801A4074, bo6_pc_sprites_blob + 0x21038\n");
+__asm__(".globl D_us_801A407C\n.set D_us_801A407C, bo6_pc_sprites_blob + 0x21040\n");
+__asm__(".globl D_us_801A4084\n.set D_us_801A4084, bo6_pc_sprites_blob + 0x21048\n");
+__asm__(".globl D_us_801A408C\n.set D_us_801A408C, bo6_pc_sprites_blob + 0x21050\n");
+__asm__(".globl D_us_801A4094\n.set D_us_801A4094, bo6_pc_sprites_blob + 0x21058\n");
+__asm__(".globl D_us_801A409C\n.set D_us_801A409C, bo6_pc_sprites_blob + 0x21060\n");
+__asm__(".globl D_us_801A40A4\n.set D_us_801A40A4, bo6_pc_sprites_blob + 0x21068\n");
+__asm__(".globl D_us_801A40AC\n.set D_us_801A40AC, bo6_pc_sprites_blob + 0x21070\n");
+__asm__(".globl D_us_801A40B4\n.set D_us_801A40B4, bo6_pc_sprites_blob + 0x21078\n");
+__asm__(".globl D_us_801A40BC\n.set D_us_801A40BC, bo6_pc_sprites_blob + 0x21080\n");
+__asm__(".globl D_us_801A40C4\n.set D_us_801A40C4, bo6_pc_sprites_blob + 0x21088\n");
+__asm__(".globl D_us_801A40CC\n.set D_us_801A40CC, bo6_pc_sprites_blob + 0x21090\n");
+__asm__(".globl D_us_801A40D4\n.set D_us_801A40D4, bo6_pc_sprites_blob + 0x21098\n");
+__asm__(".globl D_us_801A40DC\n.set D_us_801A40DC, bo6_pc_sprites_blob + 0x210A0\n");
+__asm__(".globl D_us_801A40E4\n.set D_us_801A40E4, bo6_pc_sprites_blob + 0x210A8\n");
+__asm__(".globl D_us_801A40EC\n.set D_us_801A40EC, bo6_pc_sprites_blob + 0x210B0\n");
+__asm__(".globl D_us_801A40F4\n.set D_us_801A40F4, bo6_pc_sprites_blob + 0x210B8\n");
+__asm__(".globl D_us_801A40FC\n.set D_us_801A40FC, bo6_pc_sprites_blob + 0x210C0\n");
+__asm__(".globl D_us_801A4104\n.set D_us_801A4104, bo6_pc_sprites_blob + 0x210C8\n");
+__asm__(".globl D_us_801A410C\n.set D_us_801A410C, bo6_pc_sprites_blob + 0x210D0\n");
+__asm__(".globl D_us_801A4114\n.set D_us_801A4114, bo6_pc_sprites_blob + 0x210D8\n");
+__asm__(".globl D_us_801A411C\n.set D_us_801A411C, bo6_pc_sprites_blob + 0x210E0\n");
+__asm__(".globl D_us_801A4124\n.set D_us_801A4124, bo6_pc_sprites_blob + 0x210E8\n");
+__asm__(".globl D_us_801A412C\n.set D_us_801A412C, bo6_pc_sprites_blob + 0x210F0\n");
+__asm__(".globl D_us_801A4134\n.set D_us_801A4134, bo6_pc_sprites_blob + 0x210F8\n");
+__asm__(".globl D_us_801A413C\n.set D_us_801A413C, bo6_pc_sprites_blob + 0x21100\n");
+__asm__(".globl D_us_801A4144\n.set D_us_801A4144, bo6_pc_sprites_blob + 0x21108\n");
+__asm__(".globl D_us_801A414C\n.set D_us_801A414C, bo6_pc_sprites_blob + 0x21110\n");
+__asm__(".globl D_us_801A4154\n.set D_us_801A4154, bo6_pc_sprites_blob + 0x21118\n");
+__asm__(".globl D_us_801A415C\n.set D_us_801A415C, bo6_pc_sprites_blob + 0x21120\n");
+__asm__(".globl D_us_801A4164\n.set D_us_801A4164, bo6_pc_sprites_blob + 0x21128\n");
+__asm__(".globl D_us_801A416C\n.set D_us_801A416C, bo6_pc_sprites_blob + 0x21130\n");
+__asm__(".globl D_us_801A4174\n.set D_us_801A4174, bo6_pc_sprites_blob + 0x21138\n");
+__asm__(".globl D_us_801A417C\n.set D_us_801A417C, bo6_pc_sprites_blob + 0x21140\n");
+__asm__(".globl D_us_801A4184\n.set D_us_801A4184, bo6_pc_sprites_blob + 0x21148\n");
+__asm__(".globl D_us_801A418C\n.set D_us_801A418C, bo6_pc_sprites_blob + 0x21150\n");
+__asm__(".globl D_us_801A4194\n.set D_us_801A4194, bo6_pc_sprites_blob + 0x21158\n");
+__asm__(".globl D_us_801A419C\n.set D_us_801A419C, bo6_pc_sprites_blob + 0x21160\n");
+__asm__(".globl D_us_801A41A4\n.set D_us_801A41A4, bo6_pc_sprites_blob + 0x21168\n");
+__asm__(".globl D_us_801A41AC\n.set D_us_801A41AC, bo6_pc_sprites_blob + 0x21170\n");
+__asm__(".globl D_us_801A41B4\n.set D_us_801A41B4, bo6_pc_sprites_blob + 0x21178\n");
+__asm__(".globl D_us_801A41BC\n.set D_us_801A41BC, bo6_pc_sprites_blob + 0x21180\n");
+__asm__(".globl D_us_801A41C4\n.set D_us_801A41C4, bo6_pc_sprites_blob + 0x21188\n");
+__asm__(".globl D_us_801A41CC\n.set D_us_801A41CC, bo6_pc_sprites_blob + 0x21190\n");
+__asm__(".globl D_us_801A41D4\n.set D_us_801A41D4, bo6_pc_sprites_blob + 0x21198\n");
+__asm__(".globl D_us_801A41DC\n.set D_us_801A41DC, bo6_pc_sprites_blob + 0x211A0\n");
+__asm__(".globl D_us_801A41E4\n.set D_us_801A41E4, bo6_pc_sprites_blob + 0x211A8\n");
+__asm__(".globl D_us_801A41EC\n.set D_us_801A41EC, bo6_pc_sprites_blob + 0x211B0\n");
+__asm__(".globl D_us_801A41F4\n.set D_us_801A41F4, bo6_pc_sprites_blob + 0x211B8\n");
+__asm__(".globl D_us_801A41FC\n.set D_us_801A41FC, bo6_pc_sprites_blob + 0x211C0\n");
+__asm__(".globl D_us_801A4204\n.set D_us_801A4204, bo6_pc_sprites_blob + 0x211C8\n");
+__asm__(".globl D_us_801A420C\n.set D_us_801A420C, bo6_pc_sprites_blob + 0x211D0\n");
+__asm__(".globl D_us_801A4214\n.set D_us_801A4214, bo6_pc_sprites_blob + 0x211D8\n");
+__asm__(".globl D_us_801A421C\n.set D_us_801A421C, bo6_pc_sprites_blob + 0x211E0\n");
+__asm__(".globl D_us_801A4224\n.set D_us_801A4224, bo6_pc_sprites_blob + 0x211E8\n");
+__asm__(".globl D_us_801A422C\n.set D_us_801A422C, bo6_pc_sprites_blob + 0x211F0\n");
+__asm__(".globl D_us_801A4234\n.set D_us_801A4234, bo6_pc_sprites_blob + 0x211F8\n");
+__asm__(".globl D_us_801A423C\n.set D_us_801A423C, bo6_pc_sprites_blob + 0x21200\n");
+__asm__(".globl D_us_801A4244\n.set D_us_801A4244, bo6_pc_sprites_blob + 0x21208\n");
+__asm__(".globl D_us_801A424C\n.set D_us_801A424C, bo6_pc_sprites_blob + 0x21210\n");
+__asm__(".globl D_us_801A4254\n.set D_us_801A4254, bo6_pc_sprites_blob + 0x21218\n");
+__asm__(".globl D_us_801A425C\n.set D_us_801A425C, bo6_pc_sprites_blob + 0x21220\n");
+__asm__(".globl D_us_801A4264\n.set D_us_801A4264, bo6_pc_sprites_blob + 0x21228\n");
+__asm__(".globl D_us_801A426C\n.set D_us_801A426C, bo6_pc_sprites_blob + 0x21230\n");
+__asm__(".globl D_us_801A4274\n.set D_us_801A4274, bo6_pc_sprites_blob + 0x21238\n");
+__asm__(".globl D_us_801A427C\n.set D_us_801A427C, bo6_pc_sprites_blob + 0x21240\n");
+__asm__(".globl D_us_801A4284\n.set D_us_801A4284, bo6_pc_sprites_blob + 0x21248\n");
+__asm__(".globl D_us_801A428C\n.set D_us_801A428C, bo6_pc_sprites_blob + 0x21250\n");
+__asm__(".globl D_us_801A4294\n.set D_us_801A4294, bo6_pc_sprites_blob + 0x21258\n");
+__asm__(".globl D_us_801A429C\n.set D_us_801A429C, bo6_pc_sprites_blob + 0x21260\n");
+__asm__(".globl D_us_801A42A4\n.set D_us_801A42A4, bo6_pc_sprites_blob + 0x21268\n");
+__asm__(".globl D_us_801A42AC\n.set D_us_801A42AC, bo6_pc_sprites_blob + 0x21270\n");
+__asm__(".globl D_us_801A42B4\n.set D_us_801A42B4, bo6_pc_sprites_blob + 0x21278\n");
+__asm__(".globl D_us_801A42BC\n.set D_us_801A42BC, bo6_pc_sprites_blob + 0x21280\n");
+__asm__(".globl D_us_801A42C4\n.set D_us_801A42C4, bo6_pc_sprites_blob + 0x21288\n");
+__asm__(".globl D_us_801A42CC\n.set D_us_801A42CC, bo6_pc_sprites_blob + 0x21290\n");
+__asm__(".globl D_us_801A42D4\n.set D_us_801A42D4, bo6_pc_sprites_blob + 0x21298\n");
+__asm__(".globl D_us_801A42DC\n.set D_us_801A42DC, bo6_pc_sprites_blob + 0x212A0\n");
+__asm__(".globl D_us_801A42E4\n.set D_us_801A42E4, bo6_pc_sprites_blob + 0x212A8\n");
+__asm__(".globl D_us_801A42EC\n.set D_us_801A42EC, bo6_pc_sprites_blob + 0x212B0\n");
+__asm__(".globl D_us_801A42F4\n.set D_us_801A42F4, bo6_pc_sprites_blob + 0x212B8\n");
+__asm__(".globl D_us_801A42FC\n.set D_us_801A42FC, bo6_pc_sprites_blob + 0x212C0\n");
+__asm__(".globl D_us_801A4304\n.set D_us_801A4304, bo6_pc_sprites_blob + 0x212C8\n");
+__asm__(".globl D_us_801A430C\n.set D_us_801A430C, bo6_pc_sprites_blob + 0x212D0\n");
+__asm__(".globl D_us_801A4314\n.set D_us_801A4314, bo6_pc_sprites_blob + 0x212D8\n");
+__asm__(".globl D_us_801A431C\n.set D_us_801A431C, bo6_pc_sprites_blob + 0x212E0\n");
+__asm__(".globl D_us_801A4324\n.set D_us_801A4324, bo6_pc_sprites_blob + 0x212E8\n");
+__asm__(".globl D_us_801A432C\n.set D_us_801A432C, bo6_pc_sprites_blob + 0x212F0\n");
+__asm__(".globl D_us_801A4334\n.set D_us_801A4334, bo6_pc_sprites_blob + 0x212F8\n");
+__asm__(".globl D_us_801A433C\n.set D_us_801A433C, bo6_pc_sprites_blob + 0x21300\n");
+__asm__(".globl D_us_801A4344\n.set D_us_801A4344, bo6_pc_sprites_blob + 0x21308\n");
+__asm__(".globl D_us_801A434C\n.set D_us_801A434C, bo6_pc_sprites_blob + 0x21310\n");
+__asm__(".globl D_us_801A4354\n.set D_us_801A4354, bo6_pc_sprites_blob + 0x21318\n");
+__asm__(".globl D_us_801A435C\n.set D_us_801A435C, bo6_pc_sprites_blob + 0x21320\n");
+__asm__(".globl D_us_801A4364\n.set D_us_801A4364, bo6_pc_sprites_blob + 0x21328\n");
+__asm__(".globl D_us_801A436C\n.set D_us_801A436C, bo6_pc_sprites_blob + 0x21330\n");
+__asm__(".globl D_us_801A4374\n.set D_us_801A4374, bo6_pc_sprites_blob + 0x21338\n");
+__asm__(".globl D_us_801A437C\n.set D_us_801A437C, bo6_pc_sprites_blob + 0x21340\n");
+__asm__(".globl D_us_801A4384\n.set D_us_801A4384, bo6_pc_sprites_blob + 0x21348\n");
+__asm__(".globl D_us_801A438C\n.set D_us_801A438C, bo6_pc_sprites_blob + 0x21350\n");
+__asm__(".globl D_us_801A4394\n.set D_us_801A4394, bo6_pc_sprites_blob + 0x21358\n");
+__asm__(".globl D_us_801A439C\n.set D_us_801A439C, bo6_pc_sprites_blob + 0x21360\n");
+__asm__(".globl D_us_801A43F8\n.set D_us_801A43F8, bo6_pc_sprites_blob + 0x213BC\n");
+__asm__(".globl D_us_801A4414\n.set D_us_801A4414, bo6_pc_sprites_blob + 0x213D8\n");
+__asm__(".globl D_us_801A4430\n.set D_us_801A4430, bo6_pc_sprites_blob + 0x213F4\n");
+__asm__(".globl D_us_801A444C\n.set D_us_801A444C, bo6_pc_sprites_blob + 0x21410\n");
+__asm__(".globl D_us_801A4468\n.set D_us_801A4468, bo6_pc_sprites_blob + 0x2142C\n");
+__asm__(".globl D_us_801A4484\n.set D_us_801A4484, bo6_pc_sprites_blob + 0x21448\n");
+__asm__(".globl D_us_801A44A0\n.set D_us_801A44A0, bo6_pc_sprites_blob + 0x21464\n");
+__asm__(".globl D_us_801A44BC\n.set D_us_801A44BC, bo6_pc_sprites_blob + 0x21480\n");
+__asm__(".globl D_us_801A44D8\n.set D_us_801A44D8, bo6_pc_sprites_blob + 0x2149C\n");
+__asm__(".globl D_us_801A44F4\n.set D_us_801A44F4, bo6_pc_sprites_blob + 0x214B8\n");
+__asm__(".globl D_us_801A4510\n.set D_us_801A4510, bo6_pc_sprites_blob + 0x214D4\n");
+__asm__(".globl D_us_801A452C\n.set D_us_801A452C, bo6_pc_sprites_blob + 0x214F0\n");
+__asm__(".globl D_us_801A4548\n.set D_us_801A4548, bo6_pc_sprites_blob + 0x2150C\n");
+__asm__(".globl D_us_801A4564\n.set D_us_801A4564, bo6_pc_sprites_blob + 0x21528\n");
+__asm__(".globl D_us_801A4580\n.set D_us_801A4580, bo6_pc_sprites_blob + 0x21544\n");
+__asm__(".globl D_us_801A459C\n.set D_us_801A459C, bo6_pc_sprites_blob + 0x21560\n");
+__asm__(".globl D_us_801A45B8\n.set D_us_801A45B8, bo6_pc_sprites_blob + 0x2157C\n");
+__asm__(".globl D_us_801A45D4\n.set D_us_801A45D4, bo6_pc_sprites_blob + 0x21598\n");
+__asm__(".globl D_us_801A45F0\n.set D_us_801A45F0, bo6_pc_sprites_blob + 0x215B4\n");
+__asm__(".globl D_us_801A460C\n.set D_us_801A460C, bo6_pc_sprites_blob + 0x215D0\n");
+__asm__(".globl D_us_801A46BC\n.set D_us_801A46BC, bo6_pc_sprites_blob + 0x21680\n");
+__asm__(".globl D_us_801A46D8\n.set D_us_801A46D8, bo6_pc_sprites_blob + 0x2169C\n");
+__asm__(".globl D_us_801A46F4\n.set D_us_801A46F4, bo6_pc_sprites_blob + 0x216B8\n");
+__asm__(".globl D_us_801A4710\n.set D_us_801A4710, bo6_pc_sprites_blob + 0x216D4\n");
+__asm__(".globl D_us_801A472C\n.set D_us_801A472C, bo6_pc_sprites_blob + 0x216F0\n");
+__asm__(".globl D_us_801A4748\n.set D_us_801A4748, bo6_pc_sprites_blob + 0x2170C\n");
+__asm__(".globl D_us_801A4764\n.set D_us_801A4764, bo6_pc_sprites_blob + 0x21728\n");
+__asm__(".globl D_us_801A4780\n.set D_us_801A4780, bo6_pc_sprites_blob + 0x21744\n");
+__asm__(".globl D_us_801A479C\n.set D_us_801A479C, bo6_pc_sprites_blob + 0x21760\n");
+__asm__(".globl D_us_801A47B8\n.set D_us_801A47B8, bo6_pc_sprites_blob + 0x2177C\n");
+__asm__(".globl D_us_801A47D4\n.set D_us_801A47D4, bo6_pc_sprites_blob + 0x21798\n");
+__asm__(".globl D_us_801A47F0\n.set D_us_801A47F0, bo6_pc_sprites_blob + 0x217B4\n");
+__asm__(".globl D_us_801A480C\n.set D_us_801A480C, bo6_pc_sprites_blob + 0x217D0\n");
+__asm__(".globl D_us_801A4828\n.set D_us_801A4828, bo6_pc_sprites_blob + 0x217EC\n");
+__asm__(".globl D_us_801A4844\n.set D_us_801A4844, bo6_pc_sprites_blob + 0x21808\n");
+__asm__(".globl D_us_801A4860\n.set D_us_801A4860, bo6_pc_sprites_blob + 0x21824\n");
+__asm__(".globl D_us_801A487C\n.set D_us_801A487C, bo6_pc_sprites_blob + 0x21840\n");
+__asm__(".globl D_us_801A4898\n.set D_us_801A4898, bo6_pc_sprites_blob + 0x2185C\n");
+__asm__(".globl D_us_801A48B4\n.set D_us_801A48B4, bo6_pc_sprites_blob + 0x21878\n");
+__asm__(".globl D_us_801A48D0\n.set D_us_801A48D0, bo6_pc_sprites_blob + 0x21894\n");
+__asm__(".globl D_us_801A48EC\n.set D_us_801A48EC, bo6_pc_sprites_blob + 0x218B0\n");
+__asm__(".globl D_us_801A4908\n.set D_us_801A4908, bo6_pc_sprites_blob + 0x218CC\n");
+__asm__(".globl D_us_801A4924\n.set D_us_801A4924, bo6_pc_sprites_blob + 0x218E8\n");
+__asm__(".globl D_us_801A4940\n.set D_us_801A4940, bo6_pc_sprites_blob + 0x21904\n");
+__asm__(".globl D_us_801A495C\n.set D_us_801A495C, bo6_pc_sprites_blob + 0x21920\n");
+__asm__(".globl D_us_801A4978\n.set D_us_801A4978, bo6_pc_sprites_blob + 0x2193C\n");
+__asm__(".globl D_us_801A4994\n.set D_us_801A4994, bo6_pc_sprites_blob + 0x21958\n");
+__asm__(".globl D_us_801A49B0\n.set D_us_801A49B0, bo6_pc_sprites_blob + 0x21974\n");
+__asm__(".globl D_us_801A49CC\n.set D_us_801A49CC, bo6_pc_sprites_blob + 0x21990\n");
+__asm__(".globl D_us_801A49E8\n.set D_us_801A49E8, bo6_pc_sprites_blob + 0x219AC\n");
+__asm__(".globl D_us_801A4A04\n.set D_us_801A4A04, bo6_pc_sprites_blob + 0x219C8\n");
+__asm__(".globl D_us_801A4A20\n.set D_us_801A4A20, bo6_pc_sprites_blob + 0x219E4\n");
+__asm__(".globl D_us_801A4A3C\n.set D_us_801A4A3C, bo6_pc_sprites_blob + 0x21A00\n");
+__asm__(".globl D_us_801A4A58\n.set D_us_801A4A58, bo6_pc_sprites_blob + 0x21A1C\n");
+__asm__(".globl D_us_801A4A74\n.set D_us_801A4A74, bo6_pc_sprites_blob + 0x21A38\n");
+__asm__(".globl D_us_801A4A90\n.set D_us_801A4A90, bo6_pc_sprites_blob + 0x21A54\n");
+__asm__(".globl D_us_801A4CE0\n.set D_us_801A4CE0, bo6_pc_sprites_blob + 0x21CA4\n");
+__asm__(".globl D_us_801A4CFC\n.set D_us_801A4CFC, bo6_pc_sprites_blob + 0x21CC0\n");
+__asm__(".globl D_us_801A4D18\n.set D_us_801A4D18, bo6_pc_sprites_blob + 0x21CDC\n");
+__asm__(".globl D_us_801A4D34\n.set D_us_801A4D34, bo6_pc_sprites_blob + 0x21CF8\n");
+__asm__(".globl D_us_801A4D50\n.set D_us_801A4D50, bo6_pc_sprites_blob + 0x21D14\n");
+__asm__(".globl D_us_801A4D6C\n.set D_us_801A4D6C, bo6_pc_sprites_blob + 0x21D30\n");
+__asm__(".globl D_us_801A4D88\n.set D_us_801A4D88, bo6_pc_sprites_blob + 0x21D4C\n");
+__asm__(".globl D_us_801A4DA4\n.set D_us_801A4DA4, bo6_pc_sprites_blob + 0x21D68\n");
+__asm__(".globl D_us_801A4DC0\n.set D_us_801A4DC0, bo6_pc_sprites_blob + 0x21D84\n");
+__asm__(".globl D_us_801A4DDC\n.set D_us_801A4DDC, bo6_pc_sprites_blob + 0x21DA0\n");
+__asm__(".globl D_us_801A4DF8\n.set D_us_801A4DF8, bo6_pc_sprites_blob + 0x21DBC\n");
+__asm__(".globl D_us_801A4E14\n.set D_us_801A4E14, bo6_pc_sprites_blob + 0x21DD8\n");
+__asm__(".globl D_us_801A4E30\n.set D_us_801A4E30, bo6_pc_sprites_blob + 0x21DF4\n");
+__asm__(".globl D_us_801A4E4C\n.set D_us_801A4E4C, bo6_pc_sprites_blob + 0x21E10\n");
+__asm__(".globl D_us_801A4E68\n.set D_us_801A4E68, bo6_pc_sprites_blob + 0x21E2C\n");
+__asm__(".globl D_us_801A4E84\n.set D_us_801A4E84, bo6_pc_sprites_blob + 0x21E48\n");
+__asm__(".globl D_us_801A4EA0\n.set D_us_801A4EA0, bo6_pc_sprites_blob + 0x21E64\n");
+__asm__(".globl D_us_801A4EBC\n.set D_us_801A4EBC, bo6_pc_sprites_blob + 0x21E80\n");
+__asm__(".globl D_us_801A4ED8\n.set D_us_801A4ED8, bo6_pc_sprites_blob + 0x21E9C\n");
+__asm__(".globl D_us_801A4EF4\n.set D_us_801A4EF4, bo6_pc_sprites_blob + 0x21EB8\n");
+__asm__(".globl D_us_801A4F10\n.set D_us_801A4F10, bo6_pc_sprites_blob + 0x21ED4\n");
+__asm__(".globl D_us_801A4F2C\n.set D_us_801A4F2C, bo6_pc_sprites_blob + 0x21EF0\n");
+__asm__(".globl D_us_801A4F48\n.set D_us_801A4F48, bo6_pc_sprites_blob + 0x21F0C\n");
+__asm__(".globl D_us_801A4F64\n.set D_us_801A4F64, bo6_pc_sprites_blob + 0x21F28\n");
+__asm__(".globl D_us_801A4F80\n.set D_us_801A4F80, bo6_pc_sprites_blob + 0x21F44\n");
+__asm__(".globl D_us_801A4F9C\n.set D_us_801A4F9C, bo6_pc_sprites_blob + 0x21F60\n");
+__asm__(".globl D_us_801A4FB8\n.set D_us_801A4FB8, bo6_pc_sprites_blob + 0x21F7C\n");
+__asm__(".globl D_us_801A4FD4\n.set D_us_801A4FD4, bo6_pc_sprites_blob + 0x21F98\n");
+__asm__(".globl D_us_801A4FF0\n.set D_us_801A4FF0, bo6_pc_sprites_blob + 0x21FB4\n");
+__asm__(".globl D_us_801A500C\n.set D_us_801A500C, bo6_pc_sprites_blob + 0x21FD0\n");
+__asm__(".globl D_us_801A5028\n.set D_us_801A5028, bo6_pc_sprites_blob + 0x21FEC\n");
+__asm__(".globl D_us_801A5044\n.set D_us_801A5044, bo6_pc_sprites_blob + 0x22008\n");
+__asm__(".globl D_us_801A5060\n.set D_us_801A5060, bo6_pc_sprites_blob + 0x22024\n");
+__asm__(".globl D_us_801A507C\n.set D_us_801A507C, bo6_pc_sprites_blob + 0x22040\n");
+__asm__(".globl D_us_801A5098\n.set D_us_801A5098, bo6_pc_sprites_blob + 0x2205C\n");
+__asm__(".globl D_us_801A50B4\n.set D_us_801A50B4, bo6_pc_sprites_blob + 0x22078\n");
+__asm__(".globl D_us_801A50D0\n.set D_us_801A50D0, bo6_pc_sprites_blob + 0x22094\n");
+__asm__(".globl D_us_801A50EC\n.set D_us_801A50EC, bo6_pc_sprites_blob + 0x220B0\n");
+__asm__(".globl D_us_801A5108\n.set D_us_801A5108, bo6_pc_sprites_blob + 0x220CC\n");
+__asm__(".globl D_us_801A5124\n.set D_us_801A5124, bo6_pc_sprites_blob + 0x220E8\n");
+__asm__(".globl D_us_801A5140\n.set D_us_801A5140, bo6_pc_sprites_blob + 0x22104\n");
+__asm__(".globl D_us_801A515C\n.set D_us_801A515C, bo6_pc_sprites_blob + 0x22120\n");
+__asm__(".globl D_us_801A5178\n.set D_us_801A5178, bo6_pc_sprites_blob + 0x2213C\n");
+__asm__(".globl D_us_801A5194\n.set D_us_801A5194, bo6_pc_sprites_blob + 0x22158\n");
+__asm__(".globl D_us_801A51C4\n.set D_us_801A51C4, bo6_pc_sprites_blob + 0x22188\n");
+__asm__(".globl D_us_801A51F4\n.set D_us_801A51F4, bo6_pc_sprites_blob + 0x221B8\n");
+__asm__(".globl D_us_801A5224\n.set D_us_801A5224, bo6_pc_sprites_blob + 0x221E8\n");
+__asm__(".globl D_us_801A5254\n.set D_us_801A5254, bo6_pc_sprites_blob + 0x22218\n");
+__asm__(".globl D_us_801A5284\n.set D_us_801A5284, bo6_pc_sprites_blob + 0x22248\n");
+__asm__(".globl D_us_801A52B4\n.set D_us_801A52B4, bo6_pc_sprites_blob + 0x22278\n");
+__asm__(".globl D_us_801A52E4\n.set D_us_801A52E4, bo6_pc_sprites_blob + 0x222A8\n");
+__asm__(".globl D_us_801A5314\n.set D_us_801A5314, bo6_pc_sprites_blob + 0x222D8\n");
+__asm__(".globl D_us_801A5344\n.set D_us_801A5344, bo6_pc_sprites_blob + 0x22308\n");
+__asm__(".globl D_us_801A5374\n.set D_us_801A5374, bo6_pc_sprites_blob + 0x22338\n");
+__asm__(".globl D_us_801A53A4\n.set D_us_801A53A4, bo6_pc_sprites_blob + 0x22368\n");
+__asm__(".globl D_us_801A53D4\n.set D_us_801A53D4, bo6_pc_sprites_blob + 0x22398\n");
+__asm__(".globl D_us_801A5404\n.set D_us_801A5404, bo6_pc_sprites_blob + 0x223C8\n");
+__asm__(".globl D_us_801A5434\n.set D_us_801A5434, bo6_pc_sprites_blob + 0x223F8\n");
+__asm__(".globl D_us_801A5464\n.set D_us_801A5464, bo6_pc_sprites_blob + 0x22428\n");
+__asm__(".globl D_us_801A5494\n.set D_us_801A5494, bo6_pc_sprites_blob + 0x22458\n");
+__asm__(".globl D_us_801A54C4\n.set D_us_801A54C4, bo6_pc_sprites_blob + 0x22488\n");
+__asm__(".globl D_us_801A54E0\n.set D_us_801A54E0, bo6_pc_sprites_blob + 0x224A4\n");
+__asm__(".globl D_us_801A5510\n.set D_us_801A5510, bo6_pc_sprites_blob + 0x224D4\n");
+__asm__(".globl D_us_801A5558\n.set D_us_801A5558, bo6_pc_sprites_blob + 0x2251C\n");
+__asm__(".globl D_us_801A55CC\n.set D_us_801A55CC, bo6_pc_sprites_blob + 0x22590\n");
+__asm__(".globl D_us_801A5640\n.set D_us_801A5640, bo6_pc_sprites_blob + 0x22604\n");
+__asm__(".globl D_us_801A56B4\n.set D_us_801A56B4, bo6_pc_sprites_blob + 0x22678\n");
+__asm__(".globl D_us_801A5728\n.set D_us_801A5728, bo6_pc_sprites_blob + 0x226EC\n");
+__asm__(".globl D_us_801A5784\n.set D_us_801A5784, bo6_pc_sprites_blob + 0x22748\n");
+__asm__(".globl D_us_801A57E0\n.set D_us_801A57E0, bo6_pc_sprites_blob + 0x227A4\n");
+__asm__(".globl D_us_801A583C\n.set D_us_801A583C, bo6_pc_sprites_blob + 0x22800\n");
+__asm__(".globl D_us_801A5898\n.set D_us_801A5898, bo6_pc_sprites_blob + 0x2285C\n");
+__asm__(".globl D_us_801A58C8\n.set D_us_801A58C8, bo6_pc_sprites_blob + 0x2288C\n");
+__asm__(".globl D_us_801A58F8\n.set D_us_801A58F8, bo6_pc_sprites_blob + 0x228BC\n");
+__asm__(".globl D_us_801A5928\n.set D_us_801A5928, bo6_pc_sprites_blob + 0x228EC\n");
+__asm__(".globl D_us_801A5958\n.set D_us_801A5958, bo6_pc_sprites_blob + 0x2291C\n");
+__asm__(".globl D_us_801A5974\n.set D_us_801A5974, bo6_pc_sprites_blob + 0x22938\n");
+__asm__(".globl D_us_801A5990\n.set D_us_801A5990, bo6_pc_sprites_blob + 0x22954\n");
+__asm__(".globl D_us_801A59AC\n.set D_us_801A59AC, bo6_pc_sprites_blob + 0x22970\n");
+__asm__(".globl D_us_801A59C8\n.set D_us_801A59C8, bo6_pc_sprites_blob + 0x2298C\n");
+__asm__(".globl D_us_801A59E4\n.set D_us_801A59E4, bo6_pc_sprites_blob + 0x229A8\n");
+__asm__(".globl D_us_801A5A00\n.set D_us_801A5A00, bo6_pc_sprites_blob + 0x229C4\n");
+__asm__(".globl D_us_801A5A1C\n.set D_us_801A5A1C, bo6_pc_sprites_blob + 0x229E0\n");
+__asm__(".globl D_us_801A5A38\n.set D_us_801A5A38, bo6_pc_sprites_blob + 0x229FC\n");
+__asm__(".globl D_us_801A5A54\n.set D_us_801A5A54, bo6_pc_sprites_blob + 0x22A18\n");
+__asm__(".globl D_us_801A5A70\n.set D_us_801A5A70, bo6_pc_sprites_blob + 0x22A34\n");
+__asm__(".globl D_us_801A5A8C\n.set D_us_801A5A8C, bo6_pc_sprites_blob + 0x22A50\n");
+__asm__(".globl D_us_801A5AA8\n.set D_us_801A5AA8, bo6_pc_sprites_blob + 0x22A6C\n");
+__asm__(".globl D_us_801A5AC4\n.set D_us_801A5AC4, bo6_pc_sprites_blob + 0x22A88\n");
+__asm__(".globl D_us_801A5AE0\n.set D_us_801A5AE0, bo6_pc_sprites_blob + 0x22AA4\n");
+__asm__(".globl D_us_801A5AFC\n.set D_us_801A5AFC, bo6_pc_sprites_blob + 0x22AC0\n");
+__asm__(".globl D_us_801A5B18\n.set D_us_801A5B18, bo6_pc_sprites_blob + 0x22ADC\n");
+__asm__(".globl D_us_801A5B34\n.set D_us_801A5B34, bo6_pc_sprites_blob + 0x22AF8\n");
+__asm__(".globl D_us_801A5B64\n.set D_us_801A5B64, bo6_pc_sprites_blob + 0x22B28\n");
+__asm__(".globl D_us_801A5B94\n.set D_us_801A5B94, bo6_pc_sprites_blob + 0x22B58\n");
+__asm__(".globl D_us_801A5BC4\n.set D_us_801A5BC4, bo6_pc_sprites_blob + 0x22B88\n");
+__asm__(".globl D_us_801A5BF4\n.set D_us_801A5BF4, bo6_pc_sprites_blob + 0x22BB8\n");
+__asm__(".globl D_us_801A5C24\n.set D_us_801A5C24, bo6_pc_sprites_blob + 0x22BE8\n");
+__asm__(".globl D_us_801A5C54\n.set D_us_801A5C54, bo6_pc_sprites_blob + 0x22C18\n");
+__asm__(".globl D_us_801A5C84\n.set D_us_801A5C84, bo6_pc_sprites_blob + 0x22C48\n");
+__asm__(".globl D_us_801A5CB4\n.set D_us_801A5CB4, bo6_pc_sprites_blob + 0x22C78\n");
+__asm__(".globl D_us_801A5CE4\n.set D_us_801A5CE4, bo6_pc_sprites_blob + 0x22CA8\n");
+__asm__(".globl D_us_801A5D14\n.set D_us_801A5D14, bo6_pc_sprites_blob + 0x22CD8\n");
+__asm__(".globl D_us_801A5D44\n.set D_us_801A5D44, bo6_pc_sprites_blob + 0x22D08\n");
+__asm__(".globl D_us_801A5D74\n.set D_us_801A5D74, bo6_pc_sprites_blob + 0x22D38\n");
+__asm__(".globl D_us_801A5DA4\n.set D_us_801A5DA4, bo6_pc_sprites_blob + 0x22D68\n");
+__asm__(".globl D_us_801A5DD4\n.set D_us_801A5DD4, bo6_pc_sprites_blob + 0x22D98\n");
+__asm__(".globl D_us_801A5E04\n.set D_us_801A5E04, bo6_pc_sprites_blob + 0x22DC8\n");
+__asm__(".globl D_us_801A5E34\n.set D_us_801A5E34, bo6_pc_sprites_blob + 0x22DF8\n");
+__asm__(".globl D_us_801A5E64\n.set D_us_801A5E64, bo6_pc_sprites_blob + 0x22E28\n");
+__asm__(".globl D_us_801A5E94\n.set D_us_801A5E94, bo6_pc_sprites_blob + 0x22E58\n");
+__asm__(".globl D_us_801A5EC4\n.set D_us_801A5EC4, bo6_pc_sprites_blob + 0x22E88\n");
+__asm__(".globl D_us_801A5EF4\n.set D_us_801A5EF4, bo6_pc_sprites_blob + 0x22EB8\n");
+__asm__(".globl D_us_801A5F24\n.set D_us_801A5F24, bo6_pc_sprites_blob + 0x22EE8\n");
+__asm__(".globl D_us_801A5F54\n.set D_us_801A5F54, bo6_pc_sprites_blob + 0x22F18\n");
+__asm__(".globl D_us_801A5F84\n.set D_us_801A5F84, bo6_pc_sprites_blob + 0x22F48\n");
+__asm__(".globl D_us_801A5FB4\n.set D_us_801A5FB4, bo6_pc_sprites_blob + 0x22F78\n");
+__asm__(".globl D_us_801A5FE4\n.set D_us_801A5FE4, bo6_pc_sprites_blob + 0x22FA8\n");
+__asm__(".globl D_us_801A6014\n.set D_us_801A6014, bo6_pc_sprites_blob + 0x22FD8\n");
+__asm__(".globl D_us_801A6044\n.set D_us_801A6044, bo6_pc_sprites_blob + 0x23008\n");
+__asm__(".globl D_us_801A6074\n.set D_us_801A6074, bo6_pc_sprites_blob + 0x23038\n");
+__asm__(".globl D_us_801A60A4\n.set D_us_801A60A4, bo6_pc_sprites_blob + 0x23068\n");
+__asm__(".globl D_us_801A60D4\n.set D_us_801A60D4, bo6_pc_sprites_blob + 0x23098\n");
+__asm__(".globl D_us_801A60F0\n.set D_us_801A60F0, bo6_pc_sprites_blob + 0x230B4\n");
+__asm__(".globl D_us_801A610C\n.set D_us_801A610C, bo6_pc_sprites_blob + 0x230D0\n");
+__asm__(".globl D_us_801A6128\n.set D_us_801A6128, bo6_pc_sprites_blob + 0x230EC\n");
+__asm__(".globl D_us_801A6144\n.set D_us_801A6144, bo6_pc_sprites_blob + 0x23108\n");
+__asm__(".globl D_us_801A6174\n.set D_us_801A6174, bo6_pc_sprites_blob + 0x23138\n");
+__asm__(".globl D_us_801A61A4\n.set D_us_801A61A4, bo6_pc_sprites_blob + 0x23168\n");
+__asm__(".globl D_us_801A61D4\n.set D_us_801A61D4, bo6_pc_sprites_blob + 0x23198\n");
+__asm__(".globl D_us_801A6204\n.set D_us_801A6204, bo6_pc_sprites_blob + 0x231C8\n");
+__asm__(".globl D_us_801A6220\n.set D_us_801A6220, bo6_pc_sprites_blob + 0x231E4\n");
+__asm__(".globl D_us_801A623C\n.set D_us_801A623C, bo6_pc_sprites_blob + 0x23200\n");
+__asm__(".globl D_us_801A6258\n.set D_us_801A6258, bo6_pc_sprites_blob + 0x2321C\n");
+__asm__(".globl D_us_801A6274\n.set D_us_801A6274, bo6_pc_sprites_blob + 0x23238\n");
+__asm__(".globl D_us_801A6290\n.set D_us_801A6290, bo6_pc_sprites_blob + 0x23254\n");
+__asm__(".globl D_us_801A62AC\n.set D_us_801A62AC, bo6_pc_sprites_blob + 0x23270\n");
+__asm__(".globl D_us_801A62C8\n.set D_us_801A62C8, bo6_pc_sprites_blob + 0x2328C\n");
+__asm__(".globl D_us_801A62E4\n.set D_us_801A62E4, bo6_pc_sprites_blob + 0x232A8\n");
+__asm__(".globl D_us_801A6300\n.set D_us_801A6300, bo6_pc_sprites_blob + 0x232C4\n");
+__asm__(".globl D_us_801A6308\n.set D_us_801A6308, bo6_pc_sprites_blob + 0x232CC\n");
+__asm__(".globl D_us_801A6314\n.set D_us_801A6314, bo6_pc_sprites_blob + 0x232D8\n");
+
+extern u8 D_8019A4F4[];
+extern u8 D_8019ACC4[];
+extern u8 D_8019DDA8[];
+extern u8 D_us_80183350[];
+extern u8 D_us_80183564[];
+extern u8 D_us_8018376C[];
+extern u8 D_us_80183968[];
+extern u8 D_us_80183B24[];
+extern u8 D_us_80183CE0[];
+extern u8 D_us_80183F00[];
+extern u8 D_us_80184120[];
+extern u8 D_us_80184380[];
+extern u8 D_us_80184594[];
+extern u8 D_us_8018475C[];
+extern u8 D_us_80184918[];
+extern u8 D_us_80184B78[];
+extern u8 D_us_80184D34[];
+extern u8 D_us_80184EFC[];
+extern u8 D_us_801850B8[];
+extern u8 D_us_80185278[];
+extern u8 D_us_801853E4[];
+extern u8 D_us_80185538[];
+extern u8 D_us_80185758[];
+extern u8 D_us_801859D4[];
+extern u8 D_us_80185B94[];
+extern u8 D_us_80185D00[];
+extern u8 D_us_80185F0C[];
+extern u8 D_us_801861B0[];
+extern u8 D_us_80186364[];
+extern u8 D_us_80186560[];
+extern u8 D_us_801867CC[];
+extern u8 D_us_801869A0[];
+extern u8 D_us_80186C0C[];
+extern u8 D_us_80186E78[];
+extern u8 D_us_8018704C[];
+extern u8 D_us_8018726C[];
+extern u8 D_us_80187440[];
+extern u8 D_us_80187654[];
+extern u8 D_us_80187814[];
+extern u8 D_us_801879E8[];
+extern u8 D_us_80187C1C[];
+extern u8 D_us_80187E24[];
+extern u8 D_us_801880D8[];
+extern u8 D_us_80188338[];
+extern u8 D_us_80188534[];
+extern u8 D_us_80188808[];
+extern u8 D_us_80188ADC[];
+extern u8 D_us_80188DB0[];
+extern u8 D_us_80188FC8[];
+extern u8 D_us_801891B8[];
+extern u8 D_us_80189318[];
+extern u8 D_us_801894EC[];
+extern u8 D_us_80189694[];
+extern u8 D_us_8018980C[];
+extern u8 D_us_801899F0[];
+extern u8 D_us_80189C10[];
+extern u8 D_us_80189E30[];
+extern u8 D_us_8018A044[];
+extern u8 D_us_8018A33C[];
+extern u8 D_us_8018A5C4[];
+extern u8 D_us_8018A8C8[];
+extern u8 D_us_8018ACCC[];
+extern u8 D_us_8018B210[];
+extern u8 D_us_8018B508[];
+extern u8 D_us_8018B774[];
+extern u8 D_us_8018B9E0[];
+extern u8 D_us_8018BC4C[];
+extern u8 D_us_8018BEB8[];
+extern u8 D_us_8018C00C[];
+extern u8 D_us_8018C1F0[];
+extern u8 D_us_8018C398[];
+extern u8 D_us_8018C54C[];
+extern u8 D_us_8018C7D4[];
+extern u8 D_us_8018C9E0[];
+extern u8 D_us_8018CBE8[];
+extern u8 D_us_8018CC18[];
+extern u8 D_us_8018CE70[];
+extern u8 D_us_8018D07C[];
+extern u8 D_us_8018D2E8[];
+extern u8 D_us_8018D554[];
+extern u8 D_us_8018D6E8[];
+extern u8 D_us_8018DA7C[];
+extern u8 D_us_8018DD88[];
+extern u8 D_us_8018E04C[];
+extern u8 D_us_8018E26C[];
+extern u8 D_us_8018E530[];
+extern u8 D_us_8018E818[];
+extern u8 D_us_8018EB48[];
+extern u8 D_us_8018ED68[];
+extern u8 D_us_8018F01C[];
+extern u8 D_us_8018F270[];
+extern u8 D_us_8018F520[];
+extern u8 D_us_8018F6EC[];
+extern u8 D_us_8018F8B0[];
+extern u8 D_us_8018FA84[];
+extern u8 D_us_8018FCE0[];
+extern u8 D_us_8018FEF4[];
+extern u8 D_us_801900C8[];
+extern u8 D_us_80190334[];
+extern u8 D_us_80190588[];
+extern u8 D_us_801907DC[];
+extern u8 D_us_80190A8C[];
+extern u8 D_us_80190F7C[];
+extern u8 D_us_80191348[];
+extern u8 D_us_80191674[];
+extern u8 D_us_80191938[];
+extern u8 D_us_80191CE4[];
+extern u8 D_us_80191EB8[];
+extern u8 D_us_8019206C[];
+extern u8 D_us_80192268[];
+extern u8 D_us_8019256C[];
+extern u8 D_us_80192870[];
+extern u8 D_us_80192AEC[];
+extern u8 D_us_80192C40[];
+extern u8 D_us_80192D94[];
+extern u8 D_us_80192EE8[];
+extern u8 D_us_8019318C[];
+extern u8 D_us_80193440[];
+extern u8 D_us_801936E4[];
+extern u8 D_us_80193968[];
+extern u8 D_us_80193BDC[];
+extern u8 D_us_80193F50[];
+extern u8 D_us_801942D4[];
+extern u8 D_us_80194578[];
+extern u8 D_us_8019481C[];
+extern u8 D_us_80194AC0[];
+extern u8 D_us_80194D64[];
+extern u8 D_us_80195018[];
+extern u8 D_us_801952CC[];
+extern u8 D_us_80195580[];
+extern u8 D_us_80195834[];
+extern u8 D_us_80195AE8[];
+extern u8 D_us_80195D9C[];
+extern u8 D_us_80196050[];
+extern u8 D_us_80196304[];
+extern u8 D_us_801965D8[];
+extern u8 D_us_801968BC[];
+extern u8 D_us_80196B80[];
+extern u8 D_us_80196E44[];
+extern u8 D_us_80197138[];
+extern u8 D_us_80197530[];
+extern u8 D_us_801978E4[];
+extern u8 D_us_80197BB8[];
+extern u8 D_us_80197F2C[];
+extern u8 D_us_80198230[];
+extern u8 D_us_80198450[];
+extern u8 D_us_801986CC[];
+extern u8 D_us_80198948[];
+extern u8 D_us_80198B74[];
+extern u8 D_us_80198D38[];
+extern u8 D_us_80198EFC[];
+extern u8 D_us_80199030[];
+extern u8 D_us_801991A8[];
+extern u8 D_us_801992DC[];
+extern u8 D_us_80199454[];
+extern u8 D_us_8019965C[];
+extern u8 D_us_80199864[];
+extern u8 D_us_80199A6C[];
+extern u8 D_us_80199BD8[];
+extern u8 D_us_80199D44[];
+extern u8 D_us_80199F0C[];
+extern u8 D_us_8019A0C8[];
+extern u8 D_us_8019A0CC[];
+extern u8 D_us_8019A0D0[];
+extern u8 D_us_8019A2E1[];
+extern u8 D_us_8019A2FB[];
+extern u8 D_us_8019E9A0[];
+extern u8 D_us_8019EFA0[];
+extern u8 D_us_8019F1A0[];
+extern u8 D_us_8019F3A0[];
+extern u8 D_us_8019F5A0[];
+extern u8 D_us_801A3D04[];
+extern u8 D_us_801A3D0C[];
+extern u8 D_us_801A3D14[];
+extern u8 D_us_801A3D1C[];
+extern u8 D_us_801A3D24[];
+extern u8 D_us_801A3D2C[];
+extern u8 D_us_801A3D34[];
+extern u8 D_us_801A3D3C[];
+extern u8 D_us_801A3D44[];
+extern u8 D_us_801A3D4C[];
+extern u8 D_us_801A3D54[];
+extern u8 D_us_801A3D5C[];
+extern u8 D_us_801A3D64[];
+extern u8 D_us_801A3D6C[];
+extern u8 D_us_801A3D74[];
+extern u8 D_us_801A3D7C[];
+extern u8 D_us_801A3D84[];
+extern u8 D_us_801A3D8C[];
+extern u8 D_us_801A3D94[];
+extern u8 D_us_801A3D9C[];
+extern u8 D_us_801A3DA4[];
+extern u8 D_us_801A3DAC[];
+extern u8 D_us_801A3DB4[];
+extern u8 D_us_801A3DBC[];
+extern u8 D_us_801A3DC4[];
+extern u8 D_us_801A3DCC[];
+extern u8 D_us_801A3DD4[];
+extern u8 D_us_801A3DDC[];
+extern u8 D_us_801A3DE4[];
+extern u8 D_us_801A3DEC[];
+extern u8 D_us_801A3DF4[];
+extern u8 D_us_801A3DFC[];
+extern u8 D_us_801A3E04[];
+extern u8 D_us_801A3E0C[];
+extern u8 D_us_801A3E14[];
+extern u8 D_us_801A3E1C[];
+extern u8 D_us_801A3E24[];
+extern u8 D_us_801A3E2C[];
+extern u8 D_us_801A3E34[];
+extern u8 D_us_801A3E3C[];
+extern u8 D_us_801A3E44[];
+extern u8 D_us_801A3E4C[];
+extern u8 D_us_801A3E54[];
+extern u8 D_us_801A3E5C[];
+extern u8 D_us_801A3E64[];
+extern u8 D_us_801A3E6C[];
+extern u8 D_us_801A3E74[];
+extern u8 D_us_801A3E7C[];
+extern u8 D_us_801A3E84[];
+extern u8 D_us_801A3E8C[];
+extern u8 D_us_801A3E94[];
+extern u8 D_us_801A3E9C[];
+extern u8 D_us_801A3EA4[];
+extern u8 D_us_801A3EAC[];
+extern u8 D_us_801A3EB4[];
+extern u8 D_us_801A3EBC[];
+extern u8 D_us_801A3EC4[];
+extern u8 D_us_801A3ECC[];
+extern u8 D_us_801A3ED4[];
+extern u8 D_us_801A3EDC[];
+extern u8 D_us_801A3EE4[];
+extern u8 D_us_801A3EEC[];
+extern u8 D_us_801A3EF4[];
+extern u8 D_us_801A3EFC[];
+extern u8 D_us_801A3F04[];
+extern u8 D_us_801A3F0C[];
+extern u8 D_us_801A3F14[];
+extern u8 D_us_801A3F1C[];
+extern u8 D_us_801A3F24[];
+extern u8 D_us_801A3F2C[];
+extern u8 D_us_801A3F34[];
+extern u8 D_us_801A3F3C[];
+extern u8 D_us_801A3F44[];
+extern u8 D_us_801A3F4C[];
+extern u8 D_us_801A3F54[];
+extern u8 D_us_801A3F5C[];
+extern u8 D_us_801A3F64[];
+extern u8 D_us_801A3F6C[];
+extern u8 D_us_801A3F74[];
+extern u8 D_us_801A3F7C[];
+extern u8 D_us_801A3F84[];
+extern u8 D_us_801A3F8C[];
+extern u8 D_us_801A3F94[];
+extern u8 D_us_801A3F9C[];
+extern u8 D_us_801A3FA4[];
+extern u8 D_us_801A3FAC[];
+extern u8 D_us_801A3FB4[];
+extern u8 D_us_801A3FBC[];
+extern u8 D_us_801A3FC4[];
+extern u8 D_us_801A3FCC[];
+extern u8 D_us_801A3FD4[];
+extern u8 D_us_801A3FDC[];
+extern u8 D_us_801A3FE4[];
+extern u8 D_us_801A3FEC[];
+extern u8 D_us_801A3FF4[];
+extern u8 D_us_801A3FFC[];
+extern u8 D_us_801A4004[];
+extern u8 D_us_801A400C[];
+extern u8 D_us_801A4014[];
+extern u8 D_us_801A401C[];
+extern u8 D_us_801A4024[];
+extern u8 D_us_801A402C[];
+extern u8 D_us_801A4034[];
+extern u8 D_us_801A403C[];
+extern u8 D_us_801A4044[];
+extern u8 D_us_801A404C[];
+extern u8 D_us_801A4054[];
+extern u8 D_us_801A405C[];
+extern u8 D_us_801A4064[];
+extern u8 D_us_801A406C[];
+extern u8 D_us_801A4074[];
+extern u8 D_us_801A407C[];
+extern u8 D_us_801A4084[];
+extern u8 D_us_801A408C[];
+extern u8 D_us_801A4094[];
+extern u8 D_us_801A409C[];
+extern u8 D_us_801A40A4[];
+extern u8 D_us_801A40AC[];
+extern u8 D_us_801A40B4[];
+extern u8 D_us_801A40BC[];
+extern u8 D_us_801A40C4[];
+extern u8 D_us_801A40CC[];
+extern u8 D_us_801A40D4[];
+extern u8 D_us_801A40DC[];
+extern u8 D_us_801A40E4[];
+extern u8 D_us_801A40EC[];
+extern u8 D_us_801A40F4[];
+extern u8 D_us_801A40FC[];
+extern u8 D_us_801A4104[];
+extern u8 D_us_801A410C[];
+extern u8 D_us_801A4114[];
+extern u8 D_us_801A411C[];
+extern u8 D_us_801A4124[];
+extern u8 D_us_801A412C[];
+extern u8 D_us_801A4134[];
+extern u8 D_us_801A413C[];
+extern u8 D_us_801A4144[];
+extern u8 D_us_801A414C[];
+extern u8 D_us_801A4154[];
+extern u8 D_us_801A415C[];
+extern u8 D_us_801A4164[];
+extern u8 D_us_801A416C[];
+extern u8 D_us_801A4174[];
+extern u8 D_us_801A417C[];
+extern u8 D_us_801A4184[];
+extern u8 D_us_801A418C[];
+extern u8 D_us_801A4194[];
+extern u8 D_us_801A419C[];
+extern u8 D_us_801A41A4[];
+extern u8 D_us_801A41AC[];
+extern u8 D_us_801A41B4[];
+extern u8 D_us_801A41BC[];
+extern u8 D_us_801A41C4[];
+extern u8 D_us_801A41CC[];
+extern u8 D_us_801A41D4[];
+extern u8 D_us_801A41DC[];
+extern u8 D_us_801A41E4[];
+extern u8 D_us_801A41EC[];
+extern u8 D_us_801A41F4[];
+extern u8 D_us_801A41FC[];
+extern u8 D_us_801A4204[];
+extern u8 D_us_801A420C[];
+extern u8 D_us_801A4214[];
+extern u8 D_us_801A421C[];
+extern u8 D_us_801A4224[];
+extern u8 D_us_801A422C[];
+extern u8 D_us_801A4234[];
+extern u8 D_us_801A423C[];
+extern u8 D_us_801A4244[];
+extern u8 D_us_801A424C[];
+extern u8 D_us_801A4254[];
+extern u8 D_us_801A425C[];
+extern u8 D_us_801A4264[];
+extern u8 D_us_801A426C[];
+extern u8 D_us_801A4274[];
+extern u8 D_us_801A427C[];
+extern u8 D_us_801A4284[];
+extern u8 D_us_801A428C[];
+extern u8 D_us_801A4294[];
+extern u8 D_us_801A429C[];
+extern u8 D_us_801A42A4[];
+extern u8 D_us_801A42AC[];
+extern u8 D_us_801A42B4[];
+extern u8 D_us_801A42BC[];
+extern u8 D_us_801A42C4[];
+extern u8 D_us_801A42CC[];
+extern u8 D_us_801A42D4[];
+extern u8 D_us_801A42DC[];
+extern u8 D_us_801A42E4[];
+extern u8 D_us_801A42EC[];
+extern u8 D_us_801A42F4[];
+extern u8 D_us_801A42FC[];
+extern u8 D_us_801A4304[];
+extern u8 D_us_801A430C[];
+extern u8 D_us_801A4314[];
+extern u8 D_us_801A431C[];
+extern u8 D_us_801A4324[];
+extern u8 D_us_801A432C[];
+extern u8 D_us_801A4334[];
+extern u8 D_us_801A433C[];
+extern u8 D_us_801A4344[];
+extern u8 D_us_801A434C[];
+extern u8 D_us_801A4354[];
+extern u8 D_us_801A435C[];
+extern u8 D_us_801A4364[];
+extern u8 D_us_801A436C[];
+extern u8 D_us_801A4374[];
+extern u8 D_us_801A437C[];
+extern u8 D_us_801A4384[];
+extern u8 D_us_801A438C[];
+extern u8 D_us_801A4394[];
+extern u8 D_us_801A439C[];
+extern u8 D_us_801A43F8[];
+extern u8 D_us_801A4414[];
+extern u8 D_us_801A4430[];
+extern u8 D_us_801A444C[];
+extern u8 D_us_801A4468[];
+extern u8 D_us_801A4484[];
+extern u8 D_us_801A44A0[];
+extern u8 D_us_801A44BC[];
+extern u8 D_us_801A44D8[];
+extern u8 D_us_801A44F4[];
+extern u8 D_us_801A4510[];
+extern u8 D_us_801A452C[];
+extern u8 D_us_801A4548[];
+extern u8 D_us_801A4564[];
+extern u8 D_us_801A4580[];
+extern u8 D_us_801A459C[];
+extern u8 D_us_801A45B8[];
+extern u8 D_us_801A45D4[];
+extern u8 D_us_801A45F0[];
+extern u8 D_us_801A460C[];
+extern u8 D_us_801A46BC[];
+extern u8 D_us_801A46D8[];
+extern u8 D_us_801A46F4[];
+extern u8 D_us_801A4710[];
+extern u8 D_us_801A472C[];
+extern u8 D_us_801A4748[];
+extern u8 D_us_801A4764[];
+extern u8 D_us_801A4780[];
+extern u8 D_us_801A479C[];
+extern u8 D_us_801A47B8[];
+extern u8 D_us_801A47D4[];
+extern u8 D_us_801A47F0[];
+extern u8 D_us_801A480C[];
+extern u8 D_us_801A4828[];
+extern u8 D_us_801A4844[];
+extern u8 D_us_801A4860[];
+extern u8 D_us_801A487C[];
+extern u8 D_us_801A4898[];
+extern u8 D_us_801A48B4[];
+extern u8 D_us_801A48D0[];
+extern u8 D_us_801A48EC[];
+extern u8 D_us_801A4908[];
+extern u8 D_us_801A4924[];
+extern u8 D_us_801A4940[];
+extern u8 D_us_801A495C[];
+extern u8 D_us_801A4978[];
+extern u8 D_us_801A4994[];
+extern u8 D_us_801A49B0[];
+extern u8 D_us_801A49CC[];
+extern u8 D_us_801A49E8[];
+extern u8 D_us_801A4A04[];
+extern u8 D_us_801A4A20[];
+extern u8 D_us_801A4A3C[];
+extern u8 D_us_801A4A58[];
+extern u8 D_us_801A4A74[];
+extern u8 D_us_801A4A90[];
+extern u8 D_us_801A4CE0[];
+extern u8 D_us_801A4CFC[];
+extern u8 D_us_801A4D18[];
+extern u8 D_us_801A4D34[];
+extern u8 D_us_801A4D50[];
+extern u8 D_us_801A4D6C[];
+extern u8 D_us_801A4D88[];
+extern u8 D_us_801A4DA4[];
+extern u8 D_us_801A4DC0[];
+extern u8 D_us_801A4DDC[];
+extern u8 D_us_801A4DF8[];
+extern u8 D_us_801A4E14[];
+extern u8 D_us_801A4E30[];
+extern u8 D_us_801A4E4C[];
+extern u8 D_us_801A4E68[];
+extern u8 D_us_801A4E84[];
+extern u8 D_us_801A4EA0[];
+extern u8 D_us_801A4EBC[];
+extern u8 D_us_801A4ED8[];
+extern u8 D_us_801A4EF4[];
+extern u8 D_us_801A4F10[];
+extern u8 D_us_801A4F2C[];
+extern u8 D_us_801A4F48[];
+extern u8 D_us_801A4F64[];
+extern u8 D_us_801A4F80[];
+extern u8 D_us_801A4F9C[];
+extern u8 D_us_801A4FB8[];
+extern u8 D_us_801A4FD4[];
+extern u8 D_us_801A4FF0[];
+extern u8 D_us_801A500C[];
+extern u8 D_us_801A5028[];
+extern u8 D_us_801A5044[];
+extern u8 D_us_801A5060[];
+extern u8 D_us_801A507C[];
+extern u8 D_us_801A5098[];
+extern u8 D_us_801A50B4[];
+extern u8 D_us_801A50D0[];
+extern u8 D_us_801A50EC[];
+extern u8 D_us_801A5108[];
+extern u8 D_us_801A5124[];
+extern u8 D_us_801A5140[];
+extern u8 D_us_801A515C[];
+extern u8 D_us_801A5178[];
+extern u8 D_us_801A5194[];
+extern u8 D_us_801A51C4[];
+extern u8 D_us_801A51F4[];
+extern u8 D_us_801A5224[];
+extern u8 D_us_801A5254[];
+extern u8 D_us_801A5284[];
+extern u8 D_us_801A52B4[];
+extern u8 D_us_801A52E4[];
+extern u8 D_us_801A5314[];
+extern u8 D_us_801A5344[];
+extern u8 D_us_801A5374[];
+extern u8 D_us_801A53A4[];
+extern u8 D_us_801A53D4[];
+extern u8 D_us_801A5404[];
+extern u8 D_us_801A5434[];
+extern u8 D_us_801A5464[];
+extern u8 D_us_801A5494[];
+extern u8 D_us_801A54C4[];
+extern u8 D_us_801A54E0[];
+extern u8 D_us_801A5510[];
+extern u8 D_us_801A5558[];
+extern u8 D_us_801A55CC[];
+extern u8 D_us_801A5640[];
+extern u8 D_us_801A56B4[];
+extern u8 D_us_801A5728[];
+extern u8 D_us_801A5784[];
+extern u8 D_us_801A57E0[];
+extern u8 D_us_801A583C[];
+extern u8 D_us_801A5898[];
+extern u8 D_us_801A58C8[];
+extern u8 D_us_801A58F8[];
+extern u8 D_us_801A5928[];
+extern u8 D_us_801A5958[];
+extern u8 D_us_801A5974[];
+extern u8 D_us_801A5990[];
+extern u8 D_us_801A59AC[];
+extern u8 D_us_801A59C8[];
+extern u8 D_us_801A59E4[];
+extern u8 D_us_801A5A00[];
+extern u8 D_us_801A5A1C[];
+extern u8 D_us_801A5A38[];
+extern u8 D_us_801A5A54[];
+extern u8 D_us_801A5A70[];
+extern u8 D_us_801A5A8C[];
+extern u8 D_us_801A5AA8[];
+extern u8 D_us_801A5AC4[];
+extern u8 D_us_801A5AE0[];
+extern u8 D_us_801A5AFC[];
+extern u8 D_us_801A5B18[];
+extern u8 D_us_801A5B34[];
+extern u8 D_us_801A5B64[];
+extern u8 D_us_801A5B94[];
+extern u8 D_us_801A5BC4[];
+extern u8 D_us_801A5BF4[];
+extern u8 D_us_801A5C24[];
+extern u8 D_us_801A5C54[];
+extern u8 D_us_801A5C84[];
+extern u8 D_us_801A5CB4[];
+extern u8 D_us_801A5CE4[];
+extern u8 D_us_801A5D14[];
+extern u8 D_us_801A5D44[];
+extern u8 D_us_801A5D74[];
+extern u8 D_us_801A5DA4[];
+extern u8 D_us_801A5DD4[];
+extern u8 D_us_801A5E04[];
+extern u8 D_us_801A5E34[];
+extern u8 D_us_801A5E64[];
+extern u8 D_us_801A5E94[];
+extern u8 D_us_801A5EC4[];
+extern u8 D_us_801A5EF4[];
+extern u8 D_us_801A5F24[];
+extern u8 D_us_801A5F54[];
+extern u8 D_us_801A5F84[];
+extern u8 D_us_801A5FB4[];
+extern u8 D_us_801A5FE4[];
+extern u8 D_us_801A6014[];
+extern u8 D_us_801A6044[];
+extern u8 D_us_801A6074[];
+extern u8 D_us_801A60A4[];
+extern u8 D_us_801A60D4[];
+extern u8 D_us_801A60F0[];
+extern u8 D_us_801A610C[];
+extern u8 D_us_801A6128[];
+extern u8 D_us_801A6144[];
+extern u8 D_us_801A6174[];
+extern u8 D_us_801A61A4[];
+extern u8 D_us_801A61D4[];
+extern u8 D_us_801A6204[];
+extern u8 D_us_801A6220[];
+extern u8 D_us_801A623C[];
+extern u8 D_us_801A6258[];
+extern u8 D_us_801A6274[];
+extern u8 D_us_801A6290[];
+extern u8 D_us_801A62AC[];
+extern u8 D_us_801A62C8[];
+extern u8 D_us_801A62E4[];
+extern u8 D_us_801A6300[];
+extern u8 D_us_801A6308[];
+extern u8 D_us_801A6314[];
+extern u8 bo6_tilemap_0[];
+
+void* richter_sprites[] = {
+    D_us_80183350, D_us_80183564, D_us_8018376C, D_us_80183968, D_us_80183B24,
+    D_us_80183CE0, D_us_80183F00, D_us_80184120, D_us_80184380, D_us_80184594,
+    D_us_8018475C, D_us_80184918, D_us_80184B78, D_us_80184D34, D_us_80184EFC,
+    D_us_801850B8, D_us_80185278, D_us_801853E4, D_us_80185538, D_us_80185758,
+    D_us_801859D4, D_us_80185B94, D_us_80185D00, D_us_80185F0C, D_us_801861B0,
+    D_us_80186364, D_us_80186560, D_us_801867CC, D_us_801869A0, D_us_80186C0C,
+    D_us_80186E78, D_us_8018704C, D_us_8018726C, D_us_80187440, D_us_80187654,
+    D_us_80187814, D_us_801879E8, D_us_80187C1C, D_us_80187E24, D_us_801880D8,
+    D_us_80188338, D_us_80188534, D_us_80188808, D_us_80188ADC, D_us_80188DB0,
+    D_us_80188FC8, D_us_801891B8, D_us_80189318, D_us_801894EC, D_us_80189694,
+    D_us_8018980C, D_us_801899F0, D_us_80189C10, D_us_80189E30, D_us_8018A044,
+    D_us_8018A33C, D_us_8018A5C4, D_us_8018A8C8, D_us_8018ACCC, D_us_8018B210,
+    D_us_8018B508, D_us_8018B774, D_us_8018B9E0, D_us_8018BC4C, D_us_8018BEB8,
+    D_us_8018C00C, D_us_8018C1F0, D_us_8018C398, D_us_8018C398, D_us_8018C398,
+    D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398,
+    D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398,
+    D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398,
+    D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398,
+    D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C398, D_us_8018C54C,
+    D_us_8018C7D4, D_us_8018C9E0, D_us_8018C9E0, D_us_8018C9E0, D_us_8018C9E0,
+    D_us_8018C9E0, D_us_8018C9E0, D_us_8018C9E0, D_us_8018C9E0, D_us_8018C9E0,
+    D_us_8018C9E0, D_us_8018C9E0, D_us_8018CBE8, D_us_8018CE70, D_us_8018D07C,
+    D_us_8018D2E8, D_us_8018D554, D_us_8018D6E8, D_us_8018DA7C, D_us_8018DD88,
+    D_us_8018E04C, D_us_8018E26C, D_us_8018E530, D_us_8018E818, D_us_8018EB48,
+    D_us_8018ED68, D_us_8018F01C, D_us_8018F270, D_us_8018F520, D_us_8018F6EC,
+    D_us_8018F8B0, D_us_8018FA84, D_us_8018FCE0, D_us_8018FEF4, D_us_801900C8,
+    D_us_80190334, D_us_80190588, D_us_801907DC, D_us_80190A8C, D_us_80190F7C,
+    D_us_80191348, D_us_80191674, D_us_80191938, D_us_80191CE4, D_us_80191EB8,
+    D_us_8019206C, D_us_80192268, D_us_8019256C, D_us_80192870, D_us_80192AEC,
+    D_us_80192C40, D_us_80192D94, D_us_80192EE8, D_us_8019318C, D_us_80193440,
+    D_us_801936E4, D_us_80193968, D_us_80193BDC, D_us_80193F50, D_us_801942D4,
+    D_us_80194578, D_us_8019481C, D_us_80194AC0, D_us_80194D64, D_us_80195018,
+    D_us_801952CC, D_us_80195580, D_us_80195834, D_us_80195AE8, D_us_80195D9C,
+    D_us_80196050, D_us_80196304, D_us_801965D8, D_us_801968BC, D_us_80196B80,
+    D_us_80196E44, D_us_80197138, D_us_80197530, D_us_801978E4, D_us_80197BB8,
+    D_us_80197F2C, D_us_80198230, D_us_80198450, D_us_801986CC, D_us_80198948,
+    D_us_80198948, D_us_80198948, D_us_80198948, D_us_80198948, D_us_80198B74,
+    D_us_80198D38, D_us_80198EFC, D_us_80199030, D_us_801991A8, D_us_801992DC,
+    D_us_80199454, D_us_8019965C, D_us_80199864, D_us_80199A6C, D_us_80199BD8,
+    D_us_80199D44, D_us_80199F0C,
+};
+void* D_us_801A39B0[] = {
+    NULL, D_us_801A3D04, D_us_801A3D0C, D_us_801A3D14, D_us_801A3D1C,
+    D_us_801A3D24, D_us_801A3D2C, D_us_801A3D34, D_us_801A3D3C, D_us_801A3D44,
+    D_us_801A3D4C, D_us_801A3D54, D_us_801A3D5C, D_us_801A3D64, D_us_801A3D6C,
+    D_us_801A3D74, D_us_801A3D7C, D_us_801A3D84, D_us_801A3D8C, D_us_801A3D94,
+    D_us_801A3D9C, D_us_801A3DA4, D_us_801A3DAC, D_us_801A3DB4, D_us_801A3DBC,
+    D_us_801A3DC4, D_us_801A3DCC, D_us_801A3DD4, D_us_801A3DDC, D_us_801A3DE4,
+    D_us_801A3DEC, D_us_801A3DF4, D_us_801A3DFC, D_us_801A3E04, D_us_801A3E0C,
+    D_us_801A3E14, D_us_801A3E1C, D_us_801A3E24, D_us_801A3E2C, D_us_801A3E34,
+    D_us_801A3E3C, D_us_801A3E44, D_us_801A3E4C, D_us_801A3E54, D_us_801A3E5C,
+    D_us_801A3E64, D_us_801A3E6C, D_us_801A3E74, D_us_801A3E7C, D_us_801A3E84,
+    D_us_801A3E8C, D_us_801A3E94, D_us_801A3E9C, D_us_801A3EA4, D_us_801A3EAC,
+    D_us_801A3EB4, D_us_801A3EBC, D_us_801A3EC4, D_us_801A3ECC, D_us_801A3ED4,
+    D_us_801A3EDC, D_us_801A3EE4, D_us_801A3EEC, D_us_801A3EF4, D_us_801A3EFC,
+    D_us_801A3F04, D_us_801A3F0C, D_us_801A3F14, D_us_801A3F1C, D_us_801A3F24,
+    D_us_801A3F2C, D_us_801A3F34, D_us_801A3F3C, D_us_801A3F44, D_us_801A3F4C,
+    D_us_801A3F54, D_us_801A3F5C, D_us_801A3F64, D_us_801A3F6C, D_us_801A3F74,
+    D_us_801A3F7C, D_us_801A3F84, D_us_801A3F8C, D_us_801A3F94, D_us_801A3F9C,
+    D_us_801A3FA4, D_us_801A3FAC, D_us_801A3FB4, D_us_801A3FBC, D_us_801A3FC4,
+    D_us_801A3FCC, D_us_801A3FD4, D_us_801A3FDC, D_us_801A3FE4, D_us_801A3FEC,
+    D_us_801A3FF4, D_us_801A3FFC, D_us_801A4004, D_us_801A400C, D_us_801A4014,
+    D_us_801A401C, D_us_801A4024, D_us_801A402C, D_us_801A4034, D_us_801A403C,
+    D_us_801A4044, D_us_801A404C, D_us_801A4054, D_us_801A405C, D_us_801A4064,
+    D_us_801A406C, D_us_801A4074, D_us_801A407C, D_us_801A4084, D_us_801A408C,
+    D_us_801A4094, D_us_801A409C, D_us_801A40A4, D_us_801A40AC, D_us_801A40B4,
+    D_us_801A40BC, D_us_801A40C4, D_us_801A40CC, D_us_801A40D4, D_us_801A40DC,
+    D_us_801A40E4, D_us_801A40EC, D_us_801A40F4, D_us_801A40FC, D_us_801A4104,
+    D_us_801A410C, D_us_801A4114, D_us_801A411C, D_us_801A4124, D_us_801A412C,
+    D_us_801A4134, D_us_801A413C, D_us_801A4144, D_us_801A414C, D_us_801A4154,
+    D_us_801A415C, D_us_801A4164, D_us_801A416C, D_us_801A4174, D_us_801A417C,
+    D_us_801A4184, D_us_801A418C, D_us_801A4194, D_us_801A419C, D_us_801A41A4,
+    D_us_801A41AC, D_us_801A41B4, D_us_801A41BC, D_us_801A41C4, D_us_801A41CC,
+    D_us_801A41D4, D_us_801A41DC, D_us_801A41E4, D_us_801A41EC, D_us_801A41F4,
+    D_us_801A41FC, D_us_801A4204, D_us_801A420C, D_us_801A4214, D_us_801A421C,
+    D_us_801A4224, D_us_801A422C, D_us_801A4234, D_us_801A423C, D_us_801A4244,
+    D_us_801A424C, D_us_801A4254, D_us_801A425C, D_us_801A4264, D_us_801A426C,
+    D_us_801A4274, D_us_801A427C, D_us_801A4284, D_us_801A428C, D_us_801A4294,
+    D_us_801A429C, D_us_801A42A4, D_us_801A42AC, D_us_801A42B4, D_us_801A42BC,
+    D_us_801A42C4, D_us_801A42CC, D_us_801A42D4, D_us_801A42DC, D_us_801A42E4,
+    D_us_801A42EC, D_us_801A42F4, D_us_801A42FC, D_us_801A4304, D_us_801A430C,
+    D_us_801A4314, D_us_801A431C, D_us_801A4324, D_us_801A432C, D_us_801A4334,
+    D_us_801A433C, D_us_801A4344, D_us_801A434C, D_us_801A4354, D_us_801A435C,
+    D_us_801A4364, D_us_801A436C, D_us_801A4374, D_us_801A437C, D_us_801A4384,
+    D_us_801A438C, D_us_801A4394, D_us_801A439C,
+};
+void* D_us_801A43A4[] = {
+    NULL, D_us_801A43F8, D_us_801A4414, D_us_801A4430, D_us_801A444C,
+    D_us_801A4468, D_us_801A4484, D_us_801A44A0, D_us_801A44BC, D_us_801A44D8,
+    D_us_801A44F4, D_us_801A4510, D_us_801A452C, D_us_801A4548, D_us_801A4564,
+    D_us_801A4580, D_us_801A459C, D_us_801A45B8, D_us_801A45D4, D_us_801A45F0,
+    D_us_801A460C,
+};
+void* D_us_801A4628[] = {
+    NULL, D_us_801A46BC, D_us_801A46D8, D_us_801A46F4, D_us_801A4710,
+    D_us_801A472C, D_us_801A4748, D_us_801A4764, D_us_801A4780, D_us_801A479C,
+    D_us_801A47B8, D_us_801A47D4, D_us_801A47F0, D_us_801A480C, D_us_801A4828,
+    D_us_801A4844, D_us_801A4860, D_us_801A487C, D_us_801A4898, D_us_801A48B4,
+    D_us_801A48D0, D_us_801A48EC, D_us_801A4908, D_us_801A4924, D_us_801A4940,
+    D_us_801A495C, D_us_801A4978, D_us_801A4994, D_us_801A49B0, D_us_801A49CC,
+    D_us_801A49E8, D_us_801A4A04, D_us_801A4A20, D_us_801A4A3C, D_us_801A4A58,
+    D_us_801A4A74, D_us_801A4A90,
+};
+void* D_us_801A4AAC[] = {
+    NULL, D_us_801A4CE0, D_us_801A4CFC, D_us_801A4D18, D_us_801A4D34,
+    D_us_801A4D50, D_us_801A4D6C, D_us_801A4D88, D_us_801A4DA4, D_us_801A4DC0,
+    D_us_801A4DDC, D_us_801A4DF8, D_us_801A4E14, D_us_801A4E30, D_us_801A4E4C,
+    D_us_801A4E68, D_us_801A4E84, D_us_801A4EA0, D_us_801A4EBC, D_us_801A4ED8,
+    D_us_801A4EF4, D_us_801A4F10, D_us_801A4F2C, D_us_801A4F48, D_us_801A4F64,
+    D_us_801A4F80, D_us_801A4F9C, D_us_801A4FB8, D_us_801A4FD4, D_us_801A4FF0,
+    D_us_801A500C, D_us_801A5028, D_us_801A5044, D_us_801A5060, D_us_801A507C,
+    D_us_801A5098, D_us_801A50B4, D_us_801A50D0, D_us_801A50EC, D_us_801A5108,
+    D_us_801A5124, D_us_801A5140, D_us_801A515C, D_us_801A5178, D_us_801A5194,
+    D_us_801A51C4, D_us_801A51F4, D_us_801A5224, D_us_801A5254, D_us_801A5284,
+    D_us_801A52B4, D_us_801A52E4, D_us_801A5314, D_us_801A5344, D_us_801A5374,
+    D_us_801A53A4, D_us_801A53D4, D_us_801A5404, D_us_801A5434, D_us_801A5464,
+    D_us_801A5494, D_us_801A54C4, D_us_801A54E0, D_us_801A5510, D_us_801A5558,
+    D_us_801A55CC, D_us_801A5640, D_us_801A56B4, D_us_801A5728, D_us_801A5784,
+    D_us_801A57E0, D_us_801A583C, D_us_801A5898, D_us_801A58C8, D_us_801A58F8,
+    D_us_801A5928, D_us_801A5958, D_us_801A5974, D_us_801A5990, D_us_801A59AC,
+    D_us_801A59C8, D_us_801A59E4, D_us_801A5A00, D_us_801A5A1C, D_us_801A5A38,
+    D_us_801A5A54, D_us_801A5A70, D_us_801A5A8C, D_us_801A5AA8, D_us_801A5AC4,
+    D_us_801A5AE0, D_us_801A5AFC, D_us_801A5B18, D_us_801A5B34, D_us_801A5B64,
+    D_us_801A5B94, D_us_801A5BC4, D_us_801A5BF4, D_us_801A5C24, D_us_801A5C54,
+    D_us_801A5C84, D_us_801A5CB4, D_us_801A5CE4, D_us_801A5D14, D_us_801A5D44,
+    D_us_801A5D74, D_us_801A5DA4, D_us_801A5DD4, D_us_801A5E04, D_us_801A5E34,
+    D_us_801A5E64, D_us_801A5E94, D_us_801A5EC4, D_us_801A5EF4, D_us_801A5F24,
+    D_us_801A5F54, D_us_801A5F84, D_us_801A5FB4, D_us_801A5FE4, D_us_801A6014,
+    D_us_801A6044, D_us_801A6074, D_us_801A60A4, D_us_801A60D4, D_us_801A60F0,
+    D_us_801A610C, D_us_801A6128, D_us_801A6144, D_us_801A6174, D_us_801A61A4,
+    D_us_801A61D4, D_us_801A6204, D_us_801A6220, D_us_801A623C, D_us_801A6258,
+    D_us_801A6274, D_us_801A6290, D_us_801A62AC, D_us_801A62C8, D_us_801A62E4,
+    NULL,
+};

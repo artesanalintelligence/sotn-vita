@@ -97,7 +97,62 @@ void func_us_801B9340(void) {
 // split pl_utils
 
 // maybe func_8015C4AC
+extern u8 D_us_80181284[];
+
+// Same as InitRicAfterImage in RIC
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801B94CC);
+#else
+void func_us_801B94CC(void) {
+    Primitive* prim;
+    s32 i;
+
+    if (g_Entities[65].ext.afterImage.disableFlag) {
+        return;
+    }
+    if ((g_Ric.padTapped & ~(PAD_START | PAD_SELECT)) ||
+        ((g_Ric.padHeld ^ g_Ric.padPressed) & g_Ric.padHeld &
+         ~(PAD_START | PAD_SELECT)) ||
+        (RIC.velocityY > FIX(0.5))) {
+        g_Entities[65].ext.afterImage.index = 0;
+        g_Entities[65].ext.afterImage.timer = 0;
+    } else {
+        if (g_Entities[65].ext.afterImage.index >= 10) {
+            return;
+        }
+        if (g_Entities[65].ext.afterImage.timer == 0) {
+            g_Entities[65].ext.afterImage.timer =
+                D_us_80181284[g_Entities[65].ext.afterImage.index];
+        }
+        if (--g_Entities[65].ext.afterImage.timer == 0) {
+            g_Entities[65].ext.afterImage.index++;
+            g_Entities[65].ext.afterImage.timer =
+                D_us_80181284[g_Entities[65].ext.afterImage.index];
+        }
+    }
+    if (g_Entities[65].pose) {
+        g_Entities[65].pose--;
+        return;
+    }
+    for (prim = &g_PrimBuf[g_Entities[65].primIndex], i = 0; prim != NULL;
+         i++, prim = prim->next) {
+        if (i == g_Entities[65].entityId) {
+            prim->r0 = prim->g0 = prim->b0 = 0x80;
+            prim->x0 = RIC.posX.i.hi;
+            prim->y0 = RIC.posY.i.hi;
+            prim->x1 = RIC.animCurFrame;
+            prim->y1 = 0;
+            prim->x2 = RIC.facingLeft;
+            prim->y2 = RIC.palette;
+        }
+    }
+    g_Entities[65].pose = 2;
+    g_Entities[65].entityId++;
+    if (g_Entities[65].entityId >= 6) {
+        g_Entities[65].entityId = 0;
+    }
+}
+#endif
 
 // maybe func_8015C6D4
 extern u8 D_us_80181298[];
@@ -171,7 +226,35 @@ void RicSetAnimation(AnimationFrame* anim) {
 
 #include "../../decelerate.h"
 
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicCheckFacing);
+#else
+s32 RicCheckFacing(void) {
+    if (g_Ric.unk44 & 2) {
+        return 0;
+    }
+    if (RIC.facingLeft == 1) {
+        if (g_Ric.padPressed & PAD_RIGHT) {
+            RIC.facingLeft = 0;
+            g_Ric.unk4C = 1;
+            return -1;
+        }
+        if (g_Ric.padPressed & PAD_LEFT) {
+            return 1;
+        }
+        return 0;
+    }
+    if (g_Ric.padPressed & PAD_RIGHT) {
+        return 1;
+    }
+    if (g_Ric.padPressed & PAD_LEFT) {
+        RIC.facingLeft = 1;
+        g_Ric.unk4C = 1;
+        return -1;
+    }
+    return 0;
+}
+#endif
 
 void RicSetSpeedX(s32 speed) {
     if (g_CurrentEntity->facingLeft == 1)
@@ -186,7 +269,21 @@ void func_us_801B9ACC(s32 speed) {
     RIC.velocityX = speed;
 }
 
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicSetInvincibilityFrames);
+#else
+void RicSetInvincibilityFrames(s32 kind, s16 invincibilityFrames) {
+    if (!kind) {
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_CRASH_DAGGER, 0x15), 0);
+        if (g_Ric.timers[PL_T_INVINCIBLE_SCENE] <= invincibilityFrames) {
+            g_Ric.timers[PL_T_INVINCIBLE_SCENE] = invincibilityFrames;
+        }
+    } else if (g_Ric.timers[PL_T_INVINCIBLE] <= invincibilityFrames) {
+        g_Ric.timers[PL_T_INVINCIBLE] = invincibilityFrames;
+    }
+}
+#endif
 
 // similar to func_8010DFF0 in DRA or func_us_801C5354 in BO4
 void DisableAfterImage(s32 resetAnims, s32 time) {
@@ -218,7 +315,33 @@ void func_us_801B9C14() {
 
 void RicSetDebug() { RicSetStep(PL_S_DEBUG); }
 
+extern AnimationFrame D_us_80182038[];
+extern AnimationFrame D_us_80182048[];
+extern AnimationFrame D_us_80182050[];
+extern AnimationFrame D_us_80182058[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicSetCrouch);
+#else
+void RicSetCrouch(s32 kind, s32 velocityX) {
+    RicSetStep(PL_S_CROUCH);
+    RicSetAnimation(D_us_80182048);
+    RIC.velocityX = velocityX;
+    RIC.velocityY = 0;
+    if (kind == 1) {
+        RIC.anim = D_us_80182038;
+        RIC.step_s = 4;
+    }
+    if (kind == 2) {
+        RIC.anim = D_us_80182058;
+        RIC.step_s = 1;
+    }
+    if (kind == 3) {
+        RIC.anim = D_us_80182050;
+        RIC.step_s = 4;
+    }
+}
+#endif
 
 extern AnimationFrame ric_anim_stand[];
 
@@ -280,7 +403,35 @@ void func_us_801B9E70(void) {
     RIC.velocityY = FIX(-4.6875);
 }
 
+extern AnimationFrame D_us_801820BC[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicSetFall);
+#else
+void RicSetFall(void) {
+    if (g_Ric.prev_step != PL_S_RUN && g_Ric.prev_step != PL_S_SLIDE) {
+        RIC.velocityX = 0;
+    }
+    if (g_Ric.prev_step != PL_S_WALK && g_Ric.prev_step != PL_S_RUN) {
+        RicSetAnimation(D_us_801820BC);
+    }
+    if (g_Ric.prev_step == PL_S_RUN) {
+        g_Ric.unk44 = 0x10;
+    }
+    RicSetStep(PL_S_FALL);
+    RIC.velocityY = FIX(2);
+    g_Ric.timers[PL_T_5] = 8;
+    g_Ric.timers[PL_T_6] = 8;
+    g_Ric.timers[PL_T_CURSE] = 0;
+    g_Ric.timers[PL_T_8] = 0;
+    if (g_Ric.prev_step == PL_S_SLIDE) {
+        g_Ric.timers[PL_T_5] = g_Ric.timers[PL_T_6] = 0;
+        RIC.pose = 2;
+        RIC.poseTimer = 0x10;
+        RIC.velocityX /= 2;
+    }
+}
+#endif
 
 extern s16 D_us_80182324[];
 
@@ -371,19 +522,444 @@ s32 RicDoSubweapon(void) {
     return 0;
 }
 
-INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicDoAttack);
+extern AnimationFrame D_us_80182110[];
+extern AnimationFrame D_us_80182130[];
+extern AnimationFrame D_us_80182150[];
 
+#ifdef VERSION_PC
+static void RicPlayAttackGrunt(s16 sfxGrunt) {
+    if (sfxGrunt == 0) {
+        g_api.PlaySfx(0x82C);
+    }
+    if (sfxGrunt == 1) {
+        g_api.PlaySfx(0x82D);
+    }
+    if (sfxGrunt == 2) {
+        g_api.PlaySfx(0x82E);
+    }
+    if (sfxGrunt == 3) {
+        g_api.PlaySfx(0x82F);
+    }
+}
+#endif
+
+#ifndef VERSION_PC
+INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicDoAttack);
+#else
+s32 RicDoAttack(void) {
+    s32 i;
+    s32 poisoned;
+    s16 sfxGrunt;
+
+    sfxGrunt = rand() % 6;
+    if (RicDoSubweapon() == 0) {
+        RicPlayAttackGrunt(sfxGrunt);
+        return 1;
+    }
+    poisoned = g_Ric.timers[PL_T_POISON] != 0;
+    for (i = 80; i < 95; i++) {
+        DestroyEntity(&g_Entities[i]);
+    }
+    if (RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_WHIP, poisoned), 0) == NULL) {
+        return 0;
+    }
+    if (poisoned) {
+        g_api.PlaySfx(0x6B5);
+    } else {
+        g_api.PlaySfx(0x825);
+    }
+    RicPlayAttackGrunt(sfxGrunt);
+    switch (RIC.step) {
+    case PL_S_STAND:
+    case PL_S_WALK:
+        RIC.step = PL_S_STAND;
+        RicSetAnimation(D_us_80182110);
+        g_CurrentEntity->velocityX = 0;
+        break;
+    case PL_S_RUN:
+        RIC.step = PL_S_STAND;
+        RicSetAnimation(D_us_80182110);
+        RicCreateEntFactoryFromEntity(g_CurrentEntity, BP_SKID_SMOKE, 0);
+        break;
+    case PL_S_CROUCH:
+        RicSetAnimation(D_us_80182130);
+        g_CurrentEntity->velocityX = 0;
+        break;
+    case PL_S_FALL:
+    case PL_S_JUMP:
+        RIC.step = PL_S_JUMP;
+        RicSetAnimation(D_us_80182150);
+        break;
+    default:
+        return 0;
+    }
+    g_Ric.unk46 = 1;
+    RIC.step_s = 0x40;
+    g_Ric.timers[PL_T_ATTACK] = 4;
+    return 1;
+}
+#endif
+
+extern AnimationFrame D_us_801823C8[];
+extern AnimationFrame D_us_80182190[];
+extern AnimationFrame D_us_801821E0[];
+extern AnimationFrame D_us_80182334[];
+extern AnimationFrame D_us_8018246C[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicDoCrash);
+#else
+s32 RicDoCrash(void) {
+    SubweaponDef subWpn;
+    Entity* subWpnEnt;
+    s16 subWpnID;
+
+    subWpnEnt = NULL;
+    subWpnID = RicCheckSubweapon(&subWpn, 1, 0);
+    if (subWpnID == PL_W_HOLYWATER && g_Ric.timers[PL_T_3]) {
+        return 0;
+    }
+    if (subWpn.blueprintNum) {
+        if (subWpnID == 1) {
+            subWpnEnt = RicCreateEntFactoryFromEntity(
+                g_CurrentEntity, FACTORY(subWpn.blueprintNum, 1), 0);
+        } else {
+            subWpnEnt = RicCreateEntFactoryFromEntity(
+                g_CurrentEntity, FACTORY(subWpn.blueprintNum, 0), 0);
+        }
+    }
+    if (subWpnEnt == NULL) {
+        return 0;
+    }
+    g_Ric.unk46 = 4;
+    g_Ric.unk4E = 0;
+    RIC.velocityY = 0;
+    RIC.velocityX = 0;
+    switch (subWpnID) {
+    case PL_W_NONE:
+        RicSetStep(PL_S_FLAME_WHIP);
+        RicSetAnimation(D_us_801823C8);
+        RicCreateEntFactoryFromEntity(g_CurrentEntity, FACTORY(BP_36, 1), 0);
+        break;
+    case PL_W_DAGGER:
+        RicSetStep(PL_S_THROW_DAGGERS);
+        RicSetAnimation(D_us_80182190);
+        g_api.PlaySfx(0x827);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 2), 0);
+        break;
+    case PL_W_AXE:
+        RicSetStep(PL_S_STAND_IN_AIR);
+        RicSetAnimation(D_us_801821E0);
+        RIC.velocityY = FIX(-4.6875);
+        func_us_801B9C14();
+        g_api.PlaySfx(0x827);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 2), 0);
+        break;
+    case PL_W_HOLYWATER:
+        RicSetStep(PL_S_HYDROSTORM);
+        RicSetAnimation(D_us_80182334);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 0x40), 0);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 0x47), 0);
+        g_api.PlaySfx(0x828);
+        break;
+    case PL_W_REBNDSTONE:
+    case PL_W_VIBHUTI:
+    case PL_W_AGUNEA:
+        RicSetStep(PL_S_SUBWPN_CRASH);
+        RicSetAnimation(D_us_80182334);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 0x40), 0);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 0x47), 0);
+        g_api.PlaySfx(0x827);
+        break;
+    case PL_W_BIBLE:
+    case PL_W_STOPWATCH:
+        RicSetStep(PL_S_SUBWPN_CRASH);
+        RicSetAnimation(D_us_8018246C);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 0x40), 0);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 0x47), 0);
+        g_api.PlaySfx(0x827);
+        break;
+    case PL_W_CROSS:
+        RicSetStep(PL_S_STAND_IN_AIR);
+        RicSetAnimation(D_us_801821E0);
+        RIC.velocityY = FIX(-4.6875);
+        func_us_801B9C14();
+        g_api.PlaySfx(0x829);
+        RicCreateEntFactoryFromEntity(
+            g_CurrentEntity, FACTORY(BP_RIC_BLINK, 2), 0);
+        break;
+    }
+    g_Ric.timers[PL_T_12] = 4;
+    return 1;
+}
+#endif
 
 void RicSetDeadPrologue() { RicSetStep(PL_S_DEAD_PROLOGUE); }
 
+extern AnimationFrame D_us_801822D8[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicSetSlide);
+#else
+void RicSetSlide(void) {
+    RicCheckFacing();
+    RicSetStep(PL_S_SLIDE);
+    RicSetAnimation(D_us_801822D8);
+    g_CurrentEntity->velocityY = 0;
+    RicSetSpeedX(FIX(5.5));
+    func_us_801B9C14();
+    RicCreateEntFactoryFromEntity(g_CurrentEntity, BP_25, 0);
+    g_api.PlaySfx(0x826);
+    g_Ric.timers[PL_T_12] = 4;
+}
+#endif
 
+extern AnimationFrame D_us_80182304[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicSetSlideKick);
+#else
+void RicSetSlideKick(void) {
+    g_Ric.unk44 = 0;
+    RicSetStep(PL_S_SLIDE_KICK);
+    RicSetAnimation(D_us_80182304);
+    g_CurrentEntity->velocityY = FIX(-2);
+    RicSetSpeedX(FIX(5.5));
+    func_us_801B9C14();
+    RicCreateEntFactoryFromEntity(g_CurrentEntity, BP_25, 0);
+    g_api.PlaySfx(0x82C);
+    g_Ric.timers[PL_T_12] = 4;
+    RicCreateEntFactoryFromEntity(g_CurrentEntity, BP_31, 0);
+}
+#endif
 
+extern AnimationFrame D_us_80182360[];
+
+// Equivalent of RicSetBladeDash
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BA9D0);
+#else
+void func_us_801BA9D0(void) {
+    RicSetStep(PL_S_BLADEDASH);
+    RicSetAnimation(D_us_80182360);
+    g_CurrentEntity->velocityY = 0;
+    RicSetSpeedX(FIX(5.5));
+    g_Ric.unk46 = 5;
+    g_Ric.timers[PL_T_12] = 4;
+    RicCreateEntFactoryFromEntity(g_CurrentEntity, BP_BLADE_DASH, 0);
+    func_us_801B9C14();
+    g_api.PlaySfx(0x834);
+    g_api.PlaySfx(0x707);
+}
+#endif
 
+extern AnimationFrame D_us_80182110[];
+extern AnimationFrame D_us_80182130[];
+extern AnimationFrame D_us_80182150[];
+extern AnimationFrame D_us_801822B8[];
+extern AnimationFrame D_us_801822C0[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicCheckInput);
+#else
+s32 RicCheckInput(s32 checks) {
+    s32 velYChange;
+
+    if (checks & CHECK_FACING) {
+        if (g_Ric.unk46 == 0) {
+            RicCheckFacing();
+        }
+    }
+    velYChange = 0;
+    if (checks & CHECK_GRAVITY_FALL) {
+        velYChange = FIX(28.0 / 128);
+    }
+    if (checks & CHECK_GRAVITY_JUMP) {
+        if (RIC.velocityY < FIX(3.0 / 8) && RIC.velocityY > FIX(-1.0 / 8) &&
+            !(g_Ric.unk44 & 0x20) && (g_Ric.padPressed & PAD_CROSS)) {
+            velYChange = FIX(5.6 / 128);
+        } else {
+            velYChange = FIX(28.0 / 128);
+        }
+    }
+    if (checks & CHECK_GRAVITY_HIT) {
+        if (RIC.velocityY < FIX(3.0 / 8) && RIC.velocityY > FIX(-1.0 / 8)) {
+            velYChange = FIX(14.0 / 128);
+        } else {
+            velYChange = FIX(28.0 / 128);
+        }
+    }
+    RIC.velocityY += velYChange;
+    if (RIC.velocityY > FIX(7)) {
+        RIC.velocityY = FIX(7);
+    }
+    if ((checks & CHECK_80) && (g_Ric.vram_flag & TOUCHING_CEILING) &&
+        (RIC.velocityY < FIX(-1))) {
+        RIC.velocityY = FIX(-1);
+    }
+    if (RIC.velocityY >= 0) {
+        if ((checks & CHECK_GROUND) && (g_Ric.vram_flag & TOUCHING_GROUND)) {
+            switch (g_Ric.unk46) {
+            case 0:
+            default:
+                if (g_Ric.unk44 & 8) {
+                    RicSetCrouch(3, RIC.velocityX);
+                    g_api.PlaySfx(SFX_STOMP_SOFT_A);
+                    RicCreateEntFactoryFromEntity(
+                        g_CurrentEntity, BP_SKID_SMOKE, 0);
+                    return 1;
+                }
+                if (RIC.velocityY > FIX(6.875)) {
+                    RicSetCrouch(1, 0);
+                    g_api.PlaySfx(SFX_STOMP_SOFT_A);
+                    RicCreateEntFactoryFromEntity(
+                        g_CurrentEntity, BP_SKID_SMOKE, 0);
+                    return 1;
+                }
+                if (g_Ric.padPressed & (PAD_LEFT | PAD_RIGHT)) {
+                    if (g_Ric.unk44 & 0x10) {
+                        func_us_801B9D74();
+                    } else {
+                        func_us_801B9DE4();
+                    }
+                    return 1;
+                }
+                RicSetStand(0);
+                return 1;
+            case 1:
+                if (RIC.velocityY > FIX(6.875)) {
+                    RIC.step = PL_S_CROUCH;
+                    RIC.anim = D_us_80182130;
+                    g_api.PlaySfx(SFX_STOMP_HARD_B);
+                    RicCreateEntFactoryFromEntity(
+                        g_CurrentEntity, BP_SKID_SMOKE, 0);
+                } else {
+                    RIC.step = PL_S_STAND;
+                    RIC.anim = D_us_80182110;
+                    if (!(g_Ric.unk44 & 8)) {
+                        RIC.velocityX = 0;
+                    } else {
+                        RicCreateEntFactoryFromEntity(
+                            g_CurrentEntity, BP_SKID_SMOKE, 0);
+                        g_api.PlaySfx(SFX_STOMP_HARD_B);
+                    }
+                }
+                RIC.velocityY = 0;
+                g_Ric.unk44 = 0;
+                return 1;
+            case 2:
+                if (RIC.velocityY > FIX(6.875)) {
+                    RIC.step = PL_S_CROUCH;
+                    RIC.anim = D_us_801822C0;
+                    g_api.PlaySfx(SFX_STOMP_SOFT_A);
+                    RicCreateEntFactoryFromEntity(
+                        g_CurrentEntity, BP_SKID_SMOKE, 0);
+                } else {
+                    RIC.step = PL_S_STAND;
+                    RIC.anim = D_us_801822B8;
+                    if (!(g_Ric.unk44 & 8)) {
+                        RIC.velocityX = 0;
+                    } else {
+                        RicCreateEntFactoryFromEntity(
+                            g_CurrentEntity, BP_SKID_SMOKE, 0);
+                        g_api.PlaySfx(SFX_STOMP_SOFT_A);
+                    }
+                }
+                RIC.velocityY = 0;
+                g_Ric.unk44 = 0;
+                return 1;
+            case 3:
+                if ((RIC.velocityY > FIX(6.875)) || (g_Ric.unk44 & 8)) {
+                    g_api.PlaySfx(SFX_STOMP_SOFT_A);
+                    RicCreateEntFactoryFromEntity(
+                        g_CurrentEntity, BP_SKID_SMOKE, 0);
+                }
+                RIC.velocityY = 0;
+                if (!(g_Ric.unk44 & 8)) {
+                    RIC.velocityX = 0;
+                }
+                RIC.step = PL_S_STAND;
+                RIC.anim = D_us_80182170;
+                g_Ric.unk44 = 0;
+                return 1;
+            }
+        } else if ((checks & CHECK_GROUND_AFTER_HIT) &&
+                   (g_Ric.vram_flag & TOUCHING_GROUND)) {
+            RicSetCrouch(1, RIC.velocityX);
+            g_api.PlaySfx(SFX_STOMP_SOFT_A);
+            if (g_Ric.unk5C && (g_Status.hp < 2)) {
+                RicSetDeadPrologue();
+                return 1;
+            }
+            RicCreateEntFactoryFromEntity(g_CurrentEntity, BP_SKID_SMOKE, 0);
+            return 1;
+        }
+    }
+    if ((checks & CHECK_FALL) && !(g_Ric.vram_flag & TOUCHING_GROUND)) {
+        switch (g_Ric.unk46) {
+        case 0:
+            RicSetFall();
+            return 1;
+        case 1:
+            RIC.step_s = 0x40;
+            RIC.step = PL_S_JUMP;
+            RIC.anim = D_us_80182150;
+            return 1;
+        case 2:
+            RIC.step_s = 0x41;
+            RIC.step = PL_S_JUMP;
+            RIC.anim = D_us_80182150;
+            return 1;
+        case 3:
+            RIC.step_s = 0x42;
+            RIC.step = PL_S_JUMP;
+            RIC.anim = D_us_801821C0;
+            return 1;
+        }
+        return 0;
+    }
+    if (g_Ric.unk46) {
+        return 0;
+    }
+    if ((checks & CHECK_CRASH) && (g_Ric.padTapped & PAD_TRIANGLE) &&
+        RicDoCrash()) {
+        return 1;
+    }
+    // n.b.! the floor sensors are Alucard's, not Richter's
+    if ((checks & CHECK_SLIDE) &&
+        !(RIC.facingLeft == 0 &&
+          g_Player.colFloor[2].effects & EFFECT_UNK_8000) &&
+        !(RIC.facingLeft && g_Player.colFloor[3].effects & EFFECT_UNK_8000) &&
+        (RIC.posX.i.hi < (u8)-4 || RIC.facingLeft != 0) &&
+        (RIC.posX.i.hi >= 5 || !RIC.facingLeft) &&
+        (g_Ric.padPressed & PAD_DOWN) && (g_Ric.padTapped & PAD_CROSS)) {
+        RicSetSlide();
+        return 1;
+    }
+    if ((checks & CHECK_JUMP) && (g_Ric.padTapped & PAD_CROSS)) {
+        func_us_801B9E70();
+        return 1;
+    }
+    if ((checks & CHECK_ATTACK) && (g_Ric.padTapped & PAD_SQUARE) &&
+        RicDoAttack()) {
+        return 1;
+    }
+    if ((checks & CHECK_CROUCH) && (g_Ric.padPressed & PAD_DOWN)) {
+        RicSetCrouch(2, 0);
+        return 1;
+    }
+    return 0;
+}
+#endif
 
 Entity* RicGetFreeEntity(s16 start, s16 end) {
     Entity* entity = &g_Entities[start];
@@ -399,11 +975,61 @@ Entity* RicGetFreeEntity(s16 start, s16 end) {
 
 // pl_blueprints?
 
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicGetFreeEntityReverse);
+#else
+Entity* RicGetFreeEntityReverse(s16 start, s16 end) {
+    Entity* entity = &g_Entities[end - 1];
+    s16 i;
 
+    for (i = end - 1; i >= start; i--, entity--) {
+        if (entity->entityId == E_NONE) {
+            return entity;
+        }
+    }
+    return NULL;
+}
+#endif
+
+extern AnimationFrame* D_us_801812B8[];
+extern u8 D_us_801D07FC;
+extern u8 D_us_801D0800;
+extern u8 D_us_801D0804;
+extern u8 D_us_801D0808;
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BB314);
+#else
+void func_us_801BB314(s32 arg0) {
+    D_us_801D07FC = ((u8*)D_us_801812B8)[arg0 * 4 + 0];
+    D_us_801D0800 = ((u8*)D_us_801812B8)[arg0 * 4 + 1];
+    D_us_801D0804 = ((u8*)D_us_801812B8)[arg0 * 4 + 2];
+    D_us_801D0808 = ((u8*)D_us_801812B8)[arg0 * 4 + 3];
+}
+#endif
 
+// Equivalent of RicSetSubweaponParams
+extern SubweaponDef subweapons_def[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BB370);
+#else
+void func_us_801BB370(Entity* entity) {
+    SubweaponDef* subwpn = &subweapons_def[entity->ext.subweapon.subweaponId];
+
+    if (g_Ric.timers[PL_T_INVINCIBLE_SCENE]) {
+        entity->attack = subwpn->attack * 2;
+    } else {
+        entity->attack = subwpn->attack;
+    }
+    entity->attackElement = subwpn->attackElement;
+    entity->hitboxState = subwpn->hitboxState;
+    entity->nFramesInvincibility = subwpn->nFramesInvincibility;
+    entity->stunFrames = subwpn->stunFrames;
+    entity->hitEffect = subwpn->hitEffect;
+    entity->entityRoomIndex = subwpn->entityRoomIndex;
+}
+#endif
 
 extern SubweaponDef subweapons_def[];
 
@@ -456,11 +1082,174 @@ s32 RicCheckSubweapon(
     return subweaponId;
 }
 
+extern u8 D_us_80181524[][8];
+
+// Equivalent of func_8015FDB0 in RIC
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BB5BC);
+#else
+s32 func_us_801BB5BC(Primitive* prim, s16 posX, s16 posY) {
+    s16 offset;
+    s32 ret;
+    u8* uvAnim;
 
+    ret = 0;
+    if (prim->b0 >= 6) {
+        prim->b0 = 0;
+        ret = -1;
+    }
+    uvAnim = D_us_80181524[prim->b0];
+    if (prim->b0 >= 3) {
+        offset = 4;
+    } else {
+        offset = 6;
+    }
+    prim->x0 = posX - offset;
+    prim->y0 = posY - offset;
+    prim->x1 = posX + offset;
+    prim->y1 = posY - offset;
+    prim->x2 = posX - offset;
+    prim->y2 = posY + offset;
+    prim->x3 = posX + offset;
+    prim->y3 = posY + offset;
+    prim->u0 = *uvAnim++;
+    prim->v0 = *uvAnim++;
+    prim->u1 = *uvAnim++;
+    prim->v1 = *uvAnim++;
+    prim->u2 = *uvAnim++;
+    prim->v2 = *uvAnim++;
+    prim->u3 = *uvAnim++;
+    prim->v3 = *uvAnim;
+    prim->b1++;
+    if (!(prim->b1 & 1)) {
+        prim->b0++;
+    }
+    return ret;
+}
+#endif
+
+extern Point16 D_us_801D080C[16];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicEntityHitByHoly);
+#else
+void RicEntityHitByHoly(Entity* entity) {
+    Primitive* prim;
+    s32 i;
+    s32 temp;
+    s16 hitboxX;
+    s16 hitboxY;
 
+    switch (entity->step) {
+    case 0:
+        entity->primIndex = (s16)g_api.AllocPrimitives(PRIM_GT4, 16);
+        if (entity->primIndex == -1) {
+            DestroyEntity(entity);
+            return;
+        }
+        entity->flags = FLAG_HAS_PRIMS | FLAG_POS_CAMERA_LOCKED;
+        hitboxX = RIC.posX.i.hi + RIC.hitboxOffX;
+        hitboxY = RIC.posY.i.hi + RIC.hitboxOffY;
+        prim = &g_PrimBuf[entity->primIndex];
+        for (i = 0; i < 16; i++) {
+            D_us_801D080C[i].x = hitboxX + rand() % 24 - 12;
+            D_us_801D080C[i].y = hitboxY + rand() % 48 - 24;
+            prim->clut = PAL_UNK_1B2;
+            prim->tpage = 0x1A;
+            prim->b0 = 0;
+            prim->b1 = 0;
+            prim->g0 = 0;
+            prim->g1 = (rand() & 7) + 1;
+            prim->g2 = 0;
+            prim->drawMode = DRAW_UNK_100 | DRAW_TPAGE | DRAW_HIDE |
+                             DRAW_UNK02 | DRAW_TRANSP;
+            prim->priority = RIC.zPriority + 4;
+            if (rand() & 1) {
+                prim->drawMode =
+                    DRAW_UNK_100 | DRAW_UNK_40 | DRAW_TPAGE2 | DRAW_TPAGE |
+                    DRAW_HIDE | DRAW_UNK02 | DRAW_TRANSP;
+            }
+            prim = prim->next;
+        }
+        entity->step++;
+        break;
+    case 1:
+        if (!(g_Ric.status & PLAYER_STATUS_UNK10000)) {
+            DestroyEntity(entity);
+            return;
+        }
+        break;
+    }
+
+    prim = &g_PrimBuf[entity->primIndex];
+    for (i = 0; i < 16; i++) {
+        switch (prim->g0) {
+        case 0:
+            if (--prim->g1 == 0) {
+                prim->g0++;
+            }
+            break;
+        case 1:
+            temp =
+                func_us_801BB5BC(prim, D_us_801D080C[i].x, D_us_801D080C[i].y);
+            D_us_801D080C[i].y--;
+            if (temp < 0) {
+                prim->drawMode |= DRAW_HIDE;
+                prim->g0++;
+            } else {
+                prim->drawMode &= ~DRAW_HIDE;
+            }
+            break;
+        }
+        prim = prim->next;
+    }
+}
+#endif
+
+extern AnimationFrame D_us_80181554[];
+extern s32 D_us_801D084C;
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicEntityHitByDark);
+#else
+void RicEntityHitByDark(Entity* entity) {
+    switch (entity->step) {
+    case 0:
+        entity->flags = FLAG_UNK_20000000 | FLAG_POS_CAMERA_LOCKED;
+        entity->unk5A = 0x79;
+        entity->animSet = ANIMSET_DRA(14);
+        entity->palette = PAL_FLAG(PAL_UNK_19F);
+        entity->zPriority = RIC.zPriority + 2;
+        if (D_us_801D084C & 1) {
+            entity->blendMode = BLEND_TRANSP | BLEND_QUARTER;
+        } else {
+            entity->blendMode = BLEND_TRANSP;
+        }
+        entity->scaleX = entity->scaleY = 0x40;
+        entity->anim = D_us_80181554;
+        D_us_801D084C++;
+        entity->opacity = 0xFF;
+        entity->drawFlags =
+            ENTITY_SCALEX | ENTITY_SCALEY | ENTITY_MASK_R | ENTITY_MASK_G;
+        entity->posY.i.hi += (rand() % 35) - 15;
+        entity->posX.i.hi += (rand() % 20) - 10;
+        entity->velocityY = -0x6000 - (rand() & 0x3FFF);
+        entity->step++;
+        break;
+    case 1:
+        if (entity->opacity > 16) {
+            entity->opacity -= 8;
+        }
+        entity->posY.val += entity->velocityY;
+        entity->scaleX += 8;
+        entity->scaleY += 8;
+        if (entity->poseTimer < 0) {
+            DestroyEntity(entity);
+        }
+        break;
+    }
+}
+#endif
 
 void func_us_801BBBC0(void) {}
 
@@ -535,9 +1324,183 @@ Entity* RicCreateEntFactoryFromEntity(
     return entity;
 }
 
-INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicEntityFactory);
+extern FactoryBlueprint D_us_801816A0[];
+extern u8 D_us_80181868[][2];
 
+#ifndef VERSION_PC
+INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicEntityFactory);
+#else
+void RicEntityFactory(Entity* self) {
+    Entity* newEntity;
+    s16 nPerCycle;
+    s16 i;
+    s16 startIndex;
+    s16 endIndex;
+    u8* data;
+
+    if (self->step == 0) {
+        data = (u8*)&D_us_801816A0[self->params];
+        self->ext.factory.newEntityId = *data++;
+        self->ext.factory.amount = *data++;
+        self->ext.factory.nPerCycle = *data & 0x3F;
+        self->ext.factory.isNonCritical = *data >> 7;
+        self->ext.factory.incParamsKind = (*data++ >> 6) & 1;
+        self->ext.factory.tCycle = *data++;
+        self->ext.factory.kind = *data & 0x7;
+        self->ext.factory.origin = *data++ >> 3;
+        self->ext.factory.delay = *data;
+        self->step++;
+        self->flags |= FLAG_UNK_10000000;
+        switch (self->ext.factory.origin) {
+        case 4:
+        case 2:
+        case 9:
+            self->flags |= FLAG_POS_CAMERA_LOCKED;
+        case 3:
+        case 7:
+            self->posX.val = RIC.posX.val;
+            self->posY.val = RIC.posY.val;
+            break;
+        case 8:
+            if (self->ext.factory.parent != NULL) {
+                self->posX.val = self->ext.factory.parent->posX.val;
+                self->posY.val = self->ext.factory.parent->posY.val;
+            }
+        case 0:
+            self->flags |= FLAG_POS_CAMERA_LOCKED;
+            break;
+        }
+    } else {
+        switch (self->ext.factory.origin) {
+        case 9:
+            if (g_Ric.unk4E) {
+                DestroyEntity(self);
+                return;
+            }
+        case 2:
+            self->posX.val = RIC.posX.val;
+            self->posY.val = RIC.posY.val;
+            break;
+        case 4:
+            self->posX.val = RIC.posX.val;
+            self->posY.val = RIC.posY.val;
+            if (RIC.step != PL_S_RUN) {
+                self->entityId = 0;
+                return;
+            }
+            break;
+        case 3:
+            self->posX.val = RIC.posX.val;
+            self->posY.val = RIC.posY.val;
+            if (RIC.step == PL_S_HIT) {
+                self->entityId = 0;
+                return;
+            }
+            break;
+        case 7:
+            self->posX.val = RIC.posX.val;
+            self->posY.val = RIC.posY.val;
+            if (RIC.step != PL_S_HIT) {
+                self->entityId = 0;
+                return;
+            }
+            break;
+        case 8:
+            if (self->ext.factory.parent != NULL) {
+                self->posX.val = self->ext.factory.parent->posX.val;
+                self->posY.val = self->ext.factory.parent->posY.val;
+            }
+            break;
+        }
+    }
+    if (self->ext.factory.delay) {
+        if (--self->ext.factory.delay) {
+            return;
+        }
+        self->ext.factory.delay = self->ext.factory.tCycle;
+    }
+    nPerCycle = self->ext.factory.nPerCycle;
+    for (i = 0; i < nPerCycle; i++) {
+        startIndex = D_us_80181868[self->ext.factory.kind][0];
+        endIndex = D_us_80181868[self->ext.factory.kind][1];
+        switch (self->ext.factory.kind) {
+        case 0:
+            newEntity = RicGetFreeEntityReverse(startIndex, endIndex + 1);
+            break;
+        case 4:
+            newEntity = &g_Entities[95];
+            break;
+        case 5:
+            newEntity = &g_Entities[112];
+            break;
+        default:
+            newEntity = RicGetFreeEntity(startIndex, endIndex + 1);
+            break;
+        }
+        if (newEntity == NULL) {
+            if (self->ext.factory.isNonCritical == 1) {
+                self->entityId = 0;
+            } else {
+                self->ext.factory.delay = self->ext.factory.tCycle;
+            }
+            return;
+        }
+        DestroyEntity(newEntity);
+        newEntity->entityId =
+            self->ext.factory.newEntityId + self->ext.factory.entityIdMod;
+        newEntity->params = self->ext.factory.paramsBase;
+        newEntity->ext.factory.parent = self->ext.factory.parent;
+        newEntity->posX.val = self->posX.val;
+        newEntity->posY.val = self->posY.val;
+        newEntity->facingLeft = self->facingLeft;
+        newEntity->zPriority = self->zPriority;
+        if (self->ext.factory.incParamsKind) {
+            newEntity->params += self->ext.factory.spawnIndex;
+        } else {
+            newEntity->params += i;
+        }
+        self->ext.factory.spawnIndex++;
+        if (self->ext.factory.spawnIndex == self->ext.factory.amount) {
+            self->entityId = 0;
+            return;
+        }
+    }
+    self->ext.factory.delay = self->ext.factory.tCycle;
+}
+#endif
+
+extern EInit D_us_8018043C;
+
+// Equivalent of RicEntitySlideKick
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BC2F0);
+#else
+void func_us_801BC2F0(Entity* self) {
+    if (RIC.step != PL_S_SLIDE) {
+        DestroyEntity(self);
+        return;
+    }
+    self->posX.i.hi = RIC.posX.i.hi;
+    self->posY.i.hi = RIC.posY.i.hi;
+    self->facingLeft = RIC.facingLeft;
+    if (self->step == 0) {
+        InitializeEntity(D_us_8018043C);
+        self->flags = FLAG_UNK_10000000 | FLAG_POS_CAMERA_LOCKED;
+        self->hitboxOffX = 0x14;
+        self->hitboxOffY = 0xC;
+        self->hitboxWidth = self->hitboxHeight = 9;
+        self->step = 1;
+        self->ext.subweapon.timer = self->hitboxState;
+    }
+    self->hitboxState = self->ext.subweapon.timer;
+    if (RIC.pose < 2) {
+        self->hitboxState = 0;
+    }
+    if (RIC.pose > 7) {
+        DestroyEntity(self);
+    }
+}
+#endif
 
 extern EInit D_us_80180448;
 
@@ -573,13 +1536,380 @@ void func_us_801BC3E0(Entity* self) {
     self->hitFlags = 0;
 }
 
+extern EInit D_us_80180424;
+
+// Equivalent of RicEntityBladeDash
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BC4F8);
+#else
+void func_us_801BC4F8(Entity* self) {
+    if (RIC.step != PL_S_BLADEDASH) {
+        DestroyEntity(self);
+        return;
+    }
+    self->posX.i.hi = RIC.posX.i.hi;
+    self->posY.i.hi = RIC.posY.i.hi;
+    self->facingLeft = RIC.facingLeft;
+    if (self->step == 0) {
+        InitializeEntity(D_us_80180424);
+        self->flags = FLAG_UNK_10000000 | FLAG_POS_CAMERA_LOCKED;
+        self->hitboxWidth = self->hitboxHeight = 20;
+        self->hitboxWidth = self->hitboxHeight = 12;
+        self->hitboxOffX = self->hitboxOffY = 0;
+        self->ext.subweapon.subweaponId = PL_W_BIBLE_BEAM;
+        self->step++;
+    }
+    if (RIC.pose > 18) {
+        DestroyEntity(self);
+    }
+}
+#endif
 
+extern EInit D_us_80180430;
+
+// Equivalent of func_80160F0C (high jump hitbox)
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BC5C8);
+#else
+void func_us_801BC5C8(Entity* self) {
+    if (RIC.step != PL_S_HIGHJUMP) {
+        DestroyEntity(self);
+        return;
+    }
+    self->posX.i.hi = RIC.posX.i.hi;
+    self->posY.i.hi = RIC.posY.i.hi;
+    self->facingLeft = RIC.facingLeft;
+    if (self->step == 0) {
+        InitializeEntity(D_us_80180430);
+        self->flags = FLAG_UNK_10000000 | FLAG_POS_CAMERA_LOCKED;
+        self->hitboxOffX = 0xC;
+        self->hitboxOffY = -0x1A;
+        self->hitboxWidth = 0xC;
+        self->hitboxHeight = 0xC;
+        self->step = 1;
+    }
+}
+#endif
 
+extern AnimationFrame D_us_801818A8[];
+extern s16 D_us_80181878[];
+extern s32 D_us_80181884[];
+extern s16 D_us_8018189C[];
+
+// Equivalent of RicEntitySmokePuff
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BC678);
+#else
+void func_us_801BC678(Entity* self) {
+    s16 posX;
+    s16 paramsHi = self->params >> 8;
+    s16 paramsLo = self->params & 0xFF;
 
+    switch (self->step) {
+    case 0:
+        self->animSet = ANIMSET_DRA(5);
+        self->anim = D_us_801818A8;
+        self->flags = FLAG_UNK_20000000 | FLAG_POS_CAMERA_LOCKED;
+        self->blendMode = BLEND_TRANSP | BLEND_ADD;
+        self->drawFlags = ENTITY_SCALEX | ENTITY_SCALEY | ENTITY_OPACITY;
+        self->opacity = 0x60;
+        self->zPriority = RIC.zPriority + 2;
+        posX = D_us_80181878[paramsLo];
+        if (paramsHi == 0) {
+            posX += 6;
+        }
+        if (paramsHi == 1) {
+            posX -= 8;
+        }
+        if (paramsHi == 2) {
+            posX -= 6;
+        }
+        if (paramsHi == 5) {
+            posX = -6;
+        }
+        if (paramsHi == 3) {
+            self->posY.i.hi -= 8;
+        }
+        if (paramsHi == 4) {
+            DestroyEntity(self);
+            return;
+        }
+        if (paramsHi == 1) {
+            if (g_Ric.vram_flag & TOUCHING_ANY_SLOPE) {
+                posX /= 2;
+            }
+        }
+        if (self->facingLeft) {
+            posX = -posX;
+        }
+        self->posY.i.hi += 0x18;
+        self->posX.i.hi += posX;
+        self->scaleX = D_us_8018189C[paramsLo] + 0x40;
+        self->velocityY = D_us_80181884[paramsLo];
+        if (paramsHi == 1) {
+            self->velocityY = FIX(-0.25);
+            RicSetSpeedX(-0x3000);
+            self->scaleX = D_us_8018189C[1] + 0x40;
+        }
+        if (paramsHi == 5) {
+            self->velocityY = D_us_80181884[4 - paramsLo * 2];
+        }
+        if (paramsHi == 2) {
+            self->velocityY = FIX(-0.5);
+            RicSetSpeedX(-0x3000);
+            self->scaleX = D_us_8018189C[1] + 0x40;
+        }
+        self->scaleY = self->scaleX;
+        self->step++;
+        break;
+    case 1:
+        self->opacity -= 2;
+        self->posY.val += self->velocityY;
+        self->posX.val += self->velocityX;
+        if (self->poseTimer < 0) {
+            DestroyEntity(self);
+        }
+        break;
+    }
+}
+#endif
+
+extern unkStr_8011E4BC* D_us_801819AC[];
+extern s32 D_us_801D11C8[];
+extern s32 D_us_801D1248[];
+
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", RicEntityHitByCutBlood);
+#else
+void RicEntityHitByCutBlood(Entity* self) {
+    u8 thickness;
+    s16 variant;
+    s32 timer;
+    s16 x;
+    s16 y;
+    s16 rnd;
+    s32 i;
+    unkStr_8011E4BC* props;
+    FakePrim* tilePrim;
+
+    variant = (self->params) >> 8;
+    props = D_us_801819AC[variant];
+    x = self->posX.i.hi;
+    y = self->posY.i.hi;
+    timer = 0;
+    thickness = 0;
+    switch (self->step) {
+    case 0:
+        self->primIndex = g_api.func_800EDB58(PRIM_TILE_ALT, props->count + 1);
+        if (self->primIndex == -1) {
+            DestroyEntity(self);
+            return;
+        }
+        self->flags = props->flags;
+        switch (props->unkA) {
+        case 8:
+            self->ext.et_8011E4BC.unk7C = 0x100;
+            break;
+        case 7:
+            self->ext.et_8011E4BC.unk7C = 0x3F;
+            break;
+        case 4:
+            self->ext.et_8011E4BC.unk7C = 0x2F;
+            break;
+        case 3:
+        case 6:
+            self->ext.et_8011E4BC.unk7C = 0x1F;
+            break;
+        }
+        tilePrim = (FakePrim*)&g_PrimBuf[self->primIndex];
+        i = 0;
+        while (1) {
+            tilePrim->drawMode = props->drawMode;
+            tilePrim->priority = RIC.zPriority + props->priority;
+            if (tilePrim->next == NULL) {
+                tilePrim->w = 0;
+                tilePrim->x0 = 0;
+                tilePrim->y0 = 0;
+                tilePrim->drawMode &= ~DRAW_HIDE;
+                break;
+            }
+            tilePrim->posX.i.hi = x;
+            tilePrim->posY.i.hi = y;
+            tilePrim->posX.i.lo = tilePrim->posY.i.lo = 0;
+            switch (props->unkA) {
+            case 0:
+                rnd = rand();
+                tilePrim->velocityX.val = rcos(rnd) << ((rnd & 1) + 2);
+                tilePrim->velocityY.val = -(rsin(rnd) << ((rnd & 1) + 2));
+                break;
+            case 1:
+                tilePrim->velocityX.val = ((rand() & 0x1FF) - 0x100) << 8;
+                tilePrim->velocityY.val = ((rand() & 0x1FF) - 0x100) << 8;
+                break;
+            case 3:
+                tilePrim->posX.i.hi = x + (rand() & 0xF) - 7;
+                tilePrim->posY.i.hi = y - (rand() & 0xF);
+                tilePrim->velocityY.val = FIX(-0.75) - (rand() & 0x7FFF);
+                if (self->ext.et_8011E4BC.parent != NULL) {
+                    tilePrim->velocityX.val =
+                        self->ext.et_8011E4BC.parent->velocityX;
+                }
+                tilePrim->delay = (rand() & 0xF) + 0x10;
+                break;
+            case 4:
+                tilePrim->posX.i.hi = x + (rand() & 0x1F) - 0x10;
+                tilePrim->posY.i.hi = y + (rand() & 0x1F) - 0x14;
+                rnd = rand() & 0x1F;
+                tilePrim->velocityX.val = D_us_801D11C8[rnd];
+                tilePrim->velocityY.val = D_us_801D1248[rnd];
+                break;
+            case 6:
+                tilePrim->posX.i.hi = self->posX.i.hi + (rand() & 0xF) - 8;
+                tilePrim->posY.i.hi = self->posY.i.hi + (rand() & 0xF) - 4;
+                tilePrim->velocityY.val = rand() + FIX(0.5);
+                tilePrim->delay = (rand() & 0xF) + 0x10;
+                break;
+            case 7:
+                tilePrim->posX.i.hi = x;
+                tilePrim->posY.i.hi = y;
+                if (i < 10) {
+                    tilePrim->velocityY.val =
+                        -((i * i * FIX(0.09375)) + FIX(0.125));
+                } else {
+                    tilePrim->velocityY.val =
+                        (i - 10) * (i - 10) * FIX(0.09375) + FIX(0.125);
+                }
+                tilePrim->delay = 0x3F;
+                break;
+            case 8:
+                tilePrim->posX.i.hi = x;
+                tilePrim->posY.i.hi = y;
+                tilePrim->velocityX.val = (rand() - FIX(0.25)) >> 1;
+                tilePrim->velocityY.val = -((rand() & 0x1FFF) + FIX(0.375));
+                tilePrim->timer = (i * 4);
+                break;
+            }
+            tilePrim->x0 = tilePrim->posX.i.hi;
+            tilePrim->y0 = tilePrim->posY.i.hi;
+            tilePrim->r0 = props->r;
+            tilePrim->g0 = props->g;
+            tilePrim->b0 = props->b;
+            tilePrim->w = props->w;
+            tilePrim->h = props->h;
+            i++;
+            tilePrim = tilePrim->next;
+        }
+        self->step++;
+        break;
+    case 1:
+        switch (props->unkA) {
+        case 3:
+        case 6:
+        case 7:
+        case 8:
+            if (--self->ext.et_8011E4BC.unk7C == 0) {
+                DestroyEntity(self);
+                return;
+            }
+        case 4:
+            if (--self->ext.et_8011E4BC.unk7C == 0) {
+                DestroyEntity(self);
+                return;
+            }
+            thickness = 3;
+            timer = self->ext.et_8011E4BC.unk7C;
+            if (timer < 9) {
+                thickness--;
+            }
+            if (timer < 4) {
+                thickness--;
+            }
+        }
+        tilePrim = (FakePrim*)&g_PrimBuf[self->primIndex];
+        while (1) {
+            if (tilePrim->next == NULL) {
+                tilePrim->w = 0;
+                tilePrim->x0 = 0;
+                tilePrim->y0 = 0;
+                tilePrim->drawMode &= ~DRAW_HIDE;
+                return;
+            }
+            tilePrim->posX.i.hi = tilePrim->x0;
+            tilePrim->posY.i.hi = tilePrim->y0;
+            switch (props->unkA) {
+            case 0:
+                tilePrim->posY.val += tilePrim->velocityY.val;
+                tilePrim->posX.val += tilePrim->velocityX.val;
+                tilePrim->r0 -= 6;
+                tilePrim->g0 -= 6;
+                tilePrim->b0 -= 6;
+                if (tilePrim->r0 < 8) {
+                    DestroyEntity(self);
+                    return;
+                }
+                break;
+            case 1:
+                tilePrim->posY.val += tilePrim->velocityY.val;
+                tilePrim->posX.val += tilePrim->velocityX.val;
+                tilePrim->velocityY.val += FIX(0.15625);
+                tilePrim->r0 -= 3;
+                tilePrim->g0 -= 3;
+                tilePrim->b0 -= 3;
+                if (tilePrim->r0 < 8) {
+                    DestroyEntity(self);
+                    return;
+                }
+                break;
+            case 3:
+            case 6:
+            case 7:
+                tilePrim->posY.val += tilePrim->velocityY.val;
+                if (--tilePrim->delay < 0) {
+                    tilePrim->drawMode |= DRAW_HIDE;
+                }
+                break;
+            case 4:
+                tilePrim->posX.val += tilePrim->velocityX.val;
+                tilePrim->posY.val += tilePrim->velocityY.val;
+                tilePrim->velocityY.val -= tilePrim->velocityY.val >> 5;
+                if (!(timer & 7)) {
+                    tilePrim->velocityX.val >>= 1;
+                    tilePrim->velocityY.val >>= 1;
+                    if (timer & 0x20) {
+                        tilePrim->velocityY.val >>= 1;
+                    }
+                    if (timer == 0x18) {
+                        tilePrim->drawMode = DRAW_UNK02;
+                    }
+                }
+                tilePrim->w = tilePrim->h = thickness;
+                break;
+            case 8:
+                if (tilePrim->timer == 0) {
+                    tilePrim->drawMode &= ~DRAW_HIDE;
+                    tilePrim->r0 -= 1;
+                    tilePrim->g0 -= 1;
+                    tilePrim->b0 -= 1;
+                    tilePrim->posY.val += tilePrim->velocityY.val;
+                    tilePrim->posX.val += tilePrim->velocityX.val;
+                    if (g_unkGraphicsStruct.D_80097448 == 0 ||
+                        !(tilePrim->posY.i.hi >
+                          (RIC.posY.i.hi - g_unkGraphicsStruct.D_80097448 +
+                           0x19))) {
+                        tilePrim->drawMode |= DRAW_HIDE;
+                    }
+                } else {
+                    tilePrim->timer--;
+                }
+                break;
+            }
+            tilePrim->x0 = tilePrim->posX.i.hi;
+            tilePrim->y0 = tilePrim->posY.i.hi;
+            tilePrim = tilePrim->next;
+        }
+    }
+}
+#endif
 
 extern AnimationFrame D_us_801818A8[];
 extern AnimationFrame D_us_801819D0[];
@@ -655,9 +1985,52 @@ void func_us_801BD0B8(Entity* self) {
     }
 }
 
-INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BD384);
+extern AnimationFrame D_us_80181A40[];
 
+#ifndef VERSION_PC
+INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BD384);
+#else
+void func_us_801BD384(Entity* self) {
+    switch (self->step) {
+    case 0:
+        self->animSet = ANIMSET_DRA(2);
+        self->anim = D_us_80181A40;
+        self->flags = FLAG_UNK_20000000 | FLAG_POS_CAMERA_LOCKED;
+        self->zPriority = RIC.zPriority + 4;
+        self->velocityY = (rand() & 0x3FFF) - FIX(1);
+        self->step++;
+        break;
+    case 1:
+        if (self->pose == 6 && self->poseTimer == self->step && (rand() & 1)) {
+            RicCreateEntFactoryFromEntity(self, BP_EMBERS, 0);
+        }
+        self->posY.val += self->velocityY;
+        if (self->poseTimer < 0) {
+            DestroyEntity(self);
+        }
+        break;
+    }
+}
+#endif
+
+// Returns true if another entity of the same kind and params is alive
+#ifndef VERSION_PC
 INCLUDE_ASM("boss/bo6/nonmatchings/us_39144", func_us_801BD47C);
+#else
+s32 func_us_801BD47C(Entity* self) {
+    Entity* entity;
+    s32 i;
+
+    entity = &g_Entities[80];
+    for (i = 80; i < 144; i++, entity++) {
+        if (self->entityId == entity->entityId &&
+            self->params == entity->params && entity != self) {
+            return 1;
+        }
+    }
+    return 0;
+}
+#endif
 
 extern s32 D_us_80181A64[];
 extern s16 D_us_80181AA4[][10];

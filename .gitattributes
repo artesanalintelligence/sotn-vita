@@ -1,0 +1,8 @@
+# Everything is built inside Linux (natively or in the tools/vita Docker
+# image), so text files keep LF line endings on every checkout, including
+# Windows clones with core.autocrlf=true.
+* text=auto eol=lf
+
+# committed with CRLF upstream, left untouched
+include/pspsdk/pspirkeyb.h -text
+include/pspsdk/pspirkeyb_rawkeys.h -text

@@ -1,0 +1,141 @@
+@@PCDATA-SOURCE 0 disks/us/ST/RDAI/RDAI.BIN c54bbcd0487da88c927feb9b91c515e1db0918e8
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Data the PSX build still takes from the raw splat data segments (see
+// config/splat.us.strdai.yaml), translated to C for the PC port only.
+#include "rdai.h"
+
+// clang-format off
+// 0x80180B0C: stained glass tables
+u8 g_StainedGlassRecurseIndices[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B0C x2 4 16 1
+};
+u8 D_us_80180B1C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B1C x2 4 8 1
+};
+u8 D_us_80180B24[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B24 x2 4 8 1
+};
+u8 D_us_80180B2C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B2C x2 4 8 1
+};
+u8 D_us_80180B34[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B34 x2 4 8 1
+};
+u8 D_us_80180B3C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B3C x2 4 8 1
+};
+u8 D_us_80180B44[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B44 x2 4 8 1
+};
+u8 D_us_80180B4C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B4C x2 4 8 1
+};
+u8 D_us_80180B54[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B54 x2 4 8 1
+};
+u8 D_us_80180B5C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 B5C x2 4 16x12 1
+};
+u8 D_us_80180C1C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C1C x2 4 16,8 1
+};
+u8 D_us_80180C34[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C34 x2 4 16x3 1
+};
+u8 D_us_80180C64[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C64 x2 4 8 1
+};
+u8 D_us_80180C6C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C6C x2 4 8 1
+};
+u8 D_us_80180C74[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C74 x2 4 8 1
+};
+u8 D_us_80180C7C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C7C x2 4 8 1
+};
+u8 D_us_80180C84[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C84 x2 4 8 1
+};
+u8 D_us_80180C8C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C8C x2 4 8 1
+};
+u8 D_us_80180C94[] __attribute__((aligned(4))) = {
+@@PCDATA 0 C94 x2 4 16x9 1
+};
+u8 D_us_80180D24[] __attribute__((aligned(4))) = {
+@@PCDATA 0 D24 x2 4 8 1
+};
+// 0x80180D58
+u8 g_Rbo3DoorFlag[] __attribute__((aligned(4))) = {
+@@PCDATA 0 D55 x2 4 4 1
+};
+// 0x801818B4: archer and spectral sword animations
+u8 D_us_801818B4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18B4 x2 4 8 1
+};
+u8 D_us_801818BC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18BC x2 4 12 1
+};
+u8 D_us_801818C8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18C8 x2 4 12 1
+};
+u8 D_us_801818D4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18D4 x2 4 8 1
+};
+u8 D_us_801818DC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18DC x2 4 8 1
+};
+u8 D_us_801818E4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18E4 x2 4 16 1
+};
+u8 D_us_801818F4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 18F4 x2 4 16 1
+};
+u8 g_RdaiArcherOffsets[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1904 x2 4 16 1
+};
+u8 D_us_80181914[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1914 x2 4 8 1
+};
+u8 D_us_8018191C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 191C x2 4 8 1
+};
+u8 D_us_80181924[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1924 x2 4 8 1
+};
+u8 D_us_8018192C[] __attribute__((aligned(4))) = {
+@@PCDATA 0 192C x2 4 8 1
+};
+// 0x80181A6C: balloon pod, imp and black panther data
+u8 g_RdaiUnk33Anim2[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1A6C x2 4 16,4 1
+};
+u8 g_RdaiUnk33Anim3[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1A80 x2 4 16 1
+};
+u8 g_RdaiUnk33Anim4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1A90 x2 4 16,4 1
+};
+u8 g_RdaiUnk33Anim5[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1AA4 x2 4 16 1
+};
+u8 g_ImpDeathParticleAnim[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1AB4 x2 4 12 1
+};
+u8 D_us_80181AC0[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1AC0 x2 4 12 1
+};
+u8 D_us_80181ACC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1ACC x2 4 16 1
+};
+u8 D_us_80181ADC[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1ADC x2 4 8 1
+};
+u8 D_us_80181AE4[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1AE4 x2 4 16,4 1
+};
+u8 D_us_80181AF8[] __attribute__((aligned(4))) = {
+@@PCDATA 0 1AF8 x2 4 12 1
+};
+// clang-format on
